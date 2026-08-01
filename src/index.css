@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #0E1B2C;
+  --color-accent: #2DD4BF;
+  --color-grid: #27384E;
+  --color-muted: #9FB3C8;
+  --color-footnote: #6E839A;
+  --color-aquino: #F6C915;
+  --color-duterte: #34B36A;
+  --color-marcos: #E8456B;
+
+  --font-sans: "Inter", sans-serif;
+  --font-heading: "Sora", sans-serif;
+}
+
+body {
+  background-color: var(--color-navy);
+  color: white;
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+}
+
+.dot-grid {
+  background-image: radial-gradient(circle, #2DD4BF22 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.glass-card {
+  background-color: rgb(255 255 255 / 0.05);
+  border: 1px solid rgb(255 255 255 / 0.1);
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3);
+  transition: all 0.3s;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.4);
+  border-color: rgb(45 212 191 / 0.4);
+}

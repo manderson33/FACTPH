@@ -1,16 +1,17 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import {
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
+  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   LineChart, Line, PieChart, Pie, Cell,
 } from "recharts";
 
 import Navbar from "./components/Navbar";
 import ChartCard from "./components/ChartCard";
+import PopulationMapCard from "./components/PopulationMapCard";
 import { useLanguage } from "./context/LanguageContext";
 
 import { statistics } from "./data/statistics";
-import { populationByIslandGroup, landAreaByRegionGroup } from "./data/populationData";
+import { landAreaByRegionGroup } from "./data/populationData";
 import { gdpGrowth } from "./data/gdpData";
 
 const PIE_COLORS = ["#E8456B", "#FCD116", "#2DD4BF"];
@@ -90,43 +91,46 @@ export default function App() {
   <rect x="180" y="0" width="320" height="180" fill="#0038A8" opacity="0.85" />
   <rect x="180" y="180" width="320" height="180" fill="#E8456B" opacity="0.75" />
 
-  {/* Ghosted white triangle — flat edge on the left, apex pointing right */}
-  <polygon points="320,180 60,20 60,340" fill="#FFFFFF" opacity="0.07" />
+  {/* Ghosted white triangle — tilted 20° so the apex points up-and-right;
+      sun and stars rotate with it since they share this group's transform */}
+  <g transform="rotate(-20 147 180)">
+    <polygon points="320,180 60,20 60,340" fill="#FFFFFF" opacity="0.07" />
 
-  {/* Data star template: star outline only */}
-  <defs>
-    <polygon
-      id="data-star"
-      points="0,-6 1.4,-1.85 5.7,-1.85 2.3,0.7 3.5,5.7 0,2.4 -3.5,5.7 -2.3,0.7 -5.7,-1.85 -1.4,-1.85"
-      fill="#FCD116"
-    />
-  </defs>
+    {/* Data star template: star outline only */}
+    <defs>
+      <polygon
+        id="data-star"
+        points="0,-6 1.4,-1.85 5.7,-1.85 2.3,0.7 3.5,5.7 0,2.4 -3.5,5.7 -2.3,0.7 -5.7,-1.85 -1.4,-1.85"
+        fill="#FCD116"
+      />
+    </defs>
 
-  {/* 3 data stars, inset inside the triangle */}
-  <use href="#data-star" transform="translate(285,180) scale(2.7)" opacity="0.55" />
-  <use href="#data-star" transform="translate(77,52) scale(2.7)" opacity="0.55" />
-  <use href="#data-star" transform="translate(77,308) scale(2.7)" opacity="0.55" />
+    {/* 3 data stars, inset inside the triangle's corners */}
+    <use href="#data-star" transform="translate(285,180) scale(2.7)" opacity="0.55" />
+    <use href="#data-star" transform="translate(77,52) scale(2.7)" opacity="0.55" />
+    <use href="#data-star" transform="translate(77,308) scale(2.7)" opacity="0.55" />
 
-  {/* Sun with 8 rays */}
-  <g transform="translate(160,180)">
-    <circle r="30" fill="#FCD116" opacity="0.55" />
-    {Array.from({ length: 8 }).map((_, i) => {
-      const angle = (i * 45 * Math.PI) / 180;
-      const x1 = Math.cos(angle) * 38;
-      const y1 = Math.sin(angle) * 38;
-      const x2 = Math.cos(angle) * 62;
-      const y2 = Math.sin(angle) * 62;
-      return (
-        <line
-          key={i}
-          x1={x1} y1={y1} x2={x2} y2={y2}
-          stroke="#FCD116"
-          strokeWidth="8"
-          strokeLinecap="round"
-          opacity="0.55"
-        />
-      );
-    })}
+    {/* Sun with 8 rays */}
+    <g transform="translate(160,180)">
+      <circle r="30" fill="#FCD116" opacity="0.55" />
+      {Array.from({ length: 8 }).map((_, i) => {
+        const angle = (i * 45 * Math.PI) / 180;
+        const x1 = Math.cos(angle) * 38;
+        const y1 = Math.sin(angle) * 38;
+        const x2 = Math.cos(angle) * 62;
+        const y2 = Math.sin(angle) * 62;
+        return (
+          <line
+            key={i}
+            x1={x1} y1={y1} x2={x2} y2={y2}
+            stroke="#FCD116"
+            strokeWidth="8"
+            strokeLinecap="round"
+            opacity="0.55"
+          />
+        );
+      })}
+    </g>
   </g>
 
   {/* Line chart */}
@@ -178,23 +182,7 @@ export default function App() {
         </h2>
         <div className="grid md:grid-cols-2 gap-6">
 
-          <ChartCard title="Population by Island Group" source="PSA" year={2024}>
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={populationByIslandGroup}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#27384E" />
-                <XAxis dataKey="group" stroke="#9FB3C8" />
-                <YAxis
-                  stroke="#9FB3C8"
-                  tickFormatter={(v) => `${(v / 1e6).toFixed(0)}M`}
-                />
-                <Tooltip
-  contentStyle={{ background: "#0E1B2C", border: "1px solid #27384E" }}
-  cursor={{ fill: "#2DD4BF", fillOpacity: 0.06 }}
-/>
-                <Bar dataKey="population" fill="#2DD4BF" radius={[6, 6, 0, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
-          </ChartCard>
+          <PopulationMapCard />
 
           <ChartCard title="GDP Growth (2014–2023)" source="NEDA" year={2023}>
             <ResponsiveContainer width="100%" height="100%">

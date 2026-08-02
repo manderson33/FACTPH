@@ -28,4 +28,11 @@ export const visualizations: VisualizationMeta[] = [
     description: "Annual government subsidy to PhilHealth, 2010–2026.",
     status: "coming-soon",
   },
+  {
+    id: "electoral-map",
+    title: "Registered Voters by Region (2025)",
+    category: "Elections",
+    description: "Interactive map of COMELEC's 2025 registered voter counts across all 18 of the Philippines' electoral regions.",
+    status: "published",
+  },
 ];

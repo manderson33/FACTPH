@@ -184,7 +184,7 @@ export default function App() {
 
           <PopulationMapCard />
 
-          <ChartCard title="GDP Growth (2014–2023)" source="NEDA" year={2023}>
+          <ChartCard title="GDP Growth (2014–2024)" source="World Bank" year={2024}>
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={gdpGrowth}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#27384E" />

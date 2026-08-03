@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { ArrowRight, Lock } from "lucide-react";
-import type { VisualizationMeta } from "../data/visualizations";
+
+export interface VisualizationMeta {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  status: "published" | "coming-soon";
+}
 
 export default function VisualizationCard({ viz }: { viz: VisualizationMeta }) {
   const isPublished = viz.status === "published";

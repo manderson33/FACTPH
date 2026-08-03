@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { Menu, X, Sun, BarChart2, ChevronDown, Map } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import { exploreCategories } from "../data/exploreCategories";
 import logo from "../assets/factph-logo.png";
 
 const regionsMenu = [{ label: "Electoral Map", to: "/visualization/electoral-map", icon: Map }];
@@ -11,7 +12,32 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [regionsOpen, setRegionsOpen] = useState(false);
   const [mobileRegionsOpen, setMobileRegionsOpen] = useState(false);
+  const [exploreOpen, setExploreOpen] = useState(false);
+  const [mobileExploreOpen, setMobileExploreOpen] = useState(false);
   const { t, lang, toggleLang } = useLanguage();
+
+  // The explore panel renders `fixed` (so it can center itself instead of
+  // overflowing the viewport off the button's edge), which puts it outside
+  // the button's relatively-positioned box — so hover/mouseleave can't track
+  // it. Click-to-toggle + click-outside-to-close instead.
+  const exploreButtonRef = useRef<HTMLButtonElement>(null);
+  const explorePanelRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!exploreOpen) return;
+    const handlePointerDown = (e: MouseEvent) => {
+      const target = e.target as Node;
+      if (
+        exploreButtonRef.current?.contains(target) ||
+        explorePanelRef.current?.contains(target)
+      ) {
+        return;
+      }
+      setExploreOpen(false);
+    };
+    document.addEventListener("mousedown", handlePointerDown);
+    return () => document.removeEventListener("mousedown", handlePointerDown);
+  }, [exploreOpen]);
 
   const navLinkClass =
     "relative text-xs font-semibold uppercase tracking-[0.15em] text-white/80 hover:text-accent transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[1.5px] after:bg-accent after:transition-all after:duration-300 hover:after:w-full";
@@ -32,9 +58,46 @@ export default function Navbar() {
           <Link to="/" className={navLinkClass}>
             {t.navHome}
           </Link>
-          <Link to="/explore/all" className={navLinkClass}>
-            {t.navExplore}
-          </Link>
+          <div className="relative">
+            <button
+              ref={exploreButtonRef}
+              className={`${navLinkClass} flex items-center gap-1 after:hidden`}
+              onClick={() => setExploreOpen((v) => !v)}
+            >
+              {t.navExplore}
+              <ChevronDown size={12} className={exploreOpen ? "rotate-180" : ""} />
+            </button>
+            {exploreOpen && (
+              <div
+                ref={explorePanelRef}
+                className="fixed left-1/2 top-16 -translate-x-1/2 pt-3 w-160 max-w-[90vw]"
+              >
+                <div className="bg-navy border border-white/10 rounded-2xl shadow-xl p-4">
+                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-0.5">
+                    {exploreCategories.map((c) => (
+                      <Link
+                        key={c.slug}
+                        to={`/explore/${c.slug}`}
+                        onClick={() => setExploreOpen(false)}
+                        className="px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-widest text-white/80 hover:text-accent hover:bg-white/5 transition-colors"
+                      >
+                        {c.title}
+                      </Link>
+                    ))}
+                  </div>
+                  <div className="mt-2 pt-3 border-t border-grid px-3">
+                    <Link
+                      to="/explore/all"
+                      onClick={() => setExploreOpen(false)}
+                      className="text-xs font-semibold uppercase tracking-widest text-accent hover:underline"
+                    >
+                      View all visualizations →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
           <div
             className="relative"
             onMouseEnter={() => setRegionsOpen(true)}
@@ -50,7 +113,7 @@ export default function Navbar() {
             </button>
             {regionsOpen && (
               <div className="absolute top-full left-0 pt-3 w-48">
-                <div className="glass-card py-2">
+                <div className="bg-navy border border-white/10 rounded-2xl shadow-xl py-2">
                   {regionsMenu.map(({ label, to, icon: Icon }) => (
                     <Link
                       key={to}
@@ -91,9 +154,42 @@ export default function Navbar() {
           <Link to="/" onClick={() => setOpen(false)} className={navLinkClass}>
             {t.navHome}
           </Link>
-          <Link to="/explore/all" onClick={() => setOpen(false)} className={navLinkClass}>
-            {t.navExplore}
-          </Link>
+          <div>
+            <button
+              onClick={() => setMobileExploreOpen((v) => !v)}
+              className={`${navLinkClass} flex items-center gap-1 after:hidden`}
+            >
+              {t.navExplore}
+              <ChevronDown size={12} className={mobileExploreOpen ? "rotate-180" : ""} />
+            </button>
+            {mobileExploreOpen && (
+              <div className="flex flex-col gap-3 mt-3 pl-4 border-l border-grid max-h-64 overflow-y-auto">
+                {exploreCategories.map((c) => (
+                  <Link
+                    key={c.slug}
+                    to={`/explore/${c.slug}`}
+                    onClick={() => {
+                      setOpen(false);
+                      setMobileExploreOpen(false);
+                    }}
+                    className="text-xs font-semibold uppercase tracking-widest text-white/70 hover:text-accent"
+                  >
+                    {c.title}
+                  </Link>
+                ))}
+                <Link
+                  to="/explore/all"
+                  onClick={() => {
+                    setOpen(false);
+                    setMobileExploreOpen(false);
+                  }}
+                  className="text-xs font-semibold uppercase tracking-widest text-accent"
+                >
+                  View all visualizations →
+                </Link>
+              </div>
+            )}
+          </div>
           <div>
             <button
               onClick={() => setMobileRegionsOpen((v) => !v)}

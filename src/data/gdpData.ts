@@ -14,4 +14,5 @@ export const gdpGrowth: GDPYear[] = [
   { year: 2021, gdpBillionUSD: 394.1 },
   { year: 2022, gdpBillionUSD: 404.3 },
   { year: 2023, gdpBillionUSD: 437.1 },
+  { year: 2024, gdpBillionUSD: 461.6 },
 ];

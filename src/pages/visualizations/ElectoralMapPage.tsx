@@ -1,21 +1,52 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ArrowUp, ArrowDown, ArrowUpDown, ExternalLink } from "lucide-react";
 import Navbar from "../../components/Navbar";
 import PhilippinesMap, { type MapMetric } from "../../components/PhilippinesMap";
 import {
   electoralData,
   nationalElectoralTotals,
   electoralSources,
+  type RegionElectoralData,
 } from "../../data/electoralData";
+
+type SortKey = "name" | "islandGroup" | "registeredVoters" | "votersWhoVoted" | "turnoutPct";
+
+const COLUMNS: { key: SortKey; label: string }[] = [
+  { key: "name", label: "Region" },
+  { key: "islandGroup", label: "Island Group" },
+  { key: "registeredVoters", label: "Registered Voters" },
+  { key: "votersWhoVoted", label: "Voted" },
+  { key: "turnoutPct", label: "Turnout" },
+];
 
 export default function ElectoralMapPage() {
   const [metric, setMetric] = useState<MapMetric>("voters");
+  const [sortKey, setSortKey] = useState<SortKey>("registeredVoters");
+  const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
 
-  const sortedData = [...electoralData].sort(
-    (a, b) => b.registeredVoters - a.registeredVoters
-  );
+  const handleSort = (key: SortKey) => {
+    if (key === sortKey) {
+      setSortDir((dir) => (dir === "asc" ? "desc" : "asc"));
+    } else {
+      setSortKey(key);
+      setSortDir(key === "name" || key === "islandGroup" ? "asc" : "desc");
+    }
+  };
+
+  const sortedData = useMemo(() => {
+    const compare = (a: RegionElectoralData, b: RegionElectoralData) => {
+      const aVal = a[sortKey];
+      const bVal = b[sortKey];
+      const cmp =
+        typeof aVal === "string" && typeof bVal === "string"
+          ? aVal.localeCompare(bVal)
+          : (aVal as number) - (bVal as number);
+      return sortDir === "asc" ? cmp : -cmp;
+    };
+    return [...electoralData].sort(compare);
+  }, [sortKey, sortDir]);
 
   return (
     <div className="dot-grid min-h-screen pt-28 px-4 pb-16">
@@ -83,11 +114,25 @@ export default function ElectoralMapPage() {
           <table className="w-full text-sm text-left">
             <thead className="text-muted border-b border-grid">
               <tr>
-                <th className="p-4">Region</th>
-                <th className="p-4">Island Group</th>
-                <th className="p-4">Registered Voters</th>
-                <th className="p-4">Voted</th>
-                <th className="p-4">Turnout</th>
+                {COLUMNS.map((col) => (
+                  <th key={col.key} className="p-4">
+                    <button
+                      onClick={() => handleSort(col.key)}
+                      className="flex items-center gap-1.5 font-semibold hover:text-white transition-colors"
+                    >
+                      {col.label}
+                      {sortKey === col.key ? (
+                        sortDir === "asc" ? (
+                          <ArrowUp size={14} className="text-accent" />
+                        ) : (
+                          <ArrowDown size={14} className="text-accent" />
+                        )
+                      ) : (
+                        <ArrowUpDown size={14} className="opacity-40" />
+                      )}
+                    </button>
+                  </th>
+                ))}
               </tr>
             </thead>
             <tbody>

@@ -186,9 +186,17 @@ export default function App() {
 
           <ChartCard title="GDP Growth (2014–2024)" source="World Bank" year={2024}>
             <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={gdpGrowth}>
+              <LineChart data={gdpGrowth} margin={{ bottom: 12 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#27384E" />
-                <XAxis dataKey="year" stroke="#9FB3C8" />
+                <XAxis
+                  dataKey="year"
+                  stroke="#9FB3C8"
+                  interval={0}
+                  angle={-45}
+                  textAnchor="end"
+                  height={50}
+                  tickMargin={8}
+                />
                 <YAxis stroke="#9FB3C8" tickFormatter={(v) => `$${v}B`} />
                 <Tooltip
   contentStyle={{ background: "#0E1B2C", border: "1px solid #27384E" }}

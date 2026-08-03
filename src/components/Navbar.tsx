@@ -8,6 +8,8 @@ import logo from "../assets/factph-logo.png";
 
 const regionsMenu = [{ label: "Electoral Map", to: "/visualization/electoral-map", icon: Map }];
 
+const sortedExploreCategories = [...exploreCategories].sort((a, b) => a.title.localeCompare(b.title));
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [regionsOpen, setRegionsOpen] = useState(false);
@@ -74,7 +76,7 @@ export default function Navbar() {
               >
                 <div className="bg-navy border border-white/10 rounded-2xl shadow-xl p-4">
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-0.5">
-                    {exploreCategories.map((c) => (
+                    {sortedExploreCategories.map((c) => (
                       <Link
                         key={c.slug}
                         to={`/explore/${c.slug}`}
@@ -164,7 +166,7 @@ export default function Navbar() {
             </button>
             {mobileExploreOpen && (
               <div className="flex flex-col gap-3 mt-3 pl-4 border-l border-grid max-h-64 overflow-y-auto">
-                {exploreCategories.map((c) => (
+                {sortedExploreCategories.map((c) => (
                   <Link
                     key={c.slug}
                     to={`/explore/${c.slug}`}

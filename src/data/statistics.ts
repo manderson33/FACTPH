@@ -3,10 +3,12 @@ export interface Stat {
   value: string;
   source: string;
   year: number;
+  /** Overrides the default "{source} {year}" footnote when a fuller citation is needed. */
+  note?: string;
 }
 
 export const statistics: Stat[] = [
-  { label: "Population", value: "112.7M", source: "PSA", year: 2024 },
+  { label: "Population", value: "112.7M", source: "PSA", year: 2024, note: "PSA - 2024" },
   { label: "GDP", value: "$461.6B", source: "World Bank", year: 2024 },
   { label: "Islands", value: "7,641", source: "NAMRIA", year: 2025 },
   { label: "Provinces", value: "82", source: "PSA", year: 2024 },

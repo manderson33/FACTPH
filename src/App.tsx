@@ -168,7 +168,7 @@ export default function App() {
               <p className="text-muted text-sm">{stat.label}</p>
               <p className="text-accent text-2xl font-bold">{stat.value}</p>
               <p className="text-footnote text-xs">
-                {stat.source} {stat.year}
+                {stat.note ?? `${stat.source} ${stat.year}`}
               </p>
             </motion.div>
           ))}

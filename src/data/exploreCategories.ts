@@ -238,15 +238,33 @@ export const exploreCategories: ExploreCategory[] = [
     slug: "business-entrepreneurship",
     title: "Business and Entrepreneurship",
     topics: [
-      { title: "Number of businesses" },
-      { title: "Business openings and closures" },
-      { title: "Micro, small and medium enterprises" },
-      { title: "Employment by business size" },
-      { title: "Business revenue" },
-      { title: "Startup activity" },
-      { title: "Access to business finance" },
-      { title: "Consumer and business confidence" },
-      { title: "E-commerce" },
+      {
+        title: "Business Revenues",
+        visualization: {
+          id: "business-revenue",
+          description:
+            "Total revenue of all formal-sector establishments grew from ₱18.70 trillion in 2020 to ₱23.57 trillion in 2022, per PSA's ASPBI.",
+          status: "published",
+        },
+      },
+      {
+        title: "Access to Business Finance",
+        visualization: {
+          id: "business-finance-access",
+          description:
+            "Bank lending to MSMEs rose to ₱574.8 billion in 2025, but its share of total bank loans keeps shrinking, per BSP.",
+          status: "published",
+        },
+      },
+      {
+        title: "Consumer and Business Confidence",
+        visualization: {
+          id: "consumer-business-confidence",
+          description:
+            "BSP's quarterly confidence indices: businesses have stayed net-optimistic since 2023 while consumers have stayed net-pessimistic.",
+          status: "published",
+        },
+      },
     ],
   },
   {
@@ -307,6 +325,18 @@ export const exploreCategories: ExploreCategory[] = [
       { title: "Time use" },
       { title: "Life satisfaction" },
       { title: "Work–life balance" },
+    ],
+  },
+  {
+    slug: "politics-public-opinion",
+    title: "Politics and Public Opinion",
+    topics: [
+      { title: "Approval and Trust Ratings" },
+      { title: "Elections and Voter Preferences" },
+      { title: "Public Opinion on Issues" },
+      { title: "Political Institutions" },
+      { title: "Political Profiles and Records" },
+      { title: "Survey Analysis and Methodology" },
     ],
   },
 ];

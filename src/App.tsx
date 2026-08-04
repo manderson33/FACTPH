@@ -1,20 +1,13 @@
+import { lazy, Suspense } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
-import {
-  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  LineChart, Line, PieChart, Pie, Cell,
-} from "recharts";
 
 import Navbar from "./components/Navbar";
-import ChartCard from "./components/ChartCard";
-import PopulationMapCard from "./components/PopulationMapCard";
 import { useLanguage } from "./context/LanguageContext";
 
 import { statistics } from "./data/statistics";
-import { landAreaByRegionGroup } from "./data/populationData";
-import { gdpGrowth } from "./data/gdpData";
 
-const PIE_COLORS = ["#E8456B", "#FCD116", "#2DD4BF"];
+const DataHighlightsSection = lazy(() => import("./components/DataHighlightsSection"));
 
 export default function App() {
   const { t } = useLanguage();
@@ -64,7 +57,7 @@ export default function App() {
           transition={{ duration: 0.6, delay: 0.35 }}
           className="text-muted tracking-[0.15em] text-xs md:text-sm mt-6 uppercase"
         >
-          Claims Checked · Sources Cited · Data Verified
+          Understand the Philippines through data.
         </motion.p>
       </div>
 
@@ -175,68 +168,14 @@ export default function App() {
         </div>
       </section>
 
-      {/* Data Highlights */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
-        <h2 className="text-3xl font-heading font-bold text-center mb-10 text-white">
-          Data Highlights
-        </h2>
-        <div className="grid md:grid-cols-2 gap-6">
-
-          <PopulationMapCard />
-
-          <ChartCard title="GDP Growth (2014–2024)" source="World Bank" year={2024}>
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={gdpGrowth} margin={{ bottom: 12 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#27384E" />
-                <XAxis
-                  dataKey="year"
-                  stroke="#9FB3C8"
-                  interval={0}
-                  angle={-45}
-                  textAnchor="end"
-                  height={50}
-                  tickMargin={8}
-                />
-                <YAxis stroke="#9FB3C8" tickFormatter={(v) => `$${v}B`} />
-                <Tooltip
-  contentStyle={{ background: "#0E1B2C", border: "1px solid #27384E" }}
-  cursor={{ fill: "#2DD4BF", fillOpacity: 0.06 }}
-/>
-                <Line
-                  type="monotone"
-                  dataKey="gdpBillionUSD"
-                  stroke="#2DD4BF"
-                  strokeWidth={3}
-                  dot={{ r: 4 }}
-                />
-              </LineChart>
-            </ResponsiveContainer>
-          </ChartCard>
-
-          <ChartCard title="Land Area by Region Group" source="NAMRIA" year={2024}>
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie
-                  data={landAreaByRegionGroup}
-                  dataKey="areaKm2"
-                  nameKey="region"
-                  outerRadius={90}
-                  label
-                >
-                  {landAreaByRegionGroup.map((_, i) => (
-                    <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />
-                  ))}
-                </Pie>
-                <Tooltip
-  contentStyle={{ background: "#0E1B2C", border: "1px solid #27384E" }}
-  cursor={{ fill: "#2DD4BF", fillOpacity: 0.06 }}
-/>
-              </PieChart>
-            </ResponsiveContainer>
-          </ChartCard>
-
-        </div>
-      </section>
+      {/* Data Highlights (heavy chart/map libraries, deferred below the fold) */}
+      <Suspense
+        fallback={
+          <div className="max-w-6xl mx-auto px-4 py-16 text-center text-muted">Loading…</div>
+        }
+      >
+        <DataHighlightsSection />
+      </Suspense>
     </div>
   );
 }

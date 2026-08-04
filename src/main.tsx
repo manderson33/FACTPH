@@ -1,35 +1,52 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import App from "./App";
-import DataExplorerPage from "./pages/DataExplorerPage";
-import YolandaHousingPage from "./pages/visualizations/YolandaHousingPage";
-import ElectoralMapPage from "./pages/visualizations/ElectoralMapPage";
-import BusinessRevenuePage from "./pages/visualizations/BusinessRevenuePage";
-import BusinessFinanceAccessPage from "./pages/visualizations/BusinessFinanceAccessPage";
-import ConsumerBusinessConfidencePage from "./pages/visualizations/ConsumerBusinessConfidencePage";
 import { LanguageProvider } from "./context/LanguageContext";
 import "./index.css";
+
+const App = lazy(() => import("./App"));
+const DataExplorerPage = lazy(() => import("./pages/DataExplorerPage"));
+const AboutPage = lazy(() => import("./pages/AboutPage"));
+const YolandaHousingPage = lazy(() => import("./pages/visualizations/YolandaHousingPage"));
+const ElectoralMapPage = lazy(() => import("./pages/visualizations/ElectoralMapPage"));
+const ConsumerBusinessConfidencePage = lazy(
+  () => import("./pages/visualizations/ConsumerBusinessConfidencePage")
+);
+const OverallInflationPage = lazy(() => import("./pages/visualizations/OverallInflationPage"));
+const RiceFoodPricesPage = lazy(() => import("./pages/visualizations/RiceFoodPricesPage"));
+const FoodInflationPage = lazy(() => import("./pages/visualizations/FoodInflationPage"));
+
+function PageLoader() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-navy">
+      <div className="w-8 h-8 border-2 border-accent border-t-transparent rounded-full animate-spin" />
+    </div>
+  );
+}
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <LanguageProvider>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/explore/:category" element={<DataExplorerPage />} />
-          <Route path="/visualization/yolanda-housing" element={<YolandaHousingPage />} />
-          <Route path="/visualization/electoral-map" element={<ElectoralMapPage />} />
-          <Route path="/visualization/business-revenue" element={<BusinessRevenuePage />} />
-          <Route
-            path="/visualization/business-finance-access"
-            element={<BusinessFinanceAccessPage />}
-          />
-          <Route
-            path="/visualization/consumer-business-confidence"
-            element={<ConsumerBusinessConfidencePage />}
-          />
-        </Routes>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/explore/:category" element={<DataExplorerPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/visualization/yolanda-housing" element={<YolandaHousingPage />} />
+            <Route path="/visualization/electoral-map" element={<ElectoralMapPage />} />
+            <Route
+              path="/visualization/consumer-business-confidence"
+              element={<ConsumerBusinessConfidencePage />}
+            />
+            <Route
+              path="/visualization/overall-inflation-purchasing-power"
+              element={<OverallInflationPage />}
+            />
+            <Route path="/visualization/rice-food-prices" element={<RiceFoodPricesPage />} />
+            <Route path="/visualization/food-inflation" element={<FoodInflationPage />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </LanguageProvider>
   </React.StrictMode>

@@ -41,8 +41,9 @@ export default function DataExplorerPage() {
             {activeCategory.title}
           </h1>
           <p className="text-muted mb-6">
-            {activeCategory.topics.length} topics we're tracking for this category. Each one
-            will get its own sourced, verified visualization as it's published.
+            {activeCategory.topics.length} {activeCategory.topics.length === 1 ? "topic" : "topics"}{" "}
+            we're tracking for this category. Each one will get its own sourced, verified
+            visualization as it's published.
           </p>
 
           <div className="mb-10">

@@ -34,15 +34,42 @@ export const exploreCategories: ExploreCategory[] = [
     slug: "cost-of-living-prices",
     title: "Cost of Living and Prices",
     topics: [
-      { title: "Overall inflation" },
-      { title: "Food inflation" },
-      { title: "Consumer Price Index" },
-      { title: "Purchasing power of the peso" },
-      { title: "Rice and food prices" },
-      { title: "Fuel prices" },
-      { title: "Electricity and water rates" },
-      { title: "Transportation costs" },
-      { title: "Housing and rental costs" },
+      {
+        title: "Overall inflation",
+        visualization: {
+          id: "overall-inflation-purchasing-power",
+          description:
+            "Inflation has been positive every year since 2011, eroding the peso's purchasing power by an estimated 35% over 15 years.",
+          status: "published",
+        },
+      },
+      {
+        title: "Food inflation",
+        visualization: {
+          id: "food-inflation",
+          description:
+            "In both confirmed years, food prices rose faster than headline inflation — 7.9% vs 5.98% in 2023, 4.5% vs 3.21% in 2024.",
+          status: "published",
+        },
+      },
+      {
+        title: "Purchasing power of the peso",
+        visualization: {
+          id: "overall-inflation-purchasing-power",
+          description:
+            "The 2011 peso was worth an estimated ₱64.52 by 2025 — paired here with headline inflation since one is the mirror of the other.",
+          status: "published",
+        },
+      },
+      {
+        title: "Rice and food prices",
+        visualization: {
+          id: "rice-food-prices",
+          description:
+            "Well-milled rice fell after the 2019 tariffication law, then spiked 26% in 2024 — tracked against RA 11203 and the 2023 EO 39 price cap.",
+          status: "published",
+        },
+      },
     ],
   },
   {
@@ -238,24 +265,6 @@ export const exploreCategories: ExploreCategory[] = [
     slug: "business-entrepreneurship",
     title: "Business and Entrepreneurship",
     topics: [
-      {
-        title: "Business Revenues",
-        visualization: {
-          id: "business-revenue",
-          description:
-            "Total revenue of all formal-sector establishments grew from ₱18.70 trillion in 2020 to ₱23.57 trillion in 2022, per PSA's ASPBI.",
-          status: "published",
-        },
-      },
-      {
-        title: "Access to Business Finance",
-        visualization: {
-          id: "business-finance-access",
-          description:
-            "Bank lending to MSMEs rose to ₱574.8 billion in 2025, but its share of total bank loans keeps shrinking, per BSP.",
-          status: "published",
-        },
-      },
       {
         title: "Consumer and Business Confidence",
         visualization: {

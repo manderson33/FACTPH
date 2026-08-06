@@ -21,21 +21,14 @@ function adminForYear(year: number): Admin {
 export interface InflationYear {
   year: number;
   inflationPct: number;
-  purchasingPowerIndex: number;
   admin: Admin;
 }
 
-// Inflation rate: World Bank, "Inflation, consumer prices (annual %)" for the
-// Philippines — ultimately sourced from PSA's Consumer Price Index. Matches PSA's
-// own reported full-year averages for 2020-2025 (independently cross-checked).
-//
-// Purchasing Power Index is NOT a PSA figure copied as-is — PSA publishes its own
-// Purchasing Power of the Peso series on a 2018=100 base, starting January 2018,
-// which we could not retrieve (PSA's site blocked automated access). Instead this
-// column is FactPH's own computation: chain-link each year's inflation rate onto
-// a 2011=100 CPI index, then take the reciprocal (100 / index * 100). It answers
-// "what is ₱100 from 2011 worth today," which is the same purchasing-power
-// concept on a different, fully transparent base year.
+// Source: World Bank, "Inflation, consumer prices (annual %)" for the
+// Philippines — ultimately sourced from PSA's Consumer Price Index. Matches
+// PSA's own reported full-year averages for 2020-2025 (independently
+// cross-checked). These are the published figures as-is — no FactPH
+// computation or derivation of any kind.
 const inflationRates: { year: number; inflationPct: number }[] = [
   { year: 2011, inflationPct: 4.72 },
   { year: 2012, inflationPct: 3.03 },
@@ -54,20 +47,11 @@ const inflationRates: { year: number; inflationPct: number }[] = [
   { year: 2025, inflationPct: 1.66 },
 ];
 
-function buildInflationSeries(): InflationYear[] {
-  let cpi = 100;
-  return inflationRates.map(({ year, inflationPct }, i) => {
-    if (i > 0) cpi = cpi * (1 + inflationPct / 100);
-    return {
-      year,
-      inflationPct,
-      purchasingPowerIndex: Math.round((100 / cpi) * 100 * 100) / 100,
-      admin: adminForYear(year),
-    };
-  });
-}
-
-export const inflationByYear: InflationYear[] = buildInflationSeries();
+export const inflationByYear: InflationYear[] = inflationRates.map(({ year, inflationPct }) => ({
+  year,
+  inflationPct,
+  admin: adminForYear(year),
+}));
 
 export const inflationSources = [
   {

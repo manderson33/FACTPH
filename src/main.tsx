@@ -15,6 +15,23 @@ const ConsumerBusinessConfidencePage = lazy(
 const OverallInflationPage = lazy(() => import("./pages/visualizations/OverallInflationPage"));
 const RiceFoodPricesPage = lazy(() => import("./pages/visualizations/RiceFoodPricesPage"));
 const FoodInflationPage = lazy(() => import("./pages/visualizations/FoodInflationPage"));
+const PresidentialApprovalPage = lazy(
+  () => import("./pages/visualizations/PresidentialApprovalPage")
+);
+const VpApprovalPage = lazy(() => import("./pages/visualizations/VpApprovalPage"));
+const PresidentialSatisfactionPage = lazy(
+  () => import("./pages/visualizations/PresidentialSatisfactionPage")
+);
+const VpSatisfactionPage = lazy(() => import("./pages/visualizations/VpSatisfactionPage"));
+const TourismGrowthPage = lazy(() => import("./pages/visualizations/TourismGrowthPage"));
+const TourismNationalityPage = lazy(
+  () => import("./pages/visualizations/TourismNationalityPage")
+);
+const FdiPage = lazy(() => import("./pages/visualizations/FdiPage"));
+const JuvenileCrimePage = lazy(() => import("./pages/visualizations/JuvenileCrimePage"));
+const PhilHealthSubsidyPage = lazy(
+  () => import("./pages/visualizations/PhilHealthSubsidyPage")
+);
 
 function PageLoader() {
   return (
@@ -39,12 +56,27 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
               path="/visualization/consumer-business-confidence"
               element={<ConsumerBusinessConfidencePage />}
             />
-            <Route
-              path="/visualization/overall-inflation-purchasing-power"
-              element={<OverallInflationPage />}
-            />
+            <Route path="/visualization/overall-inflation" element={<OverallInflationPage />} />
             <Route path="/visualization/rice-food-prices" element={<RiceFoodPricesPage />} />
             <Route path="/visualization/food-inflation" element={<FoodInflationPage />} />
+            <Route
+              path="/visualization/presidential-approval-ratings"
+              element={<PresidentialApprovalPage />}
+            />
+            <Route path="/visualization/vp-approval-ratings" element={<VpApprovalPage />} />
+            <Route
+              path="/visualization/presidential-net-satisfaction"
+              element={<PresidentialSatisfactionPage />}
+            />
+            <Route path="/visualization/vp-net-satisfaction" element={<VpSatisfactionPage />} />
+            <Route path="/visualization/tourism-growth" element={<TourismGrowthPage />} />
+            <Route
+              path="/visualization/tourism-nationality"
+              element={<TourismNationalityPage />}
+            />
+            <Route path="/visualization/fdi-by-administration" element={<FdiPage />} />
+            <Route path="/visualization/juvenile-crime" element={<JuvenileCrimePage />} />
+            <Route path="/visualization/philhealth-subsidy" element={<PhilHealthSubsidyPage />} />
           </Routes>
         </Suspense>
       </BrowserRouter>

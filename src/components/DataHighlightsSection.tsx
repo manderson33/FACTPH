@@ -35,6 +35,8 @@ export default function DataHighlightsSection() {
               <YAxis stroke="#9FB3C8" tickFormatter={(v) => `$${v}B`} />
               <Tooltip
                 contentStyle={{ background: "#0E1B2C", border: "1px solid #27384E" }}
+                labelStyle={{ color: "#9FB3C8" }}
+                itemStyle={{ color: "#FFFFFF" }}
                 cursor={{ fill: "#2DD4BF", fillOpacity: 0.06 }}
               />
               <Line
@@ -64,6 +66,8 @@ export default function DataHighlightsSection() {
               </Pie>
               <Tooltip
                 contentStyle={{ background: "#0E1B2C", border: "1px solid #27384E" }}
+                labelStyle={{ color: "#9FB3C8" }}
+                itemStyle={{ color: "#FFFFFF" }}
                 cursor={{ fill: "#2DD4BF", fillOpacity: 0.06 }}
               />
             </PieChart>

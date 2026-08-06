@@ -37,19 +37,9 @@ export const populationByRegion: RegionPopulation[] = [
 
 export const nationalPopulationTotal = 112729484;
 
-export interface IslandGroupPopulation {
-  group: IslandGroup;
-  population: number;
-}
-
-export const populationByIslandGroup: IslandGroupPopulation[] = (["Luzon", "Visayas", "Mindanao"] as const).map(
-  (group) => ({
-    group,
-    population: populationByRegion
-      .filter((r) => r.islandGroup === group)
-      .reduce((sum, r) => sum + r.population, 0),
-  })
-);
+// Note: PSA publishes population per-region only — no single Luzon/Visayas/
+// Mindanao island-group total exists as a directly published figure, so no
+// island-group breakdown is provided here rather than summing regions ourselves.
 
 export interface LandAreaShare {
   region: string;

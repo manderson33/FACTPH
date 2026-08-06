@@ -17,29 +17,15 @@ export interface ExploreCategory {
 
 export const exploreCategories: ExploreCategory[] = [
   {
-    slug: "population-demographics",
-    title: "Population and Demographics",
-    topics: [
-      { title: "Population size and growth" },
-      { title: "Age and sex distribution" },
-      { title: "Household size" },
-      { title: "Births and deaths" },
-      { title: "Life expectancy" },
-      { title: "Population density" },
-      { title: "Urban and rural population" },
-      { title: "Internal migration" },
-    ],
-  },
-  {
     slug: "cost-of-living-prices",
     title: "Cost of Living and Prices",
     topics: [
       {
         title: "Overall inflation",
         visualization: {
-          id: "overall-inflation-purchasing-power",
+          id: "overall-inflation",
           description:
-            "Inflation has been positive every year since 2011, eroding the peso's purchasing power by an estimated 35% over 15 years.",
+            "Inflation has been positive every year since 2011 — the full 15-year run of PSA/World Bank headline inflation rates.",
           status: "published",
         },
       },
@@ -49,15 +35,6 @@ export const exploreCategories: ExploreCategory[] = [
           id: "food-inflation",
           description:
             "In both confirmed years, food prices rose faster than headline inflation — 7.9% vs 5.98% in 2023, 4.5% vs 3.21% in 2024.",
-          status: "published",
-        },
-      },
-      {
-        title: "Purchasing power of the peso",
-        visualization: {
-          id: "overall-inflation-purchasing-power",
-          description:
-            "The 2011 peso was worth an estimated ₱64.52 by 2025 — paired here with headline inflation since one is the mirror of the other.",
           status: "published",
         },
       },
@@ -73,97 +50,6 @@ export const exploreCategories: ExploreCategory[] = [
     ],
   },
   {
-    slug: "jobs-wages-employment",
-    title: "Jobs, Wages and Employment",
-    topics: [
-      { title: "Employment" },
-      { title: "Unemployment" },
-      { title: "Underemployment" },
-      { title: "Labor-force participation" },
-      { title: "Average wages" },
-      { title: "Minimum wages" },
-      { title: "Real wage growth" },
-      { title: "Employment by industry" },
-      { title: "Youth employment" },
-      { title: "Informal employment" },
-    ],
-  },
-  {
-    slug: "income-poverty-inequality",
-    title: "Income, Poverty and Inequality",
-    topics: [
-      {
-        title: "Poverty incidence",
-        visualization: {
-          id: "poverty-inflation",
-          description: "Comparing poverty reduction across administrations against annual inflation.",
-          status: "coming-soon",
-        },
-      },
-      { title: "Number of poor Filipinos" },
-      { title: "Subsistence incidence" },
-      { title: "Poverty and food thresholds" },
-      { title: "Average and median family income" },
-      { title: "Family expenditure" },
-      { title: "Income inequality" },
-      { title: "Regional income differences" },
-    ],
-  },
-  {
-    slug: "education-learning",
-    title: "Education and Learning",
-    topics: [
-      { title: "School enrollment" },
-      { title: "School participation" },
-      { title: "Completion and graduation" },
-      { title: "Dropout rates" },
-      { title: "Literacy and functional literacy" },
-      { title: "Learning outcomes" },
-      { title: "Teachers and classrooms" },
-      { title: "Student–teacher ratio" },
-      { title: "Access to higher education" },
-      { title: "Technical and vocational education" },
-    ],
-  },
-  {
-    slug: "health-nutrition",
-    title: "Health and Nutrition",
-    topics: [
-      { title: "Life expectancy" },
-      { title: "Leading causes of death" },
-      { title: "Maternal and infant mortality" },
-      { title: "Child malnutrition" },
-      { title: "Communicable diseases" },
-      { title: "Noncommunicable diseases" },
-      { title: "Mental health" },
-      { title: "Health facilities and hospital beds" },
-      { title: "Doctors, nurses and health workers" },
-      {
-        title: "Health insurance coverage",
-        visualization: {
-          id: "philhealth-subsidy",
-          description: "Annual government subsidy to PhilHealth, 2010–2026.",
-          status: "coming-soon",
-        },
-      },
-    ],
-  },
-  {
-    slug: "food-agriculture",
-    title: "Food and Agriculture",
-    topics: [
-      { title: "Food production" },
-      { title: "Rice production and supply" },
-      { title: "Farmgate and retail prices" },
-      { title: "Agricultural employment and wages" },
-      { title: "Crop and livestock production" },
-      { title: "Fisheries" },
-      { title: "Agricultural imports and exports" },
-      { title: "Food security" },
-      { title: "Farm losses from disasters" },
-    ],
-  },
-  {
     slug: "housing-basic-services",
     title: "Housing and Basic Services",
     topics: [
@@ -176,89 +62,6 @@ export const exploreCategories: ExploreCategory[] = [
           status: "published",
         },
       },
-      { title: "Housing affordability" },
-      { title: "Informal settlements" },
-      { title: "Overcrowding" },
-      { title: "Electricity access" },
-      { title: "Safe drinking water" },
-      { title: "Sanitation" },
-      { title: "Waste collection" },
-      { title: "Household amenities" },
-    ],
-  },
-  {
-    slug: "transportation-mobility",
-    title: "Transportation and Mobility",
-    topics: [
-      { title: "Public transportation" },
-      { title: "Traffic and travel time" },
-      { title: "Road density and condition" },
-      { title: "Vehicle registrations" },
-      { title: "Road accidents" },
-      { title: "Rail, air and sea passengers" },
-      { title: "Transport fares" },
-      { title: "Walking and cycling infrastructure" },
-    ],
-  },
-  {
-    slug: "energy-electricity",
-    title: "Energy and Electricity",
-    topics: [
-      { title: "Electricity rates" },
-      { title: "Household electrification" },
-      { title: "Electricity consumption" },
-      { title: "Power demand and supply" },
-      { title: "Power interruptions" },
-      { title: "Generation capacity" },
-      { title: "Energy sources" },
-      { title: "Renewable-energy share" },
-      { title: "Petroleum and LPG prices" },
-    ],
-  },
-  {
-    slug: "technology-digital-access",
-    title: "Technology and Digital Access",
-    topics: [
-      { title: "Household internet access" },
-      { title: "Mobile and fixed broadband" },
-      { title: "Internet speed" },
-      { title: "Internet affordability" },
-      { title: "Computer and smartphone ownership" },
-      { title: "Mobile subscriptions" },
-      { title: "Digital payments" },
-      { title: "Digital literacy" },
-      { title: "Regional connectivity gaps" },
-    ],
-  },
-  {
-    slug: "environment-natural-resources",
-    title: "Environment and Natural Resources",
-    topics: [
-      { title: "Air quality" },
-      { title: "Water quality" },
-      { title: "Forest cover" },
-      { title: "Land use" },
-      { title: "Solid waste" },
-      { title: "Plastic waste" },
-      { title: "Coastal and marine resources" },
-      { title: "Biodiversity" },
-      { title: "Protected areas" },
-      { title: "Carbon emissions" },
-    ],
-  },
-  {
-    slug: "weather-climate-disasters",
-    title: "Weather, Climate and Disasters",
-    topics: [
-      { title: "Temperature and rainfall" },
-      { title: "Tropical cyclones" },
-      { title: "Floods and landslides" },
-      { title: "Earthquakes and volcanic activity" },
-      { title: "Extreme heat" },
-      { title: "People affected by disasters" },
-      { title: "Deaths and injuries" },
-      { title: "Economic and agricultural damage" },
-      { title: "Community hazard exposure" },
     ],
   },
   {
@@ -274,78 +77,111 @@ export const exploreCategories: ExploreCategory[] = [
           status: "published",
         },
       },
+      {
+        title: "Foreign direct investment",
+        visualization: {
+          id: "fdi-by-administration",
+          description:
+            "Net FDI inflows across Aquino III, Duterte, and Marcos Jr. — BSP's own published annual balance-of-payments figures, 2010 to present.",
+          status: "published",
+        },
+      },
     ],
   },
   {
-    slug: "personal-finance-financial-inclusion",
-    title: "Personal Finance and Financial Inclusion",
+    slug: "culture-tourism",
+    title: "Culture and Tourism",
     topics: [
-      { title: "Bank and financial accounts" },
-      { title: "Savings" },
-      { title: "Household debt" },
-      { title: "Access to credit" },
-      { title: "Interest rates" },
-      { title: "Insurance" },
-      { title: "Digital financial services" },
-      { title: "Remittances" },
-      { title: "Financial literacy" },
-      { title: "Financial resilience" },
-    ],
-  },
-  {
-    slug: "overseas-filipinos-migration",
-    title: "Overseas Filipinos and Migration",
-    topics: [
-      { title: "Number of overseas Filipinos" },
-      { title: "OFW deployment" },
-      { title: "Countries of destination" },
-      { title: "Occupations" },
-      { title: "Remittance flows" },
-      { title: "Regional origins" },
-      { title: "Returning OFWs" },
-      { title: "Reasons for migration" },
-      { title: "Use of remittances" },
-    ],
-  },
-  {
-    slug: "public-safety-crime",
-    title: "Public Safety and Crime",
-    topics: [
-      { title: "Reported crime" },
-      { title: "Crime rates" },
-      { title: "Road safety" },
-      { title: "Fire incidents" },
-      { title: "Violence against women and children" },
-      { title: "Disaster-related safety" },
-      { title: "Emergency-response availability" },
-      { title: "Cybercrime and online fraud" },
-    ],
-  },
-  {
-    slug: "culture-tourism-quality-of-life",
-    title: "Culture, Tourism and Quality of Life",
-    topics: [
-      { title: "Domestic and international tourism" },
-      { title: "Tourist destinations" },
-      { title: "Visitor spending" },
-      { title: "Recreation and public spaces" },
-      { title: "Museums and heritage sites" },
-      { title: "Sports participation" },
-      { title: "Time use" },
-      { title: "Life satisfaction" },
-      { title: "Work–life balance" },
+      {
+        title: "Real tourism growth",
+        visualization: {
+          id: "tourism-growth",
+          description:
+            "Foreign visitor arrivals collapsed 98% in 2021, then took four years to fully recover — Aquino III, Duterte, and Marcos Jr. compared, 2010 to present.",
+          status: "published",
+        },
+      },
+      {
+        title: "Arrivals by nationality",
+        visualization: {
+          id: "tourism-nationality",
+          description:
+            "South Korea and the United States accounted for 4 in 10 foreign visitor arrivals in 2025 — the top 10 source markets, DTI's own published breakdown.",
+          status: "published",
+        },
+      },
     ],
   },
   {
     slug: "politics-public-opinion",
     title: "Politics and Public Opinion",
     topics: [
-      { title: "Approval and Trust Ratings" },
-      { title: "Elections and Voter Preferences" },
-      { title: "Public Opinion on Issues" },
-      { title: "Political Institutions" },
-      { title: "Political Profiles and Records" },
-      { title: "Survey Analysis and Methodology" },
+      {
+        title: "Presidential approval ratings",
+        visualization: {
+          id: "presidential-approval-ratings",
+          description:
+            "Pulse Asia's own Approval Rating for Aquino III, Duterte and Marcos Jr., from inauguration to the most recent survey.",
+          status: "published",
+        },
+      },
+      {
+        title: "Vice presidential approval ratings",
+        visualization: {
+          id: "vp-approval-ratings",
+          description:
+            "Pulse Asia's own Approval Rating for Binay, Robredo and Sara Duterte, from inauguration to the most recent survey.",
+          status: "published",
+        },
+      },
+      {
+        title: "Presidential net satisfaction ratings",
+        visualization: {
+          id: "presidential-net-satisfaction",
+          description:
+            "SWS's own Net Satisfaction Rating for Aquino III, Duterte and Marcos Jr., from inauguration to the most recent survey.",
+          status: "published",
+        },
+      },
+      {
+        title: "Vice presidential net satisfaction ratings",
+        visualization: {
+          id: "vp-net-satisfaction",
+          description:
+            "SWS's own Net Satisfaction Rating for Binay, Robredo and Sara Duterte, from inauguration to the most recent survey.",
+          status: "published",
+        },
+      },
+    ],
+  },
+  {
+    slug: "crime-safety",
+    title: "Crime and Safety",
+    topics: [
+      {
+        title: "Juvenile Crime in the Philippines",
+        visualization: {
+          id: "juvenile-crime",
+          description:
+            "PNP-recorded cases of children in conflict with the law, 2016–2025 — cases fell from 26,850 in 2017 to 4,383 in 2024, then rose again to 8,654 in 2025.",
+          status: "published",
+        },
+      },
+    ],
+  },
+  {
+    slug: "health",
+    title: "Health",
+    topics: [
+      {
+        title: "PhilHealth government subsidy",
+        visualization: {
+          id: "philhealth-subsidy",
+          description:
+            "PhilHealth's own published figures: government subsidy held near ₱60-80B a year through 2023, then collapsed to ₱40.35B in 2024 and effectively zero in 2025.",
+          status: "published",
+        },
+      },
     ],
   },
 ];

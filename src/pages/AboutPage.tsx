@@ -17,7 +17,7 @@ export default function AboutPage() {
           </div>
           <div className="space-y-5 text-muted leading-relaxed">
             <p>
-              FactPH brings publicly available data about the Philippines together in one
+              FactPH brings you publicly available data about the Philippines together in one
               place, using information drawn directly from government agencies and official
               records.
             </p>
@@ -81,16 +81,16 @@ export default function AboutPage() {
           <div className="space-y-5 text-muted leading-relaxed">
             
             <p>
-              Not every number is easy to find or verify. Some government datasets are
+              We all know that not every number is easy to find or verify. Some government datasets are
               incomplete, reports may contain conflicting figures, and certain claims may still
               be awaiting independent confirmation.
             </p>
             <p>
-              When that happens, FactPH will state it clearly. We will not quietly fill missing
+              When that happens, FactPH will state it clearly. This platform will not quietly fill missing
               information with assumptions or present uncertain figures as settled facts.
             </p>
             <p className="text-footnote italic">
-              A source you can examine and question is more valuable than a confident headline
+              I believe that a source you can examine and question is more valuable than a confident headline
               you cannot verify.
             </p>
           </div>

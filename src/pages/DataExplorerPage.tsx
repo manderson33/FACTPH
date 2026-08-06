@@ -1,3 +1,4 @@
+import { useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import VisualizationCard from "../components/VisualizationCard";
@@ -31,6 +32,15 @@ function TopicOrVisualizationCard({
 export default function DataExplorerPage() {
   const { category } = useParams();
   const activeCategory = exploreCategories.find((c) => c.slug === category);
+  const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
+
+  const sortedCategories = useMemo(() => {
+    const copy = [...exploreCategories];
+    copy.sort((a, b) =>
+      sortDir === "asc" ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title)
+    );
+    return copy;
+  }, [sortDir]);
 
   if (activeCategory) {
     return (
@@ -75,11 +85,11 @@ export default function DataExplorerPage() {
         </p>
 
         <div className="mb-14">
-          <CategorySelect />
+          <CategorySelect sortDir={sortDir} onSortDirChange={setSortDir} />
         </div>
 
         <div className="space-y-14">
-          {exploreCategories.map((c) => (
+          {sortedCategories.map((c) => (
             <div key={c.slug}>
               <h2 className="text-2xl font-heading font-bold text-white mb-1">{c.title}</h2>
               <p className="text-footnote text-xs uppercase tracking-widest mb-4">

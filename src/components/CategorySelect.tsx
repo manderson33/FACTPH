@@ -3,9 +3,29 @@ import { useNavigate } from "react-router-dom";
 import { ArrowUpAZ, ArrowDownZA } from "lucide-react";
 import { exploreCategories } from "../data/exploreCategories";
 
-export default function CategorySelect({ activeSlug }: { activeSlug?: string }) {
+interface CategorySelectProps {
+  activeSlug?: string;
+  /** Controlled sort direction — pass this + onSortDirChange to share the sort
+   * with page content (e.g. section order on the "all categories" view).
+   * Omit for a self-contained, uncontrolled toggle that only affects this
+   * dropdown's own option order. */
+  sortDir?: "asc" | "desc";
+  onSortDirChange?: (dir: "asc" | "desc") => void;
+}
+
+export default function CategorySelect({
+  activeSlug,
+  sortDir: controlledSortDir,
+  onSortDirChange,
+}: CategorySelectProps) {
   const navigate = useNavigate();
-  const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
+  const [internalSortDir, setInternalSortDir] = useState<"asc" | "desc">("asc");
+  const sortDir = controlledSortDir ?? internalSortDir;
+  const toggleSortDir = () => {
+    const next = sortDir === "asc" ? "desc" : "asc";
+    if (onSortDirChange) onSortDirChange(next);
+    else setInternalSortDir(next);
+  };
 
   const sortedCategories = useMemo(() => {
     const copy = [...exploreCategories];
@@ -31,7 +51,7 @@ export default function CategorySelect({ activeSlug }: { activeSlug?: string }) 
       </select>
       <button
         type="button"
-        onClick={() => setSortDir((d) => (d === "asc" ? "desc" : "asc"))}
+        onClick={toggleSortDir}
         title={sortDir === "asc" ? "Sorted A–Z — click for Z–A" : "Sorted Z–A — click for A–Z"}
         aria-label="Toggle category sort order"
         className="flex items-center justify-center border border-white/20 text-muted hover:text-white hover:border-white/40 rounded-lg p-2.5 transition-colors"

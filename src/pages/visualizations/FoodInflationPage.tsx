@@ -57,6 +57,8 @@ export default function FoodInflationPage() {
               <YAxis stroke="#9FB3C8" tickFormatter={(v) => `${v}%`} />
               <Tooltip
                 contentStyle={{ background: "#0E1B2C", border: "1px solid #27384E" }}
+                labelStyle={{ color: "#9FB3C8" }}
+                itemStyle={{ color: "#FFFFFF" }}
                 cursor={{ fill: "#2DD4BF", fillOpacity: 0.06 }}
                 formatter={(value, name) => [`${Number(value).toFixed(1)}%`, name]}
               />

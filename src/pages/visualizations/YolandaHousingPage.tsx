@@ -47,9 +47,11 @@ export default function YolandaHousingPage() {
               <XAxis dataKey="shortName" stroke="#9FB3C8" />
               <YAxis stroke="#9FB3C8" tickFormatter={(v) => (v / 1000).toFixed(0) + "K"} />
               <Tooltip
-  contentStyle={{ background: "#0E1B2C", border: "1px solid #27384E" }}
-  cursor={{ fill: "#2DD4BF", fillOpacity: 0.06 }}
-/>
+                contentStyle={{ background: "#0E1B2C", border: "1px solid #27384E" }}
+                labelStyle={{ color: "#9FB3C8" }}
+                itemStyle={{ color: "#FFFFFF" }}
+                cursor={{ fill: "#2DD4BF", fillOpacity: 0.06 }}
+              />
               <Legend />
               <Bar dataKey="completed" name="Completed" fill="#2DD4BF" radius={[4, 4, 0, 0]} />
               <Bar dataKey="unoccupied" name="Unoccupied" fill="#9FB3C8" radius={[4, 4, 0, 0]} />

@@ -1,12 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
-import { Menu, X, Sun, BarChart2, ChevronDown, Map } from "lucide-react";
+import { Menu, X, Sun, BarChart2, ChevronDown, Map, Users } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { exploreCategories } from "../data/exploreCategories";
 import logo from "../assets/factph-logo.png";
 
-const regionsMenu = [{ label: "Electoral Map", to: "/visualization/electoral-map", icon: Map }];
+const regionsMenu = [
+  { label: "Electoral Map", to: "/visualization/electoral-map", icon: Map },
+  { label: "Population by Region", to: "/visualization/population-by-region", icon: Users },
+];
 
 const sortedExploreCategories = [...exploreCategories].sort((a, b) => a.title.localeCompare(b.title));
 
@@ -114,7 +117,7 @@ export default function Navbar() {
               <ChevronDown size={12} />
             </button>
             {regionsOpen && (
-              <div className="absolute top-full left-0 pt-3 w-48">
+              <div className="absolute top-full left-0 pt-3 w-56">
                 <div className="bg-navy border border-white/10 rounded-2xl shadow-xl py-2">
                   {regionsMenu.map(({ label, to, icon: Icon }) => (
                     <Link
@@ -127,6 +130,15 @@ export default function Navbar() {
                       {label}
                     </Link>
                   ))}
+                  <div className="mt-1 pt-2 border-t border-grid px-4">
+                    <Link
+                      to="/regions"
+                      onClick={() => setRegionsOpen(false)}
+                      className="text-xs font-semibold uppercase tracking-widest text-accent hover:underline"
+                    >
+                      View all regions →
+                    </Link>
+                  </div>
                 </div>
               </div>
             )}
@@ -216,6 +228,16 @@ export default function Navbar() {
                     {label}
                   </Link>
                 ))}
+                <Link
+                  to="/regions"
+                  onClick={() => {
+                    setOpen(false);
+                    setMobileRegionsOpen(false);
+                  }}
+                  className="text-xs font-semibold uppercase tracking-widest text-accent"
+                >
+                  View all regions →
+                </Link>
               </div>
             )}
           </div>

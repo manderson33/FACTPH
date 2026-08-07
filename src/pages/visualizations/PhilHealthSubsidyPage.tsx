@@ -23,7 +23,7 @@ import {
 function AdminLegend() {
   return (
     <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-4">
-      {(["duterte", "marcos"] as Admin[]).map((admin) => (
+      {(["aquino", "duterte", "marcos"] as Admin[]).map((admin) => (
         <div key={admin} className="flex items-center gap-2 text-xs">
           <span
             className="inline-block w-3 h-3 rounded-full"
@@ -51,10 +51,13 @@ export default function PhilHealthSubsidyPage() {
           PhilHealth Government Subsidy
         </h1>
         <p className="text-muted mb-8 max-w-2xl">
-          The national government's premium subsidy for PhilHealth's indirect (indigent, senior
-          citizen, sponsored) members, 2018–2025. Subsidy held between ₱59.7B and ₱80.2B every
-          year through 2023, then collapsed to ₱40.35B in 2024 and effectively zero — ₱5.6 million
-          — in 2025.
+          The National Health Insurance Program (NHIP) subsidy for PhilHealth, 2010–2026 — from
+          both the Department of Budget and Management and PhilHealth's own audited disclosures.
+          The subsidy grew from ₱5.17B under Aquino III to a peak of ₱100.2B under Marcos Jr. in
+          2023, before Congress cut it to zero for 2025 and rebounded to ₱69.78B for 2026. The
+          2026 GAA separately appropriates a further ₱60B to return money the Supreme Court ruled
+          was unconstitutionally swept from PhilHealth's reserves in 2024 — that amount is
+          restitution, not new subsidy, so it's excluded from the figure shown here.
         </p>
 
         <motion.div
@@ -82,7 +85,11 @@ export default function PhilHealthSubsidyPage() {
               />
               <Bar dataKey="subsidyPhpBillion" radius={[3, 3, 0, 0]}>
                 {philhealthSubsidyByYear.map((row) => (
-                  <Cell key={row.year} fill={adminColors[row.admin]} />
+                  <Cell
+                    key={row.year}
+                    fill={adminColors[row.admin]}
+                    fillOpacity={row.confidence === "proposed" ? 0.5 : 1}
+                  />
                 ))}
               </Bar>
             </BarChart>
@@ -92,13 +99,17 @@ export default function PhilHealthSubsidyPage() {
         </motion.div>
 
         <p className="text-footnote text-xs mb-10">
-          2018–2023 are PhilHealth's own "Premium for Indirect Contribution" figures from its
-          audited 2023 Annual Report. 2024–2025 are the same accounting concept from PhilHealth's
-          Stats and Charts booklets for those years. No FactPH computation, netting, or estimation
-          of any kind. 2010–2017 are a genuine gap — PhilHealth's own published budget figures for
-          that period use different concepts (initial GAA appropriation, or the sin-tax-earmarked
-          portion only) that aren't directly comparable to 2018 onward, so they're left out rather
-          than blended into a misleading trend line.
+          Every figure is a literal published amount — never computed, netted, or estimated by
+          FactPH. 2010–2016, 2022–2024, and 2026 are enacted GAA totals or PhilHealth's own
+          audited subsidy disclosures. 2017–2021 (shown lighter in the chart) are proposed-budget
+          figures carried over from earlier research and not independently re-confirmed against
+          the enacted GAA text — worth treating with more caution, since 2024's proposed figure
+          (₱101.5B) turned out to differ substantially from what was actually enacted (₱61.5B).
+          2025 shows the enacted amount (zero) rather than the ₱74.43B originally proposed. 2026's
+          GAA appropriates ₱129.782B in total for PhilHealth, but ₱60B of that is a separate,
+          explicitly-labeled line returning money the Supreme Court ruled was unconstitutionally
+          taken from PhilHealth's own reserves in 2024 — restitution, not new subsidy, so it's
+          excluded from the ₱69.782B shown here.
         </p>
 
         <h2 className="text-xl font-heading font-bold text-white mb-4">Full data</h2>
@@ -109,6 +120,7 @@ export default function PhilHealthSubsidyPage() {
                 <th className="p-4">Year</th>
                 <th className="p-4">Government subsidy (₱ billion)</th>
                 <th className="p-4">Administration</th>
+                <th className="p-4">Note</th>
               </tr>
             </thead>
             <tbody>
@@ -119,10 +131,14 @@ export default function PhilHealthSubsidyPage() {
                     {row.subsidyPhpBillion.toLocaleString(undefined, {
                       maximumFractionDigits: 4,
                     })}
+                    {row.confidence === "proposed" && (
+                      <span className="ml-2 text-footnote text-xs">(proposed)</span>
+                    )}
                   </td>
                   <td className="p-4" style={{ color: adminColors[row.admin] }}>
                     {adminLabels[row.admin]}
                   </td>
+                  <td className="p-4 text-footnote">{row.sourceNote}</td>
                 </tr>
               ))}
             </tbody>

@@ -65,8 +65,8 @@ export const exploreCategories: ExploreCategory[] = [
     ],
   },
   {
-    slug: "business-entrepreneurship",
-    title: "Business and Entrepreneurship",
+    slug: "economy",
+    title: "Economy",
     topics: [
       {
         title: "Consumer and Business Confidence",
@@ -83,6 +83,15 @@ export const exploreCategories: ExploreCategory[] = [
           id: "fdi-by-administration",
           description:
             "Net FDI inflows across Aquino III, Duterte, and Marcos Jr. — BSP's own published annual balance-of-payments figures, 2010 to present.",
+          status: "published",
+        },
+      },
+      {
+        title: "National government debt",
+        visualization: {
+          id: "national-debt",
+          description:
+            "The National Government's outstanding debt nearly quadrupled from ₱4.72 trillion in 2010 to ₱17.71 trillion in 2025, per the Bureau of the Treasury's own year-end figures.",
           status: "published",
         },
       },
@@ -178,7 +187,22 @@ export const exploreCategories: ExploreCategory[] = [
         visualization: {
           id: "philhealth-subsidy",
           description:
-            "PhilHealth's own published figures: government subsidy held near ₱60-80B a year through 2023, then collapsed to ₱40.35B in 2024 and effectively zero in 2025.",
+            "From ₱5.17B under Aquino III to zero under Congress's 2025 cut, rebounding to ₱69.78B for 2026 — excluding the separate ₱60B the Supreme Court ordered returned to PhilHealth.",
+          status: "published",
+        },
+      },
+    ],
+  },
+  {
+    slug: "infrastructure",
+    title: "Infrastructure",
+    topics: [
+      {
+        title: "DPWH enacted budget",
+        visualization: {
+          id: "dpwh-budget",
+          description:
+            "DPWH's enacted budget grew from ₱100.8B in 2011 to a peak of ₱1.11 trillion in 2025, then was cut nearly in half to ₱529.6B for 2026 after the flood-control corruption scandal.",
           status: "published",
         },
       },

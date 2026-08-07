@@ -21,15 +21,15 @@ export default function ConsumerBusinessConfidencePage() {
       <Navbar />
       <div className="max-w-4xl mx-auto">
         <Link
-          to="/explore/business-entrepreneurship"
+          to="/explore/economy"
           className="flex items-center gap-2 text-accent text-sm mb-6"
         >
           <ArrowLeft size={16} />
-          Back to Business and Entrepreneurship
+          Back to Economy
         </Link>
 
         <p className="text-accent text-xs uppercase tracking-widest mb-2">
-          Business and Entrepreneurship
+          Economy
         </p>
         <h1 className="text-3xl md:text-4xl font-heading font-bold text-white mb-3">
           Consumer and Business Confidence

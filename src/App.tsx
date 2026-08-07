@@ -69,7 +69,7 @@ export default function App() {
           {t.exploreData}
         </Link>
         <Link
-          to="/region/ncr"
+          to="/regions"
           className="border border-white text-white px-6 py-3 rounded-full font-semibold"
         >
           {t.browseRegion}

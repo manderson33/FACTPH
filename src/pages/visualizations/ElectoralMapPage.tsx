@@ -52,9 +52,9 @@ export default function ElectoralMapPage() {
     <div className="dot-grid min-h-screen pt-28 px-4 pb-16">
       <Navbar />
       <div className="max-w-4xl mx-auto">
-        <Link to="/explore/all" className="flex items-center gap-2 text-accent text-sm mb-6">
+        <Link to="/regions" className="flex items-center gap-2 text-accent text-sm mb-6">
           <ArrowLeft size={16} />
-          Back to Explore Data
+          Back to Regions
         </Link>
 
         <p className="text-accent text-xs uppercase tracking-widest mb-2">Elections</p>

@@ -16,7 +16,7 @@ import Navbar from "../../components/Navbar";
 import {
   nationalDebtByYear,
   nationalDebtSources,
-  preAquinoDebtPhpTrillion,
+  inaugurationBoundaries,
   adminColors,
   adminLabels,
   type Admin,
@@ -46,26 +46,33 @@ function averageDebtByAdmin(admin: Admin): { avg: number; years: number } {
   return { avg, years: rows.length };
 }
 
-// "Debt added since taking office" = the debt level at the end of this
-// administration (or its latest available snapshot, if still in office)
-// minus the debt level at the end of the last year fully under its
-// predecessor — i.e. the last Dec 31 snapshot NOT under this admin, per
-// the same Dec-31-in-office boundary used for adminForYear. For Aquino
-// III, whose predecessor isn't in this dataset, that baseline is the
-// pre-Aquino 2009 figure instead.
-function debtAddedByAdmin(admin: Admin): { added: number; endLabel: string; ongoing: boolean } {
+// "Debt added since taking office" = the debt level at this administration's
+// own inauguration date (June 30) subtracted from the debt level at its
+// successor's inauguration date — or, if it's still in office, the latest
+// available snapshot. A Dec-31 boundary (what the chart/average above uses)
+// would silently attribute roughly six months of the outgoing
+// administration's own borrowing — Jan 1 through Jun 29 of the transition
+// year — to the incoming one, since the president isn't sworn in until
+// June 30. These four BTr press-release figures, each at an actual
+// inauguration date, avoid that.
+function debtAddedByAdmin(admin: Admin): { added: number; startLabel: string; endLabel: string; ongoing: boolean } {
   const idx = adminOrder.indexOf(admin);
-  const ownRows = nationalDebtByYear.filter((row) => row.admin === admin);
-  const endRow = ownRows[ownRows.length - 1];
-  const startValue =
-    idx === 0
-      ? preAquinoDebtPhpTrillion
-      : nationalDebtByYear.filter((row) => row.admin === adminOrder[idx - 1]).at(-1)!
-          .debtPhpTrillion;
+  const start = inaugurationBoundaries[idx];
+  const nextBoundary = inaugurationBoundaries[idx + 1];
+  if (nextBoundary) {
+    return {
+      added: nextBoundary.debtPhpTrillion - start.debtPhpTrillion,
+      startLabel: start.label,
+      endLabel: nextBoundary.label,
+      ongoing: false,
+    };
+  }
+  const latest = nationalDebtByYear[nationalDebtByYear.length - 1];
   return {
-    added: endRow.debtPhpTrillion - startValue,
-    endLabel: endRow.label,
-    ongoing: endRow.partial,
+    added: latest.debtPhpTrillion - start.debtPhpTrillion,
+    startLabel: start.label,
+    endLabel: latest.label,
+    ongoing: true,
   };
 }
 
@@ -91,7 +98,7 @@ export default function NationalDebtPage() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
           {(["aquino", "duterte", "marcos"] as Admin[]).map((admin) => {
             const { avg, years } = averageDebtByAdmin(admin);
-            const { added, endLabel, ongoing } = debtAddedByAdmin(admin);
+            const { added, startLabel, endLabel, ongoing } = debtAddedByAdmin(admin);
             return (
               <motion.div
                 key={admin}
@@ -116,8 +123,8 @@ export default function NationalDebtPage() {
                 </p>
                 <p className="text-footnote text-xs mt-1">
                   {ongoing
-                    ? t("pages.nationalDebt.addedOngoing", { year: endLabel })
-                    : t("pages.nationalDebt.addedThrough", { year: endLabel })}
+                    ? t("pages.nationalDebt.addedOngoing", { startLabel, endLabel })
+                    : t("pages.nationalDebt.addedThrough", { startLabel, endLabel })}
                 </p>
               </motion.div>
             );

@@ -68,15 +68,30 @@ const debtByYearRaw: {
   { year: 2026, label: "2026 (Jun)", debtPhpTrillion: 19.06569, partial: true },
 ];
 
-// The debt level the day before Aquino III's term began — needed as the
-// starting-point baseline for "debt added since taking office." Sourced
-// from the same BTr "National Government Outstanding Debt Stock,
-// 1986-2021" series as the rest of this file (its table runs back to
-// 1986; this is simply the 2009 column, one year before this chart's
-// data begins). Not plotted as its own bar since the chart itself covers
-// 2010 onward, matching every other administration-colored chart on
-// FactPH.
-export const preAquinoDebtPhpTrillion = 4.396640;
+export interface InaugurationBoundary {
+  admin: Admin;
+  label: string;
+  debtPhpTrillion: number;
+}
+
+// Debt at each administration's actual inauguration date (June 30) — used
+// only for the "debt added since taking office" cards below the chart, not
+// for the chart itself (which shows Dec 31 year-end snapshots, colored by
+// whoever held office that Dec 31, per adminForYear above). Those two
+// things measure different questions: the chart's Dec-31 boundary
+// correctly shows what the debt level *was* on any given year-end: the
+// figure that day is simply true, whoever colored the bar. But "debt added
+// since taking office" is trying to isolate what an administration itself
+// borrowed — and for that, a Dec-31 boundary silently attributes roughly
+// six months of the outgoing administration's own borrowing (Jan 1-Jun 29
+// of the transition year) to the incoming one, since the president isn't
+// inaugurated until June 30. These four BTr press-release figures, each at
+// an actual inauguration date, fix that:
+export const inaugurationBoundaries: InaugurationBoundary[] = [
+  { admin: "aquino", label: "Jun 2010", debtPhpTrillion: 4.5824 },
+  { admin: "duterte", label: "Jun 2016", debtPhpTrillion: 5.947999 },
+  { admin: "marcos", label: "Jun 2022", debtPhpTrillion: 12.791829 },
+];
 
 export const nationalDebtByYear: NationalDebtYear[] = debtByYearRaw.map(
   ({ year, label, debtPhpTrillion, partial }) => ({
@@ -89,6 +104,24 @@ export const nationalDebtByYear: NationalDebtYear[] = debtByYearRaw.map(
 );
 
 export const nationalDebtSources = [
+  {
+    title: "National Government Debt Recorded at P12.79 trillion as of end-June 2022",
+    url: "https://www.treasury.gov.ph/wp-content/uploads/2022/08/NG-Debt-Press-Release-June-2022_ed.pdf",
+    publisher: "Bureau of the Treasury",
+    date: "5 Aug. 2022",
+  },
+  {
+    title: "National Government Debt Recorded at P5,948 Billion as of end-June 2016",
+    url: "https://www.treasury.gov.ph/wp-content/uploads/2017/10/National-Government-Debt-Recorded-at-P5948-Billion-as-of-end-June-2016.pdf",
+    publisher: "Bureau of the Treasury",
+    date: "2 Aug. 2016",
+  },
+  {
+    title: "National Government Debt Increased to P4.582 Trillion as of June 2010",
+    url: "https://www.treasury.gov.ph/wp-content/uploads/2017/10/National-Government-Debt-Increased-to-P4.582-Trillion-as-of-June-2010.pdf",
+    publisher: "Bureau of the Treasury",
+    date: "8 Sep. 2010",
+  },
   {
     title: "NG Debt Increases to P19.07 Trillion as of End-June 2026",
     url: "https://www.treasury.gov.ph/wp-content/uploads/2026/07/NG-Debt-Press-Release-June-2026.pdf",

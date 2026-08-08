@@ -96,11 +96,11 @@
     },
     "food-inflation": {
       "title": "Food inflation",
-      "description": "In both confirmed years, food prices rose faster than headline inflation — 7.9% vs 5.98% in 2023, 4.5% vs 3.21% in 2024."
+      "description": "Food prices have outpaced headline inflation in 5 of the last 7 years — PSA's own published annual averages, 2019 to 2025."
     },
     "rice-food-prices": {
       "title": "Rice and food prices",
-      "description": "Well-milled rice fell after the 2019 tariffication law, then spiked 26% in 2024 — tracked against RA 11203 and the 2023 EO 39 price cap."
+      "description": "Well-milled rice fell after the 2019 tariffication law to a low of ₱43.36/kg in 2021, then jumped roughly 25% by December 2023 — PSA's own figures, 2015 to 2024."
     },
     "yolanda-housing": {
       "title": "Housing ownership and tenure",
@@ -176,19 +176,22 @@
     "foodInflation": {
       "eyebrow": "Cost of Living and Prices",
       "title": "Food Inflation",
-      "description": "PSA breaks food and non-alcoholic beverages out of headline inflation as its own series — and in both years with confirmed full-year averages, food prices rose faster than prices overall. As of {{month}}, that gap was still open: headline inflation was {{headlinePct}}% against food inflation of {{foodPct}}%.",
-      "footnote": "Limited to years with a confirmed, comparable full-year average for both series — PSA's food-CPI breakout for 2011–2022 wasn't consistently accessible from primary sources as of this writing, so this chart is intentionally short rather than padded with estimates.",
+      "description": "PSA breaks food and non-alcoholic beverages out of headline inflation as its own series — food prices have outpaced headline inflation in 5 of the last 7 years, spiking to 7.9% in 2023 against 5.98% headline. The latest available reading, {{month}}, shows the gap open again: headline inflation at {{headlinePct}}% against food inflation of {{foodPct}}%.",
+      "footnote": "Every figure is PSA's own published average — never computed, netted, or estimated by FactPH. 2019–2021 were originally published under the 2012-based CPI; PSA rebased to 2018=100 in February 2022, and 2021's headline rate was later restated to 3.9% under the new base (versus the 4.5% shown here, as PSA reported it at the time) — both are PSA's own figures, just from different base-year vintages. 2022–2025 are unaffected, already on the current 2018-based CPI. 2025's food figure is corroborated by GMA News' direct citation of PSA's year-end release, since PSA's own December 2025 press release PDF could not be independently retrieved as of this writing. The 2026 bars (shown lighter) are PSA's June 2026 monthly reading, not a full-year or year-to-date average like every other year shown — PSA's June 2026 report gives a January–June year-to-date average for headline inflation but not for the food and non-alcoholic beverages group specifically, so rather than compute one ourselves, both series show the same single month instead.",
       "legendHeadline": "Headline inflation",
       "legendFood": "Food inflation",
       "tableHeadline": "Headline Inflation",
-      "tableFood": "Food Inflation"
+      "tableFood": "Food Inflation",
+      "monthlyTag": "(single month)"
     },
     "riceFoodPrices": {
       "eyebrow": "Cost of Living and Prices",
       "title": "Rice and Food Prices",
-      "description": "Retail well-milled rice fell after the 2019 Rice Tariffication Law opened the market to imports, then spiked 26% in a single year through 2024 — rice alone makes up a large share of what low-income Filipino households spend on food, so this line tracks closely with how \"expensive\" life feels for millions of families.",
-      "footnote": "This is not an unbroken annual series — PSA's price-situationer archive for 2011–2017 and 2021–2022 wasn't accessible from primary sources as of this writing, so those years are left out rather than interpolated.",
-      "tooltipLabel": "Well-milled rice",
+      "description": "Retail well-milled rice fell after the 2019 Rice Tariffication Law opened the market to imports, bottoming out at ₱43.36/kg in 2021, then jumped roughly 25% by December 2023 — rice alone makes up a large share of what low-income Filipino households spend on food, so this line tracks closely with how \"expensive\" life feels for millions of families.",
+      "footnote": "2015–2022 (solid bars) are PSA's own published full-year averages, from its \"Selected Statistics on Agriculture\" annual compendium — 2015–2017 uses PSA's older price-survey methodology, 2018 onward its newer one tied to the 2018-based CPI, which is why 2017 and 2018 aren't perfectly comparable. PSA has not yet published a newer edition covering 2023–2024, so those two years (shown lighter) are PSA's own December snapshot instead of a full-year average — never a FactPH computation or estimate.",
+      "tooltipLabel": "Well-milled rice (annual average)",
+      "tooltipLabelSnapshot": "Well-milled rice (December snapshot)",
+      "decSnapshotTag": "(Dec. snapshot)",
       "tableRice": "Well-Milled Rice (per kg)"
     },
     "yolandaHousing": {

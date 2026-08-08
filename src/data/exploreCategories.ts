@@ -34,7 +34,7 @@ export const exploreCategories: ExploreCategory[] = [
         visualization: {
           id: "food-inflation",
           description:
-            "In both confirmed years, food prices rose faster than headline inflation — 7.9% vs 5.98% in 2023, 4.5% vs 3.21% in 2024.",
+            "Food prices have outpaced headline inflation in 5 of the last 7 years — PSA's own published annual averages, 2019 to 2025.",
           status: "published",
         },
       },
@@ -43,7 +43,7 @@ export const exploreCategories: ExploreCategory[] = [
         visualization: {
           id: "rice-food-prices",
           description:
-            "Well-milled rice fell after the 2019 tariffication law, then spiked 26% in 2024 — tracked against RA 11203 and the 2023 EO 39 price cap.",
+            "Well-milled rice fell after the 2019 tariffication law to a low of ₱43.36/kg in 2021, then jumped roughly 25% by December 2023 — PSA's own figures, 2015 to 2024.",
           status: "published",
         },
       },

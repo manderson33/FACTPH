@@ -96,11 +96,11 @@
     },
     "food-inflation": {
       "title": "Implasyon sa pagkain",
-      "description": "Sa dalawang taong may kumpirmadong buong-taong average, mas mabilis tumaas ang presyo ng pagkain kaysa sa headline inflation — 7.9% laban sa 5.98% noong 2023, 4.5% laban sa 3.21% noong 2024."
+      "description": "Mas mabilis tumaas ang presyo ng pagkain kaysa sa headline inflation sa 5 sa nakaraang 7 taon — sariling inilathalang taunang average ng PSA, 2019 hanggang 2025."
     },
     "rice-food-prices": {
       "title": "Presyo ng bigas at pagkain",
-      "description": "Bumaba ang presyo ng bigas matapos ang 2019 tariffication law, pagkatapos ay biglang tumaas ng 26% noong 2024 — sinusubaybayan laban sa RA 11203 at sa price cap ng 2023 EO 39."
+      "description": "Bumaba ang presyo ng bigas matapos ang 2019 tariffication law tungo sa mababang ₱43.36/kg noong 2021, bago tumaas ng humigit-kumulang 25% pagsapit ng Disyembre 2023 — sariling figures ng PSA, 2015 hanggang 2024."
     },
     "yolanda-housing": {
       "title": "Pagmamay-ari at panunungkulan ng pabahay",
@@ -176,19 +176,22 @@
     "foodInflation": {
       "eyebrow": "Gastos sa Pamumuhay at Presyo",
       "title": "Implasyon sa Pagkain",
-      "description": "Hinihiwalay ng PSA ang pagkain at di-alkoholikong inumin mula sa headline inflation bilang sarili nitong serye — at sa dalawang taong may kumpirmadong buong-taong average, mas mabilis tumaas ang presyo ng pagkain kaysa sa pangkalahatang presyo. Noong {{month}}, bukas pa rin ang puwang na iyon: {{headlinePct}}% ang headline inflation laban sa {{foodPct}}% na food inflation.",
-      "footnote": "Limitado lamang sa mga taong may kumpirmado at maihahambing na buong-taong average para sa parehong serye — hindi laging naaabot mula sa mga pangunahing pinagmulan ang food-CPI breakout ng PSA para sa 2011–2022 sa oras ng pagsulat nito, kaya sinadyang maikli ang chart na ito sa halip na punuin ng tantiya.",
+      "description": "Hinihiwalay ng PSA ang pagkain at di-alkoholikong inumin mula sa headline inflation bilang sarili nitong serye — mas mabilis tumaas ang presyo ng pagkain kaysa sa headline inflation sa 5 sa nakaraang 7 taon, umabot sa 7.9% noong 2023 laban sa 5.98% na headline. Ang pinakahuling available na pagbasa, {{month}}, ay nagpapakita ng muling pagbukas ng puwang: {{headlinePct}}% ang headline inflation laban sa {{foodPct}}% na food inflation.",
+      "footnote": "Bawat figure ay sariling inilathalang average ng PSA — hindi kailanman kinompyut, na-net, o tinantya ng FactPH. Ang 2019–2021 ay orihinal na inilathala sa ilalim ng 2012-based CPI; muling binase ng PSA ang CPI tungong 2018=100 noong Pebrero 2022, at ang headline rate ng 2021 ay muling isinaad bilang 3.9% sa ilalim ng bagong base (laban sa 4.5% na ipinapakita rito, gaya ng inulat ng PSA noong panahong iyon) — parehong sariling figure ng PSA, magkaiba lang ang bersyon ng base year. Hindi apektado ang 2022–2025, nasa kasalukuyang 2018-based CPI na. Ang food figure ng 2025 ay pinatunayan ng direktang sipi ng GMA News sa year-end release ng PSA, dahil hindi natagpuan nang hiwalay ang sariling PDF press release ng PSA para sa December 2025 sa oras ng pagsulat nito. Ang mga bar ng 2026 (mas maputlang kulay) ay ang monthly reading ng PSA noong Hunyo 2026, hindi buong-taon o year-to-date average tulad ng ibang taon na ipinapakita — nagbibigay ang June 2026 report ng PSA ng January–June year-to-date average para sa headline inflation ngunit hindi para sa food and non-alcoholic beverages group mismo, kaya sa halip na kinompyut namin ito, parehong serye ay nagpapakita na lamang ng iisang buwan.",
       "legendHeadline": "Headline inflation",
       "legendFood": "Food inflation",
       "tableHeadline": "Headline Inflation",
-      "tableFood": "Food Inflation"
+      "tableFood": "Food Inflation",
+      "monthlyTag": "(iisang buwan)"
     },
     "riceFoodPrices": {
       "eyebrow": "Gastos sa Pamumuhay at Presyo",
       "title": "Presyo ng Bigas at Pagkain",
-      "description": "Bumaba ang retail na presyo ng well-milled na bigas matapos buksan ng 2019 Rice Tariffication Law ang merkado sa mga imported, pagkatapos ay biglang tumaas ng 26% sa loob lamang ng isang taon hanggang 2024 — malaking bahagi ng ginagastos ng mababang-kitang pamilyang Pilipino sa pagkain ang bigas, kaya malapit na sumusunod ang linyang ito sa kung gaano kamahal ang buhay para sa milyun-milyong pamilya.",
-      "footnote": "Hindi ito isang walang-putol na taunang serye — hindi naaabot mula sa mga pangunahing pinagmulan ang price-situationer archive ng PSA para sa 2011–2017 at 2021–2022 sa oras ng pagsulat nito, kaya iniwan na lamang ang mga taong iyon sa halip na i-interpolate.",
-      "tooltipLabel": "Well-milled na bigas",
+      "description": "Bumaba ang retail na presyo ng well-milled na bigas matapos buksan ng 2019 Rice Tariffication Law ang merkado sa mga imported, umabot sa pinakamababa na ₱43.36/kg noong 2021, bago tumaas ng humigit-kumulang 25% pagsapit ng Disyembre 2023 — malaking bahagi ng ginagastos ng mababang-kitang pamilyang Pilipino sa pagkain ang bigas, kaya malapit na sumusunod ang linyang ito sa kung gaano kamahal ang buhay para sa milyun-milyong pamilya.",
+      "footnote": "Ang 2015–2022 (matibay na bar) ay sariling inilathalang buong-taong average ng PSA, mula sa taunang \"Selected Statistics on Agriculture\" compendium nito — gumagamit ang 2015–2017 ng mas lumang metodolohiya ng price-survey ng PSA, samantalang ang 2018 pataas ay gumagamit ng mas bagong metodolohiya na naka-ugnay sa 2018-based CPI, kaya hindi eksaktong maihahambing ang 2017 at 2018. Hindi pa naglalathala ang PSA ng mas bagong edisyon na sumasaklaw sa 2023–2024, kaya ang dalawang taong iyon (mas maputlang kulay) ay sariling snapshot ng PSA noong Disyembre sa halip na buong-taong average — hindi kailanman computation o tantiya ng FactPH.",
+      "tooltipLabel": "Well-milled na bigas (taunang average)",
+      "tooltipLabelSnapshot": "Well-milled na bigas (Disyembre snapshot)",
+      "decSnapshotTag": "(Disyembre snapshot)",
       "tableRice": "Well-Milled na Bigas (kada kg)"
     },
     "yolandaHousing": {

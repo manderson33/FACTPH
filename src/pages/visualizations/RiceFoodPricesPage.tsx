@@ -5,6 +5,7 @@ import { ArrowLeft, ExternalLink } from "lucide-react";
 import {
   BarChart,
   Bar,
+  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -52,9 +53,11 @@ export default function RiceFoodPricesPage() {
                 labelStyle={{ color: "#9FB3C8" }}
                 itemStyle={{ color: "#FFFFFF" }}
                 cursor={{ fill: "#2DD4BF", fillOpacity: 0.06 }}
-                formatter={(value) => [
+                formatter={(value, _name, item) => [
                   `₱${Number(value).toFixed(2)}/kg`,
-                  t("pages.riceFoodPrices.tooltipLabel"),
+                  item?.payload?.isAnnualAverage
+                    ? t("pages.riceFoodPrices.tooltipLabel")
+                    : t("pages.riceFoodPrices.tooltipLabelSnapshot"),
                 ]}
               />
               {riceEvents.map((event) => (
@@ -66,7 +69,15 @@ export default function RiceFoodPricesPage() {
                   label={{ value: event.label, position: "top", fill: "#E8456B", fontSize: 11 }}
                 />
               ))}
-              <Bar dataKey="pricePerKg" fill="#2DD4BF" radius={[6, 6, 0, 0]} />
+              <Bar dataKey="pricePerKg" radius={[6, 6, 0, 0]}>
+                {ricePriceByYear.map((row) => (
+                  <Cell
+                    key={row.year}
+                    fill="#2DD4BF"
+                    fillOpacity={row.isAnnualAverage ? 1 : 0.5}
+                  />
+                ))}
+              </Bar>
             </BarChart>
           </ResponsiveContainer>
         </motion.div>
@@ -96,7 +107,14 @@ export default function RiceFoodPricesPage() {
               {ricePriceByYear.map((row) => (
                 <tr key={row.year} className="border-b border-grid/50">
                   <td className="p-4 font-semibold text-white">{row.year}</td>
-                  <td className="p-4">₱{row.pricePerKg.toFixed(2)}</td>
+                  <td className="p-4">
+                    ₱{row.pricePerKg.toFixed(2)}
+                    {!row.isAnnualAverage && (
+                      <span className="ml-2 text-footnote text-xs">
+                        {t("pages.riceFoodPrices.decSnapshotTag")}
+                      </span>
+                    )}
+                  </td>
                 </tr>
               ))}
             </tbody>

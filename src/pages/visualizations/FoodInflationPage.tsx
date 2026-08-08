@@ -5,6 +5,7 @@ import { ArrowLeft, ExternalLink } from "lucide-react";
 import {
   BarChart,
   Bar,
+  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -13,11 +14,9 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import Navbar from "../../components/Navbar";
-import {
-  foodVsHeadlineByYear,
-  latestMonthlyReading,
-  foodInflationSources,
-} from "../../data/foodInflationData";
+import { foodVsHeadlineByYear, foodInflationSources } from "../../data/foodInflationData";
+
+const latest = foodVsHeadlineByYear[foodVsHeadlineByYear.length - 1];
 
 export default function FoodInflationPage() {
   const { t } = useTranslation();
@@ -41,9 +40,9 @@ export default function FoodInflationPage() {
         </h1>
         <p className="text-muted mb-8 max-w-2xl">
           {t("pages.foodInflation.description", {
-            month: latestMonthlyReading.month,
-            headlinePct: latestMonthlyReading.headlinePct,
-            foodPct: latestMonthlyReading.foodPct,
+            month: latest.label,
+            headlinePct: latest.headlinePct,
+            foodPct: latest.foodPct,
           })}
         </p>
 
@@ -55,7 +54,7 @@ export default function FoodInflationPage() {
           <ResponsiveContainer width="100%" height={340}>
             <BarChart data={foodVsHeadlineByYear}>
               <CartesianGrid strokeDasharray="3 3" stroke="#27384E" />
-              <XAxis dataKey="year" stroke="#9FB3C8" />
+              <XAxis dataKey="label" stroke="#9FB3C8" />
               <YAxis stroke="#9FB3C8" tickFormatter={(v) => `${v}%`} />
               <Tooltip
                 contentStyle={{ background: "#0E1B2C", border: "1px solid #27384E" }}
@@ -70,13 +69,21 @@ export default function FoodInflationPage() {
                 name={t("pages.foodInflation.legendHeadline")}
                 fill="#2DD4BF"
                 radius={[4, 4, 0, 0]}
-              />
+              >
+                {foodVsHeadlineByYear.map((row) => (
+                  <Cell key={row.year} fill="#2DD4BF" fillOpacity={row.partial ? 0.5 : 1} />
+                ))}
+              </Bar>
               <Bar
                 dataKey="foodPct"
                 name={t("pages.foodInflation.legendFood")}
                 fill="#FCD116"
                 radius={[4, 4, 0, 0]}
-              />
+              >
+                {foodVsHeadlineByYear.map((row) => (
+                  <Cell key={row.year} fill="#FCD116" fillOpacity={row.partial ? 0.5 : 1} />
+                ))}
+              </Bar>
             </BarChart>
           </ResponsiveContainer>
         </motion.div>
@@ -96,8 +103,15 @@ export default function FoodInflationPage() {
             <tbody>
               {foodVsHeadlineByYear.map((row) => (
                 <tr key={row.year} className="border-b border-grid/50">
-                  <td className="p-4 font-semibold text-white">{row.year}</td>
-                  <td className="p-4">{row.headlinePct.toFixed(2)}%</td>
+                  <td className="p-4 font-semibold text-white">{row.label}</td>
+                  <td className="p-4">
+                    {row.headlinePct.toFixed(2)}%
+                    {row.partial && (
+                      <span className="ml-2 text-footnote text-xs">
+                        {t("pages.foodInflation.monthlyTag")}
+                      </span>
+                    )}
+                  </td>
                   <td className="p-4">{row.foodPct.toFixed(1)}%</td>
                 </tr>
               ))}

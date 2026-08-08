@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import {
   BarChart,
@@ -15,26 +16,23 @@ import Navbar from "../../components/Navbar";
 import { yolandaHousingData, yolandaHousingSources } from "../../data/housingData";
 
 export default function YolandaHousingPage() {
+  const { t } = useTranslation();
   return (
     <div className="dot-grid min-h-screen pt-28 px-4 pb-16">
       <Navbar />
       <div className="max-w-4xl mx-auto">
         <Link to="/explore/all" className="flex items-center gap-2 text-accent text-sm mb-6">
           <ArrowLeft size={16} />
-          Back to Explore Data
+          {t("common.backTo", { category: t("explorer.title") })}
         </Link>
 
         <p className="text-accent text-xs uppercase tracking-widest mb-2">
-          Housing &amp; Disaster Recovery
+          {t("pages.yolandaHousing.eyebrow")}
         </p>
         <h1 className="text-3xl md:text-4xl font-heading font-bold text-white mb-3">
-          Yolanda Housing: Completed vs. Unoccupied vs. Backlog
+          {t("pages.yolandaHousing.title")}
         </h1>
-        <p className="text-muted mb-8 max-w-2xl">
-          Three administrations have managed the Yolanda Permanent Housing Program since Super
-          Typhoon Yolanda struck in 2013. Each bar reflects a Commission on Audit snapshot at the
-          end of that administration's term, or the latest available audit for an ongoing term.
-        </p>
+        <p className="text-muted mb-8 max-w-2xl">{t("pages.yolandaHousing.description")}</p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -53,35 +51,42 @@ export default function YolandaHousingPage() {
                 cursor={{ fill: "#2DD4BF", fillOpacity: 0.06 }}
               />
               <Legend />
-              <Bar dataKey="completed" name="Completed" fill="#2DD4BF" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="unoccupied" name="Unoccupied" fill="#9FB3C8" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="backlog" name="Backlog" fill="#E8456B" radius={[4, 4, 0, 0]} />
+              <Bar
+                dataKey="completed"
+                name={t("pages.yolandaHousing.legendCompleted")}
+                fill="#2DD4BF"
+                radius={[4, 4, 0, 0]}
+              />
+              <Bar
+                dataKey="unoccupied"
+                name={t("pages.yolandaHousing.legendUnoccupied")}
+                fill="#9FB3C8"
+                radius={[4, 4, 0, 0]}
+              />
+              <Bar
+                dataKey="backlog"
+                name={t("pages.yolandaHousing.legendBacklog")}
+                fill="#E8456B"
+                radius={[4, 4, 0, 0]}
+              />
             </BarChart>
           </ResponsiveContainer>
         </motion.div>
 
-        <p className="text-footnote text-xs mb-2">
-          Note: "Unoccupied" is a subset of "Completed," not an additional pool of units. Targets
-          changed over time, so "Backlog" reflects each snapshot year's own stated target minus
-          that year's completed total.
-        </p>
-        <p className="text-footnote text-xs mb-10">
-          The Marcos-era figures are corroborated by a Philippine Senate document that directly
-          quotes COA's 2023 NHA Annual Audit Report. A direct link to that specific COA PDF could
-          not be located, so COA's report archive is linked instead.
-        </p>
+        <p className="text-footnote text-xs mb-2">{t("pages.yolandaHousing.footnote1")}</p>
+        <p className="text-footnote text-xs mb-10">{t("pages.yolandaHousing.footnote2")}</p>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-4">Full data</h2>
+        <h2 className="text-xl font-heading font-bold text-white mb-4">{t("common.fullData")}</h2>
         <div className="glass-card overflow-x-auto mb-10">
           <table className="w-full text-sm text-left">
             <thead className="text-muted border-b border-grid">
               <tr>
-                <th className="p-4">Administration</th>
-                <th className="p-4">Snapshot</th>
-                <th className="p-4">Target</th>
-                <th className="p-4">Completed</th>
-                <th className="p-4">Unoccupied</th>
-                <th className="p-4">Backlog</th>
+                <th className="p-4">{t("common.administration")}</th>
+                <th className="p-4">{t("pages.yolandaHousing.tableSnapshot")}</th>
+                <th className="p-4">{t("pages.yolandaHousing.tableTarget")}</th>
+                <th className="p-4">{t("pages.yolandaHousing.tableCompleted")}</th>
+                <th className="p-4">{t("pages.yolandaHousing.tableUnoccupied")}</th>
+                <th className="p-4">{t("pages.yolandaHousing.tableBacklog")}</th>
               </tr>
             </thead>
             <tbody>
@@ -101,10 +106,8 @@ export default function YolandaHousingPage() {
           </table>
         </div>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-2">Sources</h2>
-        <p className="text-muted text-sm mb-4">
-          Primary sources are listed first, followed by independent journalistic verification.
-        </p>
+        <h2 className="text-xl font-heading font-bold text-white mb-2">{t("common.sources")}</h2>
+        <p className="text-muted text-sm mb-4">{t("pages.yolandaHousing.sourcesNote")}</p>
         <div className="space-y-4 mb-10">
           {yolandaHousingSources.map((source) => (
             <div key={source.url} className="glass-card p-4">
@@ -117,7 +120,9 @@ export default function YolandaHousingPage() {
                   <ExternalLink size={14} />
                 </a>
                 <span className="text-xs px-2 py-1 rounded-full whitespace-nowrap bg-accent/20 text-accent">
-                  {source.sourceType === "primary" ? "Primary source" : "News coverage"}
+                  {source.sourceType === "primary"
+                    ? t("common.primarySource")
+                    : t("common.newsCoverage")}
                 </span>
               </div>
               <p className="text-footnote text-xs mt-1">

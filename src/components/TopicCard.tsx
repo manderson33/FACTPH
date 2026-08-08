@@ -1,7 +1,9 @@
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import { Lock } from "lucide-react";
 
 export default function TopicCard({ title }: { title: string }) {
+  const { t } = useTranslation();
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -11,7 +13,7 @@ export default function TopicCard({ title }: { title: string }) {
     >
       <h3 className="text-white font-heading font-semibold text-base">{title}</h3>
       <div className="mt-4 flex items-center gap-1 text-footnote text-xs font-semibold">
-        <Lock size={12} /> Coming soon
+        <Lock size={12} /> {t("common.comingSoon")}
       </div>
     </motion.div>
   );

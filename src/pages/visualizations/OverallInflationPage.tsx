@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import {
   BarChart,
@@ -37,6 +38,7 @@ function AdminLegend() {
 }
 
 export default function OverallInflationPage() {
+  const { t } = useTranslation();
   return (
     <div className="dot-grid min-h-screen pt-28 px-4 pb-16">
       <Navbar />
@@ -46,41 +48,54 @@ export default function OverallInflationPage() {
           className="flex items-center gap-2 text-accent text-sm mb-6"
         >
           <ArrowLeft size={16} />
-          Back to Cost of Living and Prices
+          {t("common.backTo", { category: t("pages.overallInflation.eyebrow") })}
         </Link>
 
         <p className="text-accent text-xs uppercase tracking-widest mb-2">
-          Cost of Living and Prices
+          {t("pages.overallInflation.eyebrow")}
         </p>
         <h1 className="text-3xl md:text-4xl font-heading font-bold text-white mb-3">
-          Overall Inflation
+          {t("pages.overallInflation.title")}
         </h1>
-        <p className="text-muted mb-8 max-w-2xl">
-          Prices have risen every year since 2011 — inflation never went negative in any full
-          year over the past 15 years. Bars are colored by whichever administration governed
-          most of that year.
-        </p>
+        <p className="text-muted mb-8">{t("pages.overallInflation.description")}</p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="glass-card p-6 mb-6"
         >
-          <ResponsiveContainer width="100%" height={320}>
-            <BarChart data={inflationByYear}>
+          <ResponsiveContainer width="100%" height={360}>
+            <BarChart data={inflationByYear} margin={{ bottom: 36 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#27384E" />
-              <XAxis dataKey="year" stroke="#9FB3C8" />
+              <XAxis
+                dataKey="label"
+                stroke="#9FB3C8"
+                interval={0}
+                angle={-45}
+                textAnchor="end"
+                height={50}
+                tick={{ fontSize: 11 }}
+              />
               <YAxis stroke="#9FB3C8" tickFormatter={(v) => `${v}%`} />
               <Tooltip
                 contentStyle={{ background: "#0E1B2C", border: "1px solid #27384E" }}
                 labelStyle={{ color: "#9FB3C8" }}
                 itemStyle={{ color: "#FFFFFF" }}
                 cursor={{ fill: "#2DD4BF", fillOpacity: 0.06 }}
-                formatter={(value) => [`${Number(value).toFixed(2)}%`, "Inflation rate"]}
+                formatter={(value, _name, item) => [
+                  `${Number(value).toFixed(2)}%`,
+                  item?.payload?.partial
+                    ? t("pages.overallInflation.tooltipPartial")
+                    : t("pages.overallInflation.tooltipFull"),
+                ]}
               />
               <Bar dataKey="inflationPct" radius={[4, 4, 0, 0]}>
                 {inflationByYear.map((row) => (
-                  <Cell key={row.year} fill={adminColors[row.admin]} />
+                  <Cell
+                    key={row.year}
+                    fill={adminColors[row.admin]}
+                    fillOpacity={row.partial ? 0.5 : 1}
+                  />
                 ))}
               </Bar>
             </BarChart>
@@ -89,21 +104,28 @@ export default function OverallInflationPage() {
           <AdminLegend />
         </motion.div>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-4">Full data</h2>
+        <h2 className="text-xl font-heading font-bold text-white mb-4">{t("common.fullData")}</h2>
         <div className="glass-card overflow-x-auto mb-10">
           <table className="w-full text-sm text-left">
             <thead className="text-muted border-b border-grid">
               <tr>
-                <th className="p-4">Year</th>
-                <th className="p-4">Inflation Rate</th>
-                <th className="p-4">Administration</th>
+                <th className="p-4">{t("common.year")}</th>
+                <th className="p-4">{t("pages.overallInflation.tableRate")}</th>
+                <th className="p-4">{t("common.administration")}</th>
               </tr>
             </thead>
             <tbody>
               {inflationByYear.map((row) => (
                 <tr key={row.year} className="border-b border-grid/50">
-                  <td className="p-4 font-semibold text-white">{row.year}</td>
-                  <td className="p-4">{row.inflationPct.toFixed(2)}%</td>
+                  <td className="p-4 font-semibold text-white">{row.label}</td>
+                  <td className="p-4">
+                    {row.inflationPct.toFixed(2)}%
+                    {row.partial && (
+                      <span className="ml-2 text-footnote text-xs">
+                        {t("pages.overallInflation.ytdAverage")}
+                      </span>
+                    )}
+                  </td>
                   <td className="p-4" style={{ color: adminColors[row.admin] }}>
                     {adminLabels[row.admin]}
                   </td>
@@ -113,7 +135,7 @@ export default function OverallInflationPage() {
           </table>
         </div>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-2">Sources</h2>
+        <h2 className="text-xl font-heading font-bold text-white mb-2">{t("common.sources")}</h2>
         <div className="space-y-4 mb-10">
           {inflationSources.map((source) => (
             <div key={source.url} className="glass-card p-4">
@@ -128,7 +150,7 @@ export default function OverallInflationPage() {
                   <ExternalLink size={14} />
                 </a>
                 <span className="text-xs px-2 py-1 rounded-full whitespace-nowrap bg-accent/20 text-accent">
-                  Primary source
+                  {t("common.primarySource")}
                 </span>
               </div>
               <p className="text-footnote text-xs mt-1">

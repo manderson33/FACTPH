@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import {
   LineChart,
@@ -28,6 +29,7 @@ const dataByAdmin: Record<Admin, typeof vpSatisfactionData> = {
 };
 
 function ChartTooltip({ active, payload }: TooltipContentProps) {
+  const { t } = useTranslation();
   if (!active || !payload || payload.length === 0) return null;
   const point = payload[0].payload as (typeof vpSatisfactionData)[number];
   return (
@@ -36,7 +38,7 @@ function ChartTooltip({ active, payload }: TooltipContentProps) {
       <p className="text-muted">{point.period}</p>
       <p className="text-accent font-semibold mt-1">
         {point.netSatisfaction > 0 ? "+" : ""}
-        {point.netSatisfaction} net satisfaction
+        {point.netSatisfaction} {t("common.netSatisfaction")}
       </p>
     </div>
   );
@@ -59,6 +61,7 @@ function AdminLegend() {
 }
 
 export default function VpSatisfactionPage() {
+  const { t } = useTranslation();
   return (
     <div className="dot-grid min-h-screen pt-28 px-4 pb-16">
       <Navbar />
@@ -68,23 +71,16 @@ export default function VpSatisfactionPage() {
           className="flex items-center gap-2 text-accent text-sm mb-6"
         >
           <ArrowLeft size={16} />
-          Back to Politics and Public Opinion
+          {t("common.backTo", { category: t("pages.vpSatisfaction.eyebrow") })}
         </Link>
 
         <p className="text-accent text-xs uppercase tracking-widest mb-2">
-          Politics and Public Opinion
+          {t("pages.vpSatisfaction.eyebrow")}
         </p>
         <h1 className="text-3xl md:text-4xl font-heading font-bold text-white mb-3">
-          Vice Presidential Net Satisfaction Ratings
+          {t("pages.vpSatisfaction.title")}
         </h1>
-        <p className="text-muted mb-8 max-w-2xl">
-          Social Weather Stations' own published, signed "Net Satisfaction Rating" for the
-          sitting Vice President, from Binay's inauguration in 2010 through the most recent
-          survey round. Robredo's entire 2020 is a genuine gap — SWS suspended face-to-face
-          fieldwork during the COVID-19 lockdowns. Sara Duterte's Q1–Q2 2025 is also a genuine
-          gap, coinciding with the impeachment proceedings against her. A few figures with no
-          verifiable source or an unresolved date conflict were left out rather than guessed.
-        </p>
+        <p className="text-muted mb-8 max-w-2xl">{t("pages.vpSatisfaction.description")}</p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -124,21 +120,17 @@ export default function VpSatisfactionPage() {
           <AdminLegend />
         </motion.div>
 
-        <p className="text-footnote text-xs mb-10">
-          Every point is SWS's own published Net Satisfaction Rating (percent satisfied minus
-          percent dissatisfied, as SWS itself computes and publishes it) — never re-derived,
-          netted, or estimated by FactPH.
-        </p>
+        <p className="text-footnote text-xs mb-10">{t("pages.vpSatisfaction.footnote")}</p>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-4">Full data</h2>
+        <h2 className="text-xl font-heading font-bold text-white mb-4">{t("common.fullData")}</h2>
         <div className="glass-card overflow-x-auto mb-10">
           <table className="w-full text-sm text-left">
             <thead className="text-muted border-b border-grid">
               <tr>
-                <th className="p-4">Vice President</th>
-                <th className="p-4">Survey period</th>
-                <th className="p-4">Net satisfaction</th>
-                <th className="p-4">Source</th>
+                <th className="p-4">{t("pages.vpSatisfaction.tableVp")}</th>
+                <th className="p-4">{t("pages.vpSatisfaction.tablePeriod")}</th>
+                <th className="p-4">{t("pages.vpSatisfaction.tableNetSatisfaction")}</th>
+                <th className="p-4">{t("pages.vpSatisfaction.tableSource")}</th>
               </tr>
             </thead>
             <tbody>
@@ -169,7 +161,7 @@ export default function VpSatisfactionPage() {
           </table>
         </div>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-2">Sources</h2>
+        <h2 className="text-xl font-heading font-bold text-white mb-2">{t("common.sources")}</h2>
         <div className="space-y-4 mb-10">
           <div className="glass-card p-4">
             <div className="flex items-start justify-between gap-3">
@@ -183,12 +175,11 @@ export default function VpSatisfactionPage() {
                 <ExternalLink size={14} />
               </a>
               <span className="text-xs px-2 py-1 rounded-full whitespace-nowrap bg-accent/20 text-accent">
-                Primary source
+                {t("common.primarySource")}
               </span>
             </div>
             <p className="text-footnote text-xs mt-1">
-              Each row in the table above links to the specific press release or news report
-              directly citing that survey round's published Net Satisfaction Rating.
+              {t("pages.vpSatisfaction.sourcesNote")}
             </p>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import {
   BarChart,
@@ -37,6 +38,7 @@ function AdminLegend() {
 }
 
 export default function TourismGrowthPage() {
+  const { t } = useTranslation();
   return (
     <div className="dot-grid min-h-screen pt-28 px-4 pb-16">
       <Navbar />
@@ -46,19 +48,16 @@ export default function TourismGrowthPage() {
           className="flex items-center gap-2 text-accent text-sm mb-6"
         >
           <ArrowLeft size={16} />
-          Back to Culture and Tourism
+          {t("common.backTo", { category: t("pages.tourismGrowth.eyebrow") })}
         </Link>
 
-        <p className="text-accent text-xs uppercase tracking-widest mb-2">Culture and Tourism</p>
-        <h1 className="text-3xl md:text-4xl font-heading font-bold text-white mb-3">
-          Real Tourism Growth
-        </h1>
-        <p className="text-muted mb-8 max-w-2xl">
-          Foreign visitor arrivals across the past three administrations, 2010 to present.
-          Arrivals grew every year under Aquino III and Duterte, reaching a record 8.26 million in
-          2019, before collapsing 98% to 163,879 in 2021 as borders closed for COVID-19. Under
-          Marcos Jr., arrivals have recovered to 5.94 million in 2025 — still below the 2019 peak.
+        <p className="text-accent text-xs uppercase tracking-widest mb-2">
+          {t("pages.tourismGrowth.eyebrow")}
         </p>
+        <h1 className="text-3xl md:text-4xl font-heading font-bold text-white mb-3">
+          {t("pages.tourismGrowth.title")}
+        </h1>
+        <p className="text-muted mb-8 max-w-2xl">{t("pages.tourismGrowth.description")}</p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -75,7 +74,10 @@ export default function TourismGrowthPage() {
                 labelStyle={{ color: "#9FB3C8" }}
                 itemStyle={{ color: "#FFFFFF" }}
                 cursor={{ fill: "#2DD4BF", fillOpacity: 0.06 }}
-                formatter={(value) => [Number(value).toLocaleString(), "Foreign visitor arrivals"]}
+                formatter={(value) => [
+                  Number(value).toLocaleString(),
+                  t("pages.tourismGrowth.tooltipLabel"),
+                ]}
               />
               <Bar dataKey="arrivals" radius={[3, 3, 0, 0]}>
                 {tourismByYear.map((row) => (
@@ -88,22 +90,16 @@ export default function TourismGrowthPage() {
           <AdminLegend />
         </motion.div>
 
-        <p className="text-footnote text-xs mb-10">
-          Every point is a literal published foreign visitor arrival count — from the World Bank's
-          international tourism arrivals series (2010–2020, sourced from the Department of
-          Tourism / UNWTO) and the Department of Tourism's own year-end reports (2021–2025).
-          Figures exclude returning overseas Filipinos to keep the series consistent across years.
-          None of these numbers are growth rates computed by FactPH.
-        </p>
+        <p className="text-footnote text-xs mb-10">{t("pages.tourismGrowth.footnote")}</p>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-4">Full data</h2>
+        <h2 className="text-xl font-heading font-bold text-white mb-4">{t("common.fullData")}</h2>
         <div className="glass-card overflow-x-auto mb-10">
           <table className="w-full text-sm text-left">
             <thead className="text-muted border-b border-grid">
               <tr>
-                <th className="p-4">Year</th>
-                <th className="p-4">Foreign visitor arrivals</th>
-                <th className="p-4">Administration</th>
+                <th className="p-4">{t("common.year")}</th>
+                <th className="p-4">{t("pages.tourismGrowth.tableArrivals")}</th>
+                <th className="p-4">{t("common.administration")}</th>
               </tr>
             </thead>
             <tbody>
@@ -120,7 +116,7 @@ export default function TourismGrowthPage() {
           </table>
         </div>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-2">Sources</h2>
+        <h2 className="text-xl font-heading font-bold text-white mb-2">{t("common.sources")}</h2>
         <div className="space-y-4 mb-10">
           {tourismSources.map((source) => (
             <div key={source.url} className="glass-card p-4">
@@ -135,7 +131,7 @@ export default function TourismGrowthPage() {
                   <ExternalLink size={14} />
                 </a>
                 <span className="text-xs px-2 py-1 rounded-full whitespace-nowrap bg-accent/20 text-accent">
-                  Primary source
+                  {t("common.primarySource")}
                 </span>
               </div>
               <p className="text-footnote text-xs mt-1">

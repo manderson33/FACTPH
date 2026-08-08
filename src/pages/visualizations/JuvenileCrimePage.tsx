@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import {
   LineChart,
@@ -44,6 +45,7 @@ function AdminLegend() {
 }
 
 export default function JuvenileCrimePage() {
+  const { t } = useTranslation();
   return (
     <div className="dot-grid min-h-screen pt-28 px-4 pb-16">
       <Navbar />
@@ -53,23 +55,16 @@ export default function JuvenileCrimePage() {
           className="flex items-center gap-2 text-accent text-sm mb-6"
         >
           <ArrowLeft size={16} />
-          Back to Crime and Safety
+          {t("common.backTo", { category: t("pages.juvenileCrime.eyebrow") })}
         </Link>
 
-        <p className="text-accent text-xs uppercase tracking-widest mb-2">Crime and Safety</p>
-        <h1 className="text-3xl md:text-4xl font-heading font-bold text-white mb-3">
-          Juvenile Crime in the Philippines
-        </h1>
-        <p className="text-muted mb-8 max-w-2xl">
-          PNP-recorded cases of Children in Conflict with the Law (CICL), 2016–2025. Cases fell
-          almost every year from a peak of 26,850 in 2017 to a low of 4,383 in 2024, before rising
-          again to 8,654 in 2025. PNP tracks this through its Crime Information Reporting and
-          Analysis System (PNP-CIRAS); JJWC's wider count also draws on BJMP and Local Social
-          Welfare and Development Offices (LSWDOs). This is a single, continuously reported
-          series — JJWC Executive Director Tricia Clare Oco presented the full run at once, so it
-          isn't a blend of incompatible reporting vintages like an earlier version of this chart
-          was.
+        <p className="text-accent text-xs uppercase tracking-widest mb-2">
+          {t("pages.juvenileCrime.eyebrow")}
         </p>
+        <h1 className="text-3xl md:text-4xl font-heading font-bold text-white mb-3">
+          {t("pages.juvenileCrime.title")}
+        </h1>
+        <p className="text-muted mb-8 max-w-2xl">{t("pages.juvenileCrime.description")}</p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -93,7 +88,10 @@ export default function JuvenileCrimePage() {
                 labelStyle={{ color: "#9FB3C8" }}
                 itemStyle={{ color: "#FFFFFF" }}
                 cursor={{ stroke: "#2DD4BF", strokeWidth: 1 }}
-                formatter={(value) => [Number(value).toLocaleString(), "CICL cases"]}
+                formatter={(value) => [
+                  Number(value).toLocaleString(),
+                  t("pages.juvenileCrime.tooltipLabel"),
+                ]}
               />
               {adminsPresent.map((admin) => (
                 <Line
@@ -114,19 +112,16 @@ export default function JuvenileCrimePage() {
           <AdminLegend />
         </motion.div>
 
-        <p className="text-footnote text-xs mb-10">
-          Every point is a PNP-attributed figure, presented on the record by JJWC and transcribed
-          as reported — never computed, blended, or estimated by FactPH.
-        </p>
+        <p className="text-footnote text-xs mb-10">{t("pages.juvenileCrime.footnote")}</p>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-4">Full data</h2>
+        <h2 className="text-xl font-heading font-bold text-white mb-4">{t("common.fullData")}</h2>
         <div className="glass-card overflow-x-auto mb-10">
           <table className="w-full text-sm text-left">
             <thead className="text-muted border-b border-grid">
               <tr>
-                <th className="p-4">Year</th>
-                <th className="p-4">CICL cases</th>
-                <th className="p-4">Administration</th>
+                <th className="p-4">{t("common.year")}</th>
+                <th className="p-4">{t("pages.juvenileCrime.tableCases")}</th>
+                <th className="p-4">{t("common.administration")}</th>
               </tr>
             </thead>
             <tbody>
@@ -143,7 +138,7 @@ export default function JuvenileCrimePage() {
           </table>
         </div>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-2">Sources</h2>
+        <h2 className="text-xl font-heading font-bold text-white mb-2">{t("common.sources")}</h2>
         <div className="space-y-4 mb-10">
           {juvenileCrimeSources.map((source) => (
             <div key={source.url} className="glass-card p-4">
@@ -158,7 +153,7 @@ export default function JuvenileCrimePage() {
                   <ExternalLink size={14} />
                 </a>
                 <span className="text-xs px-2 py-1 rounded-full whitespace-nowrap bg-accent/20 text-accent">
-                  Primary source
+                  {t("common.primarySource")}
                 </span>
               </div>
               <p className="text-footnote text-xs mt-1">

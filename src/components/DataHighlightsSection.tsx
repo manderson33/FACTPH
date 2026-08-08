@@ -2,6 +2,7 @@ import {
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   LineChart, Line, PieChart, Pie, Cell,
 } from "recharts";
+import { useTranslation } from "react-i18next";
 import ChartCard from "./ChartCard";
 import PopulationMapCard from "./PopulationMapCard";
 import { landAreaByRegionGroup } from "../data/populationData";
@@ -10,16 +11,17 @@ import { gdpGrowth } from "../data/gdpData";
 const PIE_COLORS = ["#E8456B", "#FCD116", "#2DD4BF"];
 
 export default function DataHighlightsSection() {
+  const { t } = useTranslation();
   return (
     <section className="max-w-6xl mx-auto px-4 py-16">
       <h2 className="text-3xl font-heading font-bold text-center mb-10 text-white">
-        Data Highlights
+        {t("home.dataHighlights")}
       </h2>
       <div className="grid md:grid-cols-2 gap-6">
 
         <PopulationMapCard />
 
-        <ChartCard title="GDP Growth (2014–2024)" source="World Bank" year={2024}>
+        <ChartCard title={t("home.gdpGrowthTitle")} source="World Bank" year={2024}>
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={gdpGrowth} margin={{ bottom: 12 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#27384E" />
@@ -50,7 +52,7 @@ export default function DataHighlightsSection() {
           </ResponsiveContainer>
         </ChartCard>
 
-        <ChartCard title="Land Area by Region Group" source="NAMRIA" year={2024}>
+        <ChartCard title={t("home.landAreaTitle")} source="NAMRIA" year={2024}>
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie

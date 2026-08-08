@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { ArrowUpAZ, ArrowDownZA } from "lucide-react";
 import { exploreCategories } from "../data/exploreCategories";
 
@@ -19,6 +20,7 @@ export default function CategorySelect({
   onSortDirChange,
 }: CategorySelectProps) {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [internalSortDir, setInternalSortDir] = useState<"asc" | "desc">("asc");
   const sortDir = controlledSortDir ?? internalSortDir;
   const toggleSortDir = () => {
@@ -29,11 +31,13 @@ export default function CategorySelect({
 
   const sortedCategories = useMemo(() => {
     const copy = [...exploreCategories];
-    copy.sort((a, b) =>
-      sortDir === "asc" ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title)
-    );
+    copy.sort((a, b) => {
+      const aTitle = t(`categories.${a.slug}`);
+      const bTitle = t(`categories.${b.slug}`);
+      return sortDir === "asc" ? aTitle.localeCompare(bTitle) : bTitle.localeCompare(aTitle);
+    });
     return copy;
-  }, [sortDir]);
+  }, [sortDir, t]);
 
   return (
     <div className="flex items-center gap-2">
@@ -42,10 +46,10 @@ export default function CategorySelect({
         onChange={(e) => navigate(e.target.value ? `/explore/${e.target.value}` : "/explore/all")}
         className="bg-navy border border-white/20 text-white text-sm font-semibold rounded-lg px-4 py-2.5 focus:outline-none focus:border-accent transition-colors"
       >
-        <option value="">All categories</option>
+        <option value="">{t("common.allCategories")}</option>
         {sortedCategories.map((c) => (
           <option key={c.slug} value={c.slug}>
-            {c.title}
+            {t(`categories.${c.slug}`)}
           </option>
         ))}
       </select>

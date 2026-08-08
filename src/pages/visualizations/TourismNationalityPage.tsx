@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import {
   BarChart,
@@ -18,6 +19,7 @@ import {
 } from "../../data/tourismNationalityData";
 
 export default function TourismNationalityPage() {
+  const { t } = useTranslation();
   return (
     <div className="dot-grid min-h-screen pt-28 px-4 pb-16">
       <Navbar />
@@ -27,19 +29,19 @@ export default function TourismNationalityPage() {
           className="flex items-center gap-2 text-accent text-sm mb-6"
         >
           <ArrowLeft size={16} />
-          Back to Culture and Tourism
+          {t("common.backTo", { category: t("pages.tourismNationality.eyebrow") })}
         </Link>
 
-        <p className="text-accent text-xs uppercase tracking-widest mb-2">Culture and Tourism</p>
+        <p className="text-accent text-xs uppercase tracking-widest mb-2">
+          {t("pages.tourismNationality.eyebrow")}
+        </p>
         <h1 className="text-3xl md:text-4xl font-heading font-bold text-white mb-3">
-          Arrivals by Nationality
+          {t("pages.tourismNationality.title")}
         </h1>
         <p className="text-muted mb-8 max-w-2xl">
-          South Korea and the United States together accounted for 4 in 10 visitor arrivals in
-          2025 — the top 10 source markets, out of {nationalityArrivalsTotal2025.toLocaleString()}{" "}
-          total arrivals for the full year. Figures are grouped by country of residence, the
-          Department of Trade and Industry's own classification, which can include Philippine
-          passport holders permanently residing abroad.
+          {t("pages.tourismNationality.description", {
+            total: nationalityArrivalsTotal2025.toLocaleString(),
+          })}
         </p>
 
         <motion.div
@@ -73,7 +75,7 @@ export default function TourismNationalityPage() {
                 cursor={{ fill: "#2DD4BF", fillOpacity: 0.06 }}
                 formatter={(value, _name, item) => [
                   `${Number(value).toLocaleString()} (${item.payload.sharePercent}%)`,
-                  "Arrivals",
+                  t("pages.tourismNationality.tooltipLabel"),
                 ]}
               />
               <Bar dataKey="arrivals" fill="#2DD4BF" radius={[0, 3, 3, 0]} />
@@ -82,20 +84,19 @@ export default function TourismNationalityPage() {
         </motion.div>
 
         <p className="text-footnote text-xs mb-10">
-          Every figure is DTI-BPRI's own published full-year 2025 count and percentage share, by
-          country of residence — never computed, ranked, or estimated by FactPH. The top 10
-          countries plus "Others" sum exactly to DTI's own published total of{" "}
-          {nationalityArrivalsTotal2025.toLocaleString()}.
+          {t("pages.tourismNationality.footnote", {
+            total: nationalityArrivalsTotal2025.toLocaleString(),
+          })}
         </p>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-4">Full data</h2>
+        <h2 className="text-xl font-heading font-bold text-white mb-4">{t("common.fullData")}</h2>
         <div className="glass-card overflow-x-auto mb-10">
           <table className="w-full text-sm text-left">
             <thead className="text-muted border-b border-grid">
               <tr>
-                <th className="p-4">Country of residence</th>
-                <th className="p-4">Arrivals (2025)</th>
-                <th className="p-4">Share</th>
+                <th className="p-4">{t("pages.tourismNationality.tableCountry")}</th>
+                <th className="p-4">{t("pages.tourismNationality.tableArrivals")}</th>
+                <th className="p-4">{t("pages.tourismNationality.tableShare")}</th>
               </tr>
             </thead>
             <tbody>
@@ -107,7 +108,7 @@ export default function TourismNationalityPage() {
                 </tr>
               ))}
               <tr className="border-b border-grid/50">
-                <td className="p-4 font-semibold text-white">Total</td>
+                <td className="p-4 font-semibold text-white">{t("common.total")}</td>
                 <td className="p-4 font-semibold text-white">
                   {nationalityArrivalsTotal2025.toLocaleString()}
                 </td>
@@ -117,7 +118,7 @@ export default function TourismNationalityPage() {
           </table>
         </div>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-2">Sources</h2>
+        <h2 className="text-xl font-heading font-bold text-white mb-2">{t("common.sources")}</h2>
         <div className="space-y-4 mb-10">
           {nationalitySources.map((source) => (
             <div key={source.url} className="glass-card p-4">
@@ -132,7 +133,7 @@ export default function TourismNationalityPage() {
                   <ExternalLink size={14} />
                 </a>
                 <span className="text-xs px-2 py-1 rounded-full whitespace-nowrap bg-accent/20 text-accent">
-                  Primary source
+                  {t("common.primarySource")}
                 </span>
               </div>
               <p className="text-footnote text-xs mt-1">

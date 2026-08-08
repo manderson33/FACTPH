@@ -1,0 +1,357 @@
+{
+  "nav": {
+    "home": "Home",
+    "explore": "Tuklasin ang Datos",
+    "regions": "Mga Rehiyon",
+    "about": "Tungkol",
+    "viewAllVisualizations": "Tingnan lahat ng visualization →",
+    "viewAllRegions": "Tingnan lahat ng rehiyon →",
+    "electoralMap": "Mapa ng Halalan",
+    "populationByRegion": "Populasyon kada Rehiyon"
+  },
+  "home": {
+    "kicker": "// DATA JOURNALISM · PH",
+    "tagline": "SA LOOB NG 2 MINUTO",
+    "subtitle": "Unawain ang Pilipinas sa pamamagitan ng datos.",
+    "exploreData": "Tuklasin ang Datos",
+    "browseRegion": "Mga Rehiyon",
+    "dataHighlights": "Mga Tampok na Datos",
+    "gdpGrowthTitle": "Paglago ng GDP (2014–2024)",
+    "landAreaTitle": "Lawak ng Lupa ayon sa Grupo ng Rehiyon",
+    "loading": "Naglo-load…",
+    "stats": {
+      "population": "Populasyon",
+      "gdp": "GDP",
+      "islands": "Isla",
+      "provinces": "Lalawigan",
+      "cities": "Lungsod",
+      "regions": "Rehiyon",
+      "capital": "Kabisera"
+    }
+  },
+  "about": {
+    "kicker": "// TUNGKOL",
+    "title": "Tungkol sa FactPH",
+    "whyTitle": "Bakit umiiral ang FactPH",
+    "why1": "Pinagsasama-sama ng FactPH ang datos tungkol sa Pilipinas na bukas sa publiko, gamit ang impormasyong direktang kinuha mula sa mga ahensya ng gobyerno at opisyal na mga tala.",
+    "why2": "Kadalasan, nakakalat sa iba't ibang institusyon ang mahahalagang estadistika, o naririnig lamang natin ito nang di-tuwiran sa mga balita at post sa internet. Sa proseso, maaaring masyadong pinasimple ang mga bilang, sinipi nang walang konteksto, o mahiwalay sa orihinal na pinagmulan.",
+    "why3": "Tinutulungan ng FactPH na tugunan ang puwang na iyon sa pamamagitan ng pagpapakita ng datos mula sa mga pangunahing dokumento sa paraang mas madaling hanapin, tuklasin, at unawain. Bawat presentasyon ay may link pabalik sa pinagmulan nito, para masuri mismo ng mambabasa ang impormasyon.",
+    "missionTitle": "Personal na misyon",
+    "founderAlt": "Founder ng FactPH",
+    "mission1": "Itinayo ko ang FactPH dahil ayaw kong umasa sa hula.",
+    "mission2": "Hindi ako mamamahayag, pulitiko, o ekonomista. Isa lang akong Pilipinong pagod na sa mga usapang pambansa na nakabatay sa kalahating-natatandaang estadistika, walang-pinagmulang screenshot, at mga bilang na tila totoo dahil lamang paulit-ulit itong sinasabi nang may tiwala.",
+    "mission3": "Gusto kong umunlad ang Pilipinas. Ngunit hindi natin maaayos ang hindi natin malinaw na nakikita. Bago pa tayo mag-usap-usap tungkol sa solusyon, dapat muna nating pagkasunduan ang mga katotohanan.",
+    "mission4": "May umiiral nang pampublikong datos tungkol sa edukasyon, pamamahala, ekonomiya, kalusugan, at pang-araw-araw na buhay ng Pilipino. Ngunit kadalasan, nakabaon ito sa mahahabang ulat, nakakalat sa iba't ibang ahensya ng gobyerno, o ipinapakita nang walang sapat na konteksto para lubos na maunawaan.",
+    "mission5": "Kaya ko itinayo ang FactPH: para gawing mas madaling hanapin, unawain, at suriin ang mahahalagang pampublikong datos.",
+    "mission6": "Ang site ay kumukuha mula sa mga pangunahing pinagmulan, at bawat presentasyon ay may kasamang mga sanggunian nito para masuri ng mambabasa ang orihinal na impormasyon at sila mismo ang magpasya kung ano ang ibig sabihin nito.",
+    "caveatTitle": "Tapat na paalala",
+    "caveat1": "Alam nating lahat na hindi madaling hanapin o suriin ang bawat bilang. May mga hindi kumpletong dataset ang gobyerno, may mga ulat na naglalaman ng magkasalungat na bilang, at may mga claim na hinihintay pa ang independiyenteng kumpirmasyon.",
+    "caveat2": "Kapag nangyari iyon, tuwirang sasabihin ito ng FactPH. Hindi tahimik na pupunuin ng platform na ito ang nawawalang impormasyon ng haka-haka, o ipapakita ang hindi tiyak na bilang na parang tapos nang katotohanan.",
+    "caveat3": "Naniniwala ako na mas mahalaga ang isang pinagmulang masusuri at matatanong mo kaysa sa isang mapagtiwalang headline na hindi mo masusuri."
+  },
+  "regions": {
+    "title": "Mga Rehiyon",
+    "subtitle": "Tuklasin ang Pilipinas, rehiyon kada rehiyon — i-click ang isang card para sa buong mapa at datos.",
+    "electoralMapDescription": "Mga rehistradong botante at turnout kada rehiyon sa 2025 National and Local Elections, ayon sa COMELEC.",
+    "populationByRegionDescription": "Kung paano naipamahagi ang 112.7 milyong Pilipino sa 18 rehiyon ng bansa, ayon sa 2024 Census."
+  },
+  "explorer": {
+    "title": "Tuklasin ang Datos",
+    "subtitle": "Bawat visualization dito ay direktang kinuha mula sa mga pangunahing dokumento — pag-audit ng gobyerno, ahensya ng estadistika, at opisyal na ulat. I-click ang alinmang card para makita ang buong datos at mga sanggunian.",
+    "topicsTrackedSuffix_one": "paksang sinusubaybayan namin para sa kategoryang ito. Bawat isa ay magkakaroon ng sarili nitong sourced at verified na visualization kapag na-publish na.",
+    "topicsTrackedSuffix_other": "paksang sinusubaybayan namin para sa kategoryang ito. Bawat isa ay magkakaroon ng sarili nitong sourced at verified na visualization kapag na-publish na.",
+    "topics_one": "paksa",
+    "topics_other": "paksa"
+  },
+  "common": {
+    "fullData": "Buong Datos",
+    "sources": "Mga Sanggunian",
+    "primarySource": "Pangunahing Pinagmulan",
+    "newsCoverage": "Ulat Balita",
+    "backTo": "Bumalik sa {{category}}",
+    "viewVisualization": "Tingnan ang visualization",
+    "comingSoon": "Malapit nang mailathala",
+    "allCategories": "Lahat ng kategorya",
+    "year": "Taon",
+    "administration": "Administrasyon",
+    "source": "Pinagmulan",
+    "total": "Kabuuan",
+    "approve": "sumang-ayon",
+    "netSatisfaction": "net satisfaction"
+  },
+  "categories": {
+    "cost-of-living-prices": "Gastos sa Pamumuhay at Presyo",
+    "housing-basic-services": "Pabahay at Batayang Serbisyo",
+    "economy": "Ekonomiya",
+    "culture-tourism": "Kultura at Turismo",
+    "politics-public-opinion": "Pulitika at Opinyon ng Publiko",
+    "crime-safety": "Krimen at Kaligtasan",
+    "health": "Kalusugan",
+    "infrastructure": "Imprastraktura"
+  },
+  "topics": {
+    "overall-inflation": {
+      "title": "Pangkalahatang implasyon",
+      "description": "Positibo ang implasyon sa bawat taon mula 2011 — ang buong 15-taong takbo ng headline inflation rate ng PSA/World Bank."
+    },
+    "food-inflation": {
+      "title": "Implasyon sa pagkain",
+      "description": "Sa dalawang taong may kumpirmadong buong-taong average, mas mabilis tumaas ang presyo ng pagkain kaysa sa headline inflation — 7.9% laban sa 5.98% noong 2023, 4.5% laban sa 3.21% noong 2024."
+    },
+    "rice-food-prices": {
+      "title": "Presyo ng bigas at pagkain",
+      "description": "Bumaba ang presyo ng bigas matapos ang 2019 tariffication law, pagkatapos ay biglang tumaas ng 26% noong 2024 — sinusubaybayan laban sa RA 11203 at sa price cap ng 2023 EO 39."
+    },
+    "yolanda-housing": {
+      "title": "Pagmamay-ari at panunungkulan ng pabahay",
+      "description": "Kung paano naging performance ng tatlong administrasyon sa Yolanda Permanent Housing Program, ayon sa mga snapshot ng pag-audit ng COA."
+    },
+    "consumer-business-confidence": {
+      "title": "Kumpiyansa ng Konsyumer at Negosyo",
+      "description": "Ang quarterly confidence indices ng BSP: net-optimistiko ang mga negosyo mula 2023, samantalang net-pesimistiko naman ang mga konsyumer."
+    },
+    "fdi-by-administration": {
+      "title": "Dayuhang direktang pamumuhunan",
+      "description": "Net FDI inflows sa ilalim nina Aquino III, Duterte, at Marcos Jr. — sariling taunang balance-of-payments figures ng BSP, 2010 hanggang sa kasalukuyan."
+    },
+    "national-debt": {
+      "title": "Utang ng pambansang gobyerno",
+      "description": "Halos apat na beses tumaas ang natitirang utang ng Pambansang Gobyerno mula ₱4.72 trilyon noong 2010 tungong ₱17.71 trilyon noong 2025, ayon sa sariling year-end figures ng Bureau of the Treasury."
+    },
+    "tourism-growth": {
+      "title": "Tunay na paglago ng turismo",
+      "description": "Bumagsak ng 98% ang dayuhang bisita noong 2021, at apat na taon bago lubos na bumawi — inihambing sina Aquino III, Duterte, at Marcos Jr., 2010 hanggang sa kasalukuyan."
+    },
+    "tourism-nationality": {
+      "title": "Mga bisita ayon sa nasyonalidad",
+      "description": "4 sa bawat 10 dayuhang bisita noong 2025 ay mula sa South Korea at United States — ang nangungunang 10 pinagmulang bansa, ayon sa sariling inilathalang breakdown ng DTI."
+    },
+    "presidential-approval-ratings": {
+      "title": "Approval rating ng Pangulo",
+      "description": "Sariling inilathalang Approval Rating ng Pulse Asia para sa nakaupong Pangulo, sina Aquino III, Duterte, at Marcos Jr., mula sa inagurasyon hanggang sa pinakahuling survey."
+    },
+    "vp-approval-ratings": {
+      "title": "Approval rating ng Bise Presidente",
+      "description": "Sariling inilathalang Approval Rating ng Pulse Asia para kina Binay, Robredo, at Sara Duterte, mula sa inagurasyon hanggang sa pinakahuling survey."
+    },
+    "presidential-net-satisfaction": {
+      "title": "Net satisfaction rating ng Pangulo",
+      "description": "Sariling inilathalang Net Satisfaction Rating ng SWS para sa nakaupong Pangulo, sina Aquino III, Duterte, at Marcos Jr., mula sa inagurasyon hanggang sa pinakahuling survey."
+    },
+    "vp-net-satisfaction": {
+      "title": "Net satisfaction rating ng Bise Presidente",
+      "description": "Sariling inilathalang Net Satisfaction Rating ng SWS para kina Binay, Robredo, at Sara Duterte, mula sa inagurasyon hanggang sa pinakahuling survey."
+    },
+    "juvenile-crime": {
+      "title": "Krimeng Kabataan sa Pilipinas",
+      "description": "Mga kasong naitala ng PNP na Children in Conflict with the Law, 2016–2025 — bumaba ang kaso mula 26,850 noong 2017 tungong 4,383 noong 2024, bago muling tumaas sa 8,654 noong 2025."
+    },
+    "philhealth-subsidy": {
+      "title": "Subsidyo ng gobyerno sa PhilHealth",
+      "description": "Mula ₱5.17B sa ilalim ni Aquino III tungong zero matapos ang 2025 cut ng Kongreso, bumawi sa ₱69.78B para sa 2026 — hindi kasama ang hiwalay na ₱60B na inutos ng Korte Suprema na ibalik sa PhilHealth."
+    },
+    "dpwh-budget": {
+      "title": "Naisabatas na badyet ng DPWH",
+      "description": "Tumaas ang naisabatas na badyet ng DPWH mula ₱100.8B noong 2011 tungo sa pinakamataas na ₱1.11 trilyon noong 2025, bago halos nahati ang halaga tungong ₱529.6B para sa 2026 matapos ang flood-control corruption scandal."
+    }
+  },
+  "maps": {
+    "registeredVoters": "Rehistradong botante",
+    "turnout": "Turnout",
+    "population": "Populasyon",
+    "source": "Pinagmulan: {{source}}, {{year}}",
+    "ariaVoters": "Choropleth map ng Pilipinas na nagpapakita ng rehistradong botante kada rehiyon",
+    "ariaPopulation": "Choropleth map ng Pilipinas na nagpapakita ng populasyon kada rehiyon"
+  },
+  "pages": {
+    "overallInflation": {
+      "eyebrow": "Gastos sa Pamumuhay at Presyo",
+      "title": "Pangkalahatang Implasyon",
+      "description": "Tumaas ang presyo sa bawat taon mula 2011 — hindi kailanman naging negatibo ang implasyon sa buong taon sa nakalipas na 15 taon. Ang kulay ng bar ay batay sa administrasyong nanungkulan sa mas malaking bahagi ng taon na iyon. Hindi pa tapos ang 2026 (mas maputlang kulay), kaya sa halip na buong-taong bilang, ipinapakita nito ang sariling January–June 2026 average ng PSA na 4.8%.",
+      "tooltipFull": "Inflation rate",
+      "tooltipPartial": "Inflation rate (YTD average, hindi pa pinal)",
+      "tableRate": "Inflation Rate",
+      "ytdAverage": "(YTD average)"
+    },
+    "foodInflation": {
+      "eyebrow": "Gastos sa Pamumuhay at Presyo",
+      "title": "Implasyon sa Pagkain",
+      "description": "Hinihiwalay ng PSA ang pagkain at di-alkoholikong inumin mula sa headline inflation bilang sarili nitong serye — at sa dalawang taong may kumpirmadong buong-taong average, mas mabilis tumaas ang presyo ng pagkain kaysa sa pangkalahatang presyo. Noong {{month}}, bukas pa rin ang puwang na iyon: {{headlinePct}}% ang headline inflation laban sa {{foodPct}}% na food inflation.",
+      "footnote": "Limitado lamang sa mga taong may kumpirmado at maihahambing na buong-taong average para sa parehong serye — hindi laging naaabot mula sa mga pangunahing pinagmulan ang food-CPI breakout ng PSA para sa 2011–2022 sa oras ng pagsulat nito, kaya sinadyang maikli ang chart na ito sa halip na punuin ng tantiya.",
+      "legendHeadline": "Headline inflation",
+      "legendFood": "Food inflation",
+      "tableHeadline": "Headline Inflation",
+      "tableFood": "Food Inflation"
+    },
+    "riceFoodPrices": {
+      "eyebrow": "Gastos sa Pamumuhay at Presyo",
+      "title": "Presyo ng Bigas at Pagkain",
+      "description": "Bumaba ang retail na presyo ng well-milled na bigas matapos buksan ng 2019 Rice Tariffication Law ang merkado sa mga imported, pagkatapos ay biglang tumaas ng 26% sa loob lamang ng isang taon hanggang 2024 — malaking bahagi ng ginagastos ng mababang-kitang pamilyang Pilipino sa pagkain ang bigas, kaya malapit na sumusunod ang linyang ito sa kung gaano kamahal ang buhay para sa milyun-milyong pamilya.",
+      "footnote": "Hindi ito isang walang-putol na taunang serye — hindi naaabot mula sa mga pangunahing pinagmulan ang price-situationer archive ng PSA para sa 2011–2017 at 2021–2022 sa oras ng pagsulat nito, kaya iniwan na lamang ang mga taong iyon sa halip na i-interpolate.",
+      "tooltipLabel": "Well-milled na bigas",
+      "tableRice": "Well-Milled na Bigas (kada kg)"
+    },
+    "yolandaHousing": {
+      "eyebrow": "Pabahay at Recovery sa Sakuna",
+      "title": "Pabahay ng Yolanda: Nakumpleto kumpara sa Walang Nakatira kumpara sa Backlog",
+      "description": "Tatlong administrasyon na ang namamahala sa Yolanda Permanent Housing Program mula nang tumama ang Super Typhoon Yolanda noong 2013. Bawat bar ay sumasalamin sa snapshot ng Commission on Audit sa katapusan ng termino ng administrasyong iyon, o ang pinakahuling available na audit para sa tumatakbo pang termino.",
+      "footnote1": "Paalala: Ang \"Walang Nakatira\" ay subset ng \"Nakumpleto,\" hindi karagdagang grupo ng mga yunit. Nagbago ang target sa paglipas ng panahon, kaya ang \"Backlog\" ay sumasalamin sa sariling nakasaad na target ng bawat snapshot na taon, bawas ang natapos na kabuuan noong taong iyon.",
+      "footnote2": "Pinapatunayan ang mga figure sa panahon ni Marcos ng isang dokumento ng Senado ng Pilipinas na direktang sumisipi sa 2023 NHA Annual Audit Report ng COA. Hindi nahanap ang direktang link sa partikular na COA PDF na iyon, kaya ang archive ng ulat ng COA ang naka-link sa halip." ,
+      "legendCompleted": "Nakumpleto",
+      "legendUnoccupied": "Walang Nakatira",
+      "legendBacklog": "Backlog",
+      "tableSnapshot": "Snapshot",
+      "tableTarget": "Target",
+      "tableCompleted": "Nakumpleto",
+      "tableUnoccupied": "Walang Nakatira",
+      "tableBacklog": "Backlog",
+      "sourcesNote": "Nakalista muna ang mga pangunahing pinagmulan, sinusundan ng independiyenteng beripikasyong pamamahayag."
+    },
+    "consumerBusinessConfidence": {
+      "eyebrow": "Ekonomiya",
+      "title": "Kumpiyansa ng Konsyumer at Negosyo",
+      "description": "Ang confidence indices (CI) ng BSP ay diffusion indices — ang porsyento ng mga sumagot nang positibo tungkol sa outlook ng ekonomiya, bawas ang porsyentong sumagot nang negatibo. Zero ang neutral. Positibo ang kumpiyansa ng negosyo sa bawat quarter mula 2011 maliban sa dalawa (Q3 2020 at Q3 2021). Panandaliang naging positibo ang kumpiyansa ng konsyumer mula kalagitnaan ng 2016 hanggang kalagitnaan ng 2018, at muli mula kalagitnaan ng 2019 hanggang unang bahagi ng 2020, ngunit palaging negatibo mula noon sa bawat quarter.",
+      "footnote": "Business CI: kasalukuyang-quarter na Overall Business Confidence Index, hindi seasonally-adjusted, Business Expectations Survey (top 7,000 korporasyon ayon sa asset). Consumer CI: kasalukuyang-quarter na overall composite index, Consumer Expectations Survey (~5,000 sambahayan). Bawat punto ay literal na quarterly reading na kinopya mula sa sariling inilathalang datos ng BSP — walang isa man sa mga figure na ito ang in-average, tinantya, o kinompyut ng FactPH. Nawawala ang Q2 2020 sa parehong serye dahil kinansela ng BSP ang survey round noong quarter na iyon dahil sa nationwide COVID-19 community quarantine.",
+      "legendBusiness": "Business CI",
+      "legendConsumer": "Consumer CI",
+      "tableQuarter": "Quarter",
+      "tableBusiness": "Business CI",
+      "tableConsumer": "Consumer CI"
+    },
+    "fdi": {
+      "eyebrow": "Ekonomiya",
+      "title": "Dayuhang Direktang Pamumuhunan",
+      "description": "Net FDI sa nakalipas na tatlong administrasyon, 2010 hanggang sa kasalukuyan. Halos bawat taon lumago ang inflows sa ilalim nina Aquino III at Duterte, umabot sa rekord na $11.98 bilyon noong 2021, bago humina sa ilalim ni Marcos Jr. tungong $7.79 bilyon noong 2025.",
+      "footnote": "Bawat punto ay sariling inilathalang Net Foreign Direct Investment total ng BSP (BPM6 concept: equity capital + reinvestment of earnings + net debt instruments), sa US dollars — hindi kinompyut, na-net, o tinantya ng FactPH.",
+      "tooltipLabel": "Net FDI",
+      "tableFdi": "Net FDI (USD milyon)"
+    },
+    "nationalDebt": {
+      "eyebrow": "Ekonomiya",
+      "title": "Utang ng Pambansang Gobyerno ng Pilipinas",
+      "description": "Ang kabuuang natitirang utang ng Pambansang Gobyerno sa katapusan ng taon, 2010–2025, dagdag pa ang pinakabagong available na snapshot ng 2026 — sariling direktang domestic at external na utang, ayon sa sariling inilathalang figures ng Bureau of the Treasury. Tumaas ang utang mula ₱4.72 trilyon sa katapusan ng 2010 tungong ₱17.71 trilyon sa katapusan ng 2025, na may pinakamatarik na pagtaas noong 2020–2021 nang malakas manghiram ang gobyerno para sa COVID-19 pandemic response. Mula noon ay tumaas pa ito tungong ₱19.07 trilyon noong end-June 2026, ang pinakahuling buwang inulat ng BTr.",
+      "avgLabel_one": "karaniwang year-end debt, {{count}} taon",
+      "avgLabel_other": "karaniwang year-end debt, {{count}} taon",
+      "addedThrough": "idinagdag mula nang manungkulan (hanggang {{year}})",
+      "addedOngoing": "idinagdag mula nang manungkulan sa ngayon (as of {{year}})",
+      "footnote": "Bawat figure ay sariling inulat na \"total outstanding debt\" ng Pambansang Gobyerno — hindi kailanman kinompyut, na-net, o tinantya ng FactPH. Ito ang direktang utang lamang ng NG (domestic government securities kasama ang external loans at bonds); hindi kasama rito ang NG-guaranteed obligations ng mga korporasyong pampamahalaan, na hiwalay na inuulat at sinusubaybayan ng BTr bilang contingent liability, hindi bahagi ng sariling debt stock ng gobyerno. Ang bar ng 2026 (mas maputlang kulay) ay ang pinakahuling monthly snapshot ng BTr, end-June 2026 — hindi year-end total, dahil hindi pa tapos ang 2026. Bawat taon ay iniuugnay sa administrasyong nanungkulan sa Dec 31 snapshot date ng taong iyon — ang Pangulo ay inaugurahan tuwing June 30, kaya ang 2016 (Aquino III → Duterte) at 2022 (Duterte → Marcos Jr.) ay mga transition year na ibinibilang sa papasok na administrasyon, dahil ang administrasyong iyon ang nanungkulan noong kinuha ang year-end figure. Ang mga card sa itaas ng chart ang dalawang FactPH computation sa pahinang ito, parehong simpleng aritmetika lamang sa naunang inilathalang figures ng BTr, hindi kailanman tinantya: ang average ay ang mean ng sariling year-end figures ng bawat administrasyon (hindi kasama ang partial na 2026 snapshot); ang halagang idinagdag ay ang sariling pinakahuling figure ng administrasyong iyon bawas ang debt level sa katapusan ng huling taon ng nauna rito (para kay Aquino III, na wala sa dataset na ito ang nauna sa kanya, ang ginamit ay ang sariling inilathalang 2009 figure ng BTr) — kaya ang \"idinagdag\" na figure ni Marcos Jr. ay kinakailangang tumatakbo pa at hindi pa pinal, dahil hindi pa nagtatapos ang kanyang termino.",
+      "tooltipFull": "Outstanding debt",
+      "tooltipPartial": "Outstanding debt (mid-year, hindi pa pinal)",
+      "tableDebt": "Natitirang utang (₱ trilyon)",
+      "partialYear": "(partial na taon)"
+    },
+    "tourismGrowth": {
+      "eyebrow": "Kultura at Turismo",
+      "title": "Tunay na Paglago ng Turismo",
+      "description": "Dayuhang bisita sa nakalipas na tatlong administrasyon, 2010 hanggang sa kasalukuyan. Lumago ang bisita sa bawat taon sa ilalim nina Aquino III at Duterte, umabot sa rekord na 8.26 milyon noong 2019, bago bumagsak ng 98% tungong 163,879 noong 2021 dahil sa pagsara ng mga hangganan para sa COVID-19. Sa ilalim ni Marcos Jr., bumawi ang bisita sa 5.94 milyon noong 2025 — mas mababa pa rin sa peak noong 2019.",
+      "footnote": "Bawat punto ay literal na inilathalang bilang ng dayuhang bisita — mula sa international tourism arrivals series ng World Bank (2010–2020, kinuha mula sa Department of Tourism / UNWTO) at sa sariling year-end reports ng Department of Tourism (2021–2025). Hindi kasama sa mga figure ang bumabalik na overseas Pilipino para panatilihing consistent ang serye sa iba't ibang taon. Wala sa mga bilang na ito ang growth rate na kinompyut ng FactPH.",
+      "tooltipLabel": "Dayuhang bisita",
+      "tableArrivals": "Dayuhang bisita"
+    },
+    "tourismNationality": {
+      "eyebrow": "Kultura at Turismo",
+      "title": "Mga Bisita Ayon sa Nasyonalidad",
+      "description": "Magkasamang binubuo ng South Korea at United States ang 4 sa bawat 10 bisita noong 2025 — ang nangungunang 10 pinagmulang bansa, mula sa {{total}} kabuuang bisita para sa buong taon. Naka-grupo ang mga figure ayon sa bansang tinitirhan, ang sariling klasipikasyon ng Department of Trade and Industry, na maaaring kasama ang mga Pilipinong may passport na permanenteng nakatira sa ibang bansa.",
+      "footnote": "Bawat figure ay sariling inilathalang buong-taong 2025 na bilang at porsyentong share ng DTI-BPRI, ayon sa bansang tinitirhan — hindi kailanman kinompyut, ni-rank, o tinantya ng FactPH. Ang nangungunang 10 bansa kasama ang \"Iba pa\" ay eksaktong katumbas ng sariling inilathalang kabuuan ng DTI na {{total}}.",
+      "tooltipLabel": "Bisita",
+      "tableCountry": "Bansang tinitirhan",
+      "tableArrivals": "Bisita (2025)",
+      "tableShare": "Share"
+    },
+    "juvenileCrime": {
+      "eyebrow": "Krimen at Kaligtasan",
+      "title": "Krimeng Kabataan sa Pilipinas",
+      "description": "Mga kasong naitala ng PNP na Children in Conflict with the Law (CICL), 2016–2025. Bumaba ang kaso halos bawat taon mula sa peak na 26,850 noong 2017 tungong pinakamababang 4,383 noong 2024, bago muling tumaas sa 8,654 noong 2025. Sinusubaybayan ito ng PNP sa pamamagitan ng kanilang Crime Information Reporting and Analysis System (PNP-CIRAS); ang mas malawak na bilang ng JJWC ay kumukuha rin mula sa BJMP at Local Social Welfare and Development Offices (LSWDOs). Iisang, patuloy na inuulat na serye ito — inilahad ni JJWC Executive Director Tricia Clare Oco ang buong takbo nang sabay-sabay, kaya hindi ito halo ng magkaibang bersyon ng pag-uulat tulad ng naunang bersyon ng chart na ito.",
+      "footnote": "Bawat punto ay figure na iniuugnay sa PNP, inilahad nang opisyal ng JJWC at kinopya nang eksakto — hindi kailanman kinompyut, hinalo, o tinantya ng FactPH.",
+      "tooltipLabel": "Kaso ng CICL",
+      "tableCases": "Kaso ng CICL"
+    },
+    "philhealthSubsidy": {
+      "eyebrow": "Kalusugan",
+      "title": "Subsidyo ng Gobyerno sa PhilHealth",
+      "description": "Ang subsidyo ng National Health Insurance Program (NHIP) para sa PhilHealth, 2010–2026 — mula sa Department of Budget and Management at sa sariling audited disclosures ng PhilHealth. Tumaas ang subsidyo mula ₱5.17B sa ilalim ni Aquino III tungo sa peak na ₱100.2B sa ilalim ni Marcos Jr. noong 2023, bago ito binawasan ng Kongreso tungong zero para sa 2025 at bumawi sa ₱69.78B para sa 2026. Hiwalay na naglalaan ang 2026 GAA ng karagdagang ₱60B para ibalik ang perang idineklarang unconstitutional ng Korte Suprema na kinuha mula sa reserves ng PhilHealth noong 2024 — restitusyon ito, hindi bagong subsidyo, kaya hindi ito kasama sa figure na ipinapakita rito.",
+      "footnote": "Bawat figure ay literal na inilathalang halaga — hindi kailanman kinompyut, na-net, o tinantya ng FactPH. Ang 2010–2016, 2022–2024, at 2026 ay naisabatas na kabuuan ng GAA o sariling audited subsidy disclosures ng PhilHealth. Ang 2017–2021 (mas maputlang kulay sa chart) ay proposed-budget figures na hango sa naunang pananaliksik at hindi independiyenteng na-kumpirma laban sa naisabatas na teksto ng GAA — dapat pag-ingatan, dahil ang proposed figure ng 2024 (₱101.5B) ay lubhang naiba sa aktwal na naisabatas (₱61.5B). Ipinapakita ng 2025 ang naisabatas na halaga (zero) sa halip na ₱74.43B na orihinal na iminungkahi. Naglalaan ang GAA ng 2026 ng kabuuang ₱129.782B para sa PhilHealth, ngunit ₱60B nito ay hiwalay at malinaw na label na linyang nagbabalik ng perang idineklarang unconstitutional ng Korte Suprema na kinuha mula sa sariling reserves ng PhilHealth noong 2024 — restitusyon ito, hindi bagong subsidyo, kaya hindi ito kasama sa ₱69.782B na ipinapakita rito.",
+      "tooltipLabel": "Subsidyo ng gobyerno",
+      "tableSubsidy": "Subsidyo ng gobyerno (₱ bilyon)",
+      "tableNote": "Paalala",
+      "proposedTag": "(iminungkahi)"
+    },
+    "dpwhBudget": {
+      "eyebrow": "Imprastraktura",
+      "title": "Naisabatas na Badyet ng DPWH",
+      "description": "Ang kabuuang naisabatas na badyet ng Department of Public Works and Highways, 2010–2026 — ang \"TOTAL NEW APPROPRIATIONS\" figure na direktang kinuha mula sa General Appropriations Act ng bawat taon. Tumaas ang badyet mula ₱100.8B noong 2011 tungo sa peak na ₱1.11 trilyon noong 2025, bago halos nahati ang halaga tungong ₱529.6B para sa 2026 matapos ang flood-control corruption scandal noong 2025 at ang sariling reform push ng DPWH.",
+      "footnote": "Bawat figure ay ang literal na \"TOTAL NEW APPROPRIATIONS\" grand total para sa DPWH gaya ng naisabatas sa General Appropriations Act ng taong iyon — hindi kailanman proposed National Expenditure Program figure, at hindi kailanman kinompyut, na-net, o tinantya ng FactPH. Sa bawat taong ipinapakita, ang buong badyet ng departamento ng DPWH ay nasa ilalim ng Office of the Secretary, kaya ito ang buong naisabatas na appropriation ng departamento, hindi isang sub-total.",
+      "tooltipLabel": "Naisabatas na badyet",
+      "tableBudget": "Naisabatas na badyet (₱ bilyon)"
+    },
+    "electoralMap": {
+      "eyebrow": "Halalan",
+      "title": "Rehistradong Botante kada Rehiyon (2025)",
+      "description": "{{domestic}} Pilipino ang rehistradong bumoto sa loob ng bansa sa May 12, 2025 National and Local Elections, sa 18 rehiyon ng bansa — dagdag pa ang {{overseas}} rehistradong overseas voter. I-hover ang isang rehiyon para makita ang mga bilang nito.",
+      "footnote": "Iniuulat ng COMELEC ang Negros Island Region (NIR) bilang sarili nitong electoral region para sa 2025, hiwalay sa Region VI at Region VII, kahit hindi ito pormal na naibalik bilang administrative region. Sumasalamin ang hangganan ng mapa sa 2019 administrative divisions.",
+      "toggleVoters": "Rehistradong Botante",
+      "toggleTurnout": "Voter Turnout",
+      "tableRegion": "Rehiyon",
+      "tableIslandGroup": "Island Group",
+      "tableRegisteredVoters": "Rehistradong Botante",
+      "tableVoted": "Bumoto",
+      "tableTurnout": "Turnout",
+      "sourcesNote": "Ang mga regional total ay sariling subtotal rows ng COMELEC sa dokumentong pinagmulan sa ibaba, at independiyenteng na-cross-check sa pamamagitan ng pagsuma ng province-level rows ng bawat rehiyon sa parehong ulat."
+    },
+    "populationByRegion": {
+      "eyebrow": "Mga Rehiyon",
+      "title": "Populasyon kada Rehiyon",
+      "description": "{{total}} Pilipino ang nabilang sa 18 rehiyon ng bansa sa 2024 Census of Population and Housing. I-hover ang isang rehiyon para makita ang populasyon nito.",
+      "footnote": "Naglalathala lamang ang PSA ng populasyon kada rehiyon — walang iisang Luzon/Visayas/Mindanao island-group total na direktang inilathalang figure, kaya walang island-group breakdown na kinompyut o ipinapakita rito.",
+      "tableRegion": "Rehiyon",
+      "tableIslandGroup": "Island Group",
+      "tablePopulation": "Populasyon",
+      "sourceTitle": "2024 Census of Population and Housing (2024 POPCEN)",
+      "sourcePublisher": "Philippine Statistics Authority — idineklarang opisyal ang bilang ng populasyon sa pamamagitan ng Proclamation No. 973 (Hulyo 11, 2025)"
+    },
+    "presidentialApproval": {
+      "eyebrow": "Pulitika at Opinyon ng Publiko",
+      "title": "Approval Rating ng Pangulo",
+      "description": "Sariling inilathalang \"Approval Rating\" ng Pulse Asia para sa nakaupong Pangulo, mula sa inagurasyon ni Aquino III noong 2010 hanggang sa pinakahuling survey round. May mga survey round na hindi isinagawa (hal. hindi nagsagawa ng approval polling ang Pulse Asia sa halos buong 2020–2021), at ilang figure na may magkasalungat na bilang sa iba't ibang pinagmulan ay iniwan na lamang sa halip na hulaan — nagpapakita ito bilang puwang sa linya, hindi zero.",
+      "footnote": "Bawat punto ay sariling inilathalang Approval Rating ng Pulse Asia (porsyentong sumang-ayon), gaya ng iniulat sa kanilang nationwide na Ulat ng Bayan surveys — hindi kailanman figure na kinompyut, na-net, o tinantya ng FactPH.",
+      "tablePresident": "Pangulo",
+      "tablePeriod": "Panahon ng survey",
+      "tableApproval": "Approval",
+      "tableSource": "Pinagmulan",
+      "sourcesNote": "Bawat row sa talaan sa itaas ay may link sa partikular na press release o ulat balita na direktang sumisipi sa inilathalang Approval Rating ng survey round na iyon."
+    },
+    "vpApproval": {
+      "eyebrow": "Pulitika at Opinyon ng Publiko",
+      "title": "Approval Rating ng Bise Presidente",
+      "description": "Sariling inilathalang \"Approval Rating\" ng Pulse Asia para sa nakaupong Bise Presidente, mula sa inagurasyon ni Binay noong 2010 hanggang sa pinakahuling survey round. Ang mga round ni Binay noong 2010–2011, ang Mar–Jun 2020 at Mar–Jun 2021 na round ni Robredo (natuklasan ng isang accuracy audit na duplicate pala ito ng figures ng ibang taon), at ang huling dalawang round ni Robredo (Mar–Jun 2022) ay hindi na-pin sa isang maaasahang pinagmulan kaya iniwan na lamang sa halip na tantiyahin — nagpapakita ito bilang puwang sa linya, hindi zero.",
+      "footnote": "Bawat punto ay sariling inilathalang Approval Rating ng Pulse Asia (porsyentong sumang-ayon), gaya ng iniulat sa kanilang nationwide na Ulat ng Bayan surveys — hindi kailanman figure na kinompyut, na-net, o tinantya ng FactPH.",
+      "tableVp": "Bise Presidente",
+      "tablePeriod": "Panahon ng survey",
+      "tableApproval": "Approval",
+      "tableSource": "Pinagmulan",
+      "sourcesNote": "Bawat row sa talaan sa itaas ay may link sa partikular na press release o ulat balita na direktang sumisipi sa inilathalang Approval Rating ng survey round na iyon."
+    },
+    "presidentialSatisfaction": {
+      "eyebrow": "Pulitika at Opinyon ng Publiko",
+      "title": "Net Satisfaction Rating ng Pangulo",
+      "description": "Sariling inilathalan at nilagdaang \"Net Satisfaction Rating\" ng Social Weather Stations para sa nakaupong Pangulo, mula sa inagurasyon ni Aquino III noong 2010 hanggang sa pinakahuling survey round. Tunay na puwang ang Q1–Q3 2020 — sinuspinde ng SWS ang face-to-face fieldwork noong COVID-19 lockdowns. Ilang round na may magkasalungat na figure sa iba't ibang pinagmulan (hal. Q4 2017 ni Duterte, Q1–Q2 2024 ni Marcos) ay iniwan na lamang sa halip na hulaan.",
+      "footnote": "Bawat punto ay sariling inilathalang Net Satisfaction Rating ng SWS (porsyentong nasisiyahan bawas porsyentong hindi nasisiyahan, gaya ng sariling kinokompyut at inilalathala ng SWS) — hindi kailanman muling kinuha, na-net, o tinantya ng FactPH.",
+      "tablePresident": "Pangulo",
+      "tablePeriod": "Panahon ng survey",
+      "tableNetSatisfaction": "Net satisfaction",
+      "tableSource": "Pinagmulan",
+      "sourcesNote": "Bawat row sa talaan sa itaas ay may link sa partikular na press release o ulat balita na direktang sumisipi sa inilathalang Net Satisfaction Rating ng survey round na iyon."
+    },
+    "vpSatisfaction": {
+      "eyebrow": "Pulitika at Opinyon ng Publiko",
+      "title": "Net Satisfaction Rating ng Bise Presidente",
+      "description": "Sariling inilathalan at nilagdaang \"Net Satisfaction Rating\" ng Social Weather Stations para sa nakaupong Bise Presidente, mula sa inagurasyon ni Binay noong 2010 hanggang sa pinakahuling survey round. Tunay na puwang ang buong 2020 ni Robredo — sinuspinde ng SWS ang face-to-face fieldwork noong COVID-19 lockdowns. Tunay na puwang din ang Q1–Q2 2025 ni Sara Duterte, na kasabay ng impeachment proceedings laban sa kanya. Ilang figure na walang maaasahang pinagmulan o may hindi malutas na alitan sa petsa ay iniwan na lamang sa halip na hulaan.",
+      "footnote": "Bawat punto ay sariling inilathalang Net Satisfaction Rating ng SWS (porsyentong nasisiyahan bawas porsyentong hindi nasisiyahan, gaya ng sariling kinokompyut at inilalathala ng SWS) — hindi kailanman muling kinuha, na-net, o tinantya ng FactPH.",
+      "tableVp": "Bise Presidente",
+      "tablePeriod": "Panahon ng survey",
+      "tableNetSatisfaction": "Net satisfaction",
+      "tableSource": "Pinagmulan",
+      "sourcesNote": "Bawat row sa talaan sa itaas ay may link sa partikular na press release o ulat balita na direktang sumisipi sa inilathalang Net Satisfaction Rating ng survey round na iyon."
+    }
+  }
+}

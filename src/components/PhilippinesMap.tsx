@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { scaleSequential } from "d3-scale";
 import { interpolateRgbBasis } from "d3-interpolate";
+import { useTranslation } from "react-i18next";
 import RegionChoroplethMap from "./RegionChoroplethMap";
 import { electoralData, type RegionElectoralData } from "../data/electoralData";
 
@@ -24,6 +25,7 @@ function formatMetric(value: number, metric: MapMetric) {
 }
 
 export default function PhilippinesMap({ metric }: { metric: MapMetric }) {
+  const { t } = useTranslation();
   const [minValue, maxValue] = useMemo(() => {
     const values = electoralData.map((d) => metricValue(d, metric));
     return [Math.min(...values), Math.max(...values)];
@@ -51,11 +53,11 @@ export default function PhilippinesMap({ metric }: { metric: MapMetric }) {
       subtitle: region.islandGroup,
       rows: [
         {
-          label: "Registered voters",
+          label: t("maps.registeredVoters"),
           value: region.registeredVoters.toLocaleString(),
           emphasize: true,
         },
-        { label: "Turnout", value: `${region.turnoutPct.toFixed(1)}%` },
+        { label: t("maps.turnout"), value: `${region.turnoutPct.toFixed(1)}%` },
       ],
     };
   };
@@ -82,7 +84,7 @@ export default function PhilippinesMap({ metric }: { metric: MapMetric }) {
       getFill={getFill}
       getTooltip={getTooltip}
       legend={legend}
-      ariaLabel="Choropleth map of the Philippines showing registered voters by region"
+      ariaLabel={t("maps.ariaVoters")}
     />
   );
 }

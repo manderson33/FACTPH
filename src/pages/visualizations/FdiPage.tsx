@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import {
   BarChart,
@@ -31,29 +32,23 @@ function AdminLegend() {
 }
 
 export default function FdiPage() {
+  const { t } = useTranslation();
   return (
     <div className="dot-grid min-h-screen pt-28 px-4 pb-16">
       <Navbar />
       <div className="max-w-4xl mx-auto">
-        <Link
-          to="/explore/economy"
-          className="flex items-center gap-2 text-accent text-sm mb-6"
-        >
+        <Link to="/explore/economy" className="flex items-center gap-2 text-accent text-sm mb-6">
           <ArrowLeft size={16} />
-          Back to Economy
+          {t("common.backTo", { category: t("pages.fdi.eyebrow") })}
         </Link>
 
         <p className="text-accent text-xs uppercase tracking-widest mb-2">
-          Economy
+          {t("pages.fdi.eyebrow")}
         </p>
         <h1 className="text-3xl md:text-4xl font-heading font-bold text-white mb-3">
-          Foreign Direct Investment
+          {t("pages.fdi.title")}
         </h1>
-        <p className="text-muted mb-8 max-w-2xl">
-          Net FDI across the past three administrations, 2010 to present. Inflows grew nearly
-          every year under Aquino III and Duterte, peaking at a record $11.98 billion in 2021,
-          before easing under Marcos Jr. to $7.79 billion in 2025.
-        </p>
+        <p className="text-muted mb-8 max-w-2xl">{t("pages.fdi.description")}</p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -72,7 +67,7 @@ export default function FdiPage() {
                 cursor={{ fill: "#2DD4BF", fillOpacity: 0.06 }}
                 formatter={(value) => [
                   `$${Number(value).toLocaleString(undefined, { maximumFractionDigits: 0 })}M`,
-                  "Net FDI",
+                  t("pages.fdi.tooltipLabel"),
                 ]}
               />
               <Bar dataKey="fdiUsdMillion" radius={[3, 3, 0, 0]}>
@@ -86,20 +81,16 @@ export default function FdiPage() {
           <AdminLegend />
         </motion.div>
 
-        <p className="text-footnote text-xs mb-10">
-          Every point is BSP's own published Net Foreign Direct Investment total (BPM6 concept:
-          equity capital + reinvestment of earnings + net debt instruments), in US dollars —
-          never computed, netted, or estimated by FactPH.
-        </p>
+        <p className="text-footnote text-xs mb-10">{t("pages.fdi.footnote")}</p>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-4">Full data</h2>
+        <h2 className="text-xl font-heading font-bold text-white mb-4">{t("common.fullData")}</h2>
         <div className="glass-card overflow-x-auto mb-10">
           <table className="w-full text-sm text-left">
             <thead className="text-muted border-b border-grid">
               <tr>
-                <th className="p-4">Year</th>
-                <th className="p-4">Net FDI (USD million)</th>
-                <th className="p-4">Administration</th>
+                <th className="p-4">{t("common.year")}</th>
+                <th className="p-4">{t("pages.fdi.tableFdi")}</th>
+                <th className="p-4">{t("common.administration")}</th>
               </tr>
             </thead>
             <tbody>
@@ -118,7 +109,7 @@ export default function FdiPage() {
           </table>
         </div>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-2">Sources</h2>
+        <h2 className="text-xl font-heading font-bold text-white mb-2">{t("common.sources")}</h2>
         <div className="space-y-4 mb-10">
           {fdiSources.map((source) => (
             <div key={source.url} className="glass-card p-4">
@@ -133,7 +124,7 @@ export default function FdiPage() {
                   <ExternalLink size={14} />
                 </a>
                 <span className="text-xs px-2 py-1 rounded-full whitespace-nowrap bg-accent/20 text-accent">
-                  Primary source
+                  {t("common.primarySource")}
                 </span>
               </div>
               <p className="text-footnote text-xs mt-1">

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import {
   LineChart,
@@ -16,31 +17,24 @@ import Navbar from "../../components/Navbar";
 import { confidenceByQuarter, confidenceSources } from "../../data/businessConfidenceData";
 
 export default function ConsumerBusinessConfidencePage() {
+  const { t } = useTranslation();
   return (
     <div className="dot-grid min-h-screen pt-28 px-4 pb-16">
       <Navbar />
       <div className="max-w-4xl mx-auto">
-        <Link
-          to="/explore/economy"
-          className="flex items-center gap-2 text-accent text-sm mb-6"
-        >
+        <Link to="/explore/economy" className="flex items-center gap-2 text-accent text-sm mb-6">
           <ArrowLeft size={16} />
-          Back to Economy
+          {t("common.backTo", { category: t("pages.consumerBusinessConfidence.eyebrow") })}
         </Link>
 
         <p className="text-accent text-xs uppercase tracking-widest mb-2">
-          Economy
+          {t("pages.consumerBusinessConfidence.eyebrow")}
         </p>
         <h1 className="text-3xl md:text-4xl font-heading font-bold text-white mb-3">
-          Consumer and Business Confidence
+          {t("pages.consumerBusinessConfidence.title")}
         </h1>
         <p className="text-muted mb-8 max-w-2xl">
-          BSP's confidence indices (CI) are diffusion indices — the percentage of respondents who
-          answered positively about the economy's outlook, minus the percentage who answered
-          negatively. Zero is neutral. Business confidence has been positive in every quarter
-          since 2011 except two (Q3 2020 and Q3 2021). Consumer confidence turned briefly
-          positive from mid-2016 through mid-2018, and again from mid-2019 into early 2020, but
-          has been negative every quarter since.
+          {t("pages.consumerBusinessConfidence.description")}
         </p>
 
         <motion.div
@@ -70,7 +64,7 @@ export default function ConsumerBusinessConfidencePage() {
               <Line
                 type="monotone"
                 dataKey="businessCI"
-                name="Business CI"
+                name={t("pages.consumerBusinessConfidence.legendBusiness")}
                 stroke="#2DD4BF"
                 strokeWidth={2}
                 dot={false}
@@ -78,7 +72,7 @@ export default function ConsumerBusinessConfidencePage() {
               <Line
                 type="monotone"
                 dataKey="consumerCI"
-                name="Consumer CI"
+                name={t("pages.consumerBusinessConfidence.legendConsumer")}
                 stroke="#E8456B"
                 strokeWidth={2}
                 dot={false}
@@ -88,23 +82,17 @@ export default function ConsumerBusinessConfidencePage() {
         </motion.div>
 
         <p className="text-footnote text-xs mb-10">
-          Business CI: current-quarter Overall Business Confidence Index, non-seasonally
-          adjusted, Business Expectations Survey (top 7,000 corporations by assets). Consumer CI:
-          current-quarter overall composite index, Consumer Expectations Survey (~5,000
-          households). Every point is a literal quarterly reading transcribed from BSP's own
-          published data files — none of these figures are averaged, estimated, or otherwise
-          computed by FactPH. Q2 2020 is missing for both series because BSP cancelled that
-          quarter's survey round during the nationwide COVID-19 community quarantine.
+          {t("pages.consumerBusinessConfidence.footnote")}
         </p>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-4">Full data</h2>
+        <h2 className="text-xl font-heading font-bold text-white mb-4">{t("common.fullData")}</h2>
         <div className="glass-card overflow-x-auto mb-10">
           <table className="w-full text-sm text-left">
             <thead className="text-muted border-b border-grid">
               <tr>
-                <th className="p-4">Quarter</th>
-                <th className="p-4">Business CI</th>
-                <th className="p-4">Consumer CI</th>
+                <th className="p-4">{t("pages.consumerBusinessConfidence.tableQuarter")}</th>
+                <th className="p-4">{t("pages.consumerBusinessConfidence.tableBusiness")}</th>
+                <th className="p-4">{t("pages.consumerBusinessConfidence.tableConsumer")}</th>
               </tr>
             </thead>
             <tbody>
@@ -119,7 +107,7 @@ export default function ConsumerBusinessConfidencePage() {
           </table>
         </div>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-2">Sources</h2>
+        <h2 className="text-xl font-heading font-bold text-white mb-2">{t("common.sources")}</h2>
         <div className="space-y-4 mb-10">
           {confidenceSources.map((source) => (
             <div key={source.url} className="glass-card p-4">
@@ -134,7 +122,7 @@ export default function ConsumerBusinessConfidencePage() {
                   <ExternalLink size={14} />
                 </a>
                 <span className="text-xs px-2 py-1 rounded-full whitespace-nowrap bg-accent/20 text-accent">
-                  Primary source
+                  {t("common.primarySource")}
                 </span>
               </div>
               <p className="text-footnote text-xs mt-1">

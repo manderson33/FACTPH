@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import {
   LineChart,
@@ -31,13 +32,16 @@ const dataByAdmin: Record<Admin, typeof presidentialApprovalData> = {
 };
 
 function ChartTooltip({ active, payload }: TooltipContentProps) {
+  const { t } = useTranslation();
   if (!active || !payload || payload.length === 0) return null;
   const point = payload[0].payload as (typeof presidentialApprovalData)[number];
   return (
     <div className="bg-navy border border-grid rounded-lg p-3 text-xs">
       <p className="text-white font-semibold mb-1">{point.person}</p>
       <p className="text-muted">{point.period}</p>
-      <p className="text-accent font-semibold mt-1">{point.approvalPercent}% approve</p>
+      <p className="text-accent font-semibold mt-1">
+        {point.approvalPercent}% {t("common.approve")}
+      </p>
     </div>
   );
 }
@@ -59,6 +63,7 @@ function AdminLegend() {
 }
 
 export default function PresidentialApprovalPage() {
+  const { t } = useTranslation();
   return (
     <div className="dot-grid min-h-screen pt-28 px-4 pb-16">
       <Navbar />
@@ -68,21 +73,17 @@ export default function PresidentialApprovalPage() {
           className="flex items-center gap-2 text-accent text-sm mb-6"
         >
           <ArrowLeft size={16} />
-          Back to Politics and Public Opinion
+          {t("common.backTo", { category: t("pages.presidentialApproval.eyebrow") })}
         </Link>
 
         <p className="text-accent text-xs uppercase tracking-widest mb-2">
-          Politics and Public Opinion
+          {t("pages.presidentialApproval.eyebrow")}
         </p>
         <h1 className="text-3xl md:text-4xl font-heading font-bold text-white mb-3">
-          Presidential Approval Ratings
+          {t("pages.presidentialApproval.title")}
         </h1>
         <p className="text-muted mb-8 max-w-2xl">
-          Pulse Asia's own published "Approval Rating" for the sitting President, from Aquino
-          III's inauguration in 2010 through the most recent survey round. Some survey rounds
-          were not conducted (e.g. Pulse Asia paused approval polling for most of 2020–2021), and
-          a handful of figures with a conflicting number across sources were left out rather than
-          guessed — those show as gaps in the line, not zeroes.
+          {t("pages.presidentialApproval.description")}
         </p>
 
         <motion.div
@@ -126,21 +127,17 @@ export default function PresidentialApprovalPage() {
           <AdminLegend />
         </motion.div>
 
-        <p className="text-footnote text-xs mb-10">
-          Every point is Pulse Asia's own published Approval Rating (percent who approve), as
-          reported in their Ulat ng Bayan nationwide surveys — never a figure computed, netted,
-          or estimated by FactPH.
-        </p>
+        <p className="text-footnote text-xs mb-10">{t("pages.presidentialApproval.footnote")}</p>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-4">Full data</h2>
+        <h2 className="text-xl font-heading font-bold text-white mb-4">{t("common.fullData")}</h2>
         <div className="glass-card overflow-x-auto mb-10">
           <table className="w-full text-sm text-left">
             <thead className="text-muted border-b border-grid">
               <tr>
-                <th className="p-4">President</th>
-                <th className="p-4">Survey period</th>
-                <th className="p-4">Approval</th>
-                <th className="p-4">Source</th>
+                <th className="p-4">{t("pages.presidentialApproval.tablePresident")}</th>
+                <th className="p-4">{t("pages.presidentialApproval.tablePeriod")}</th>
+                <th className="p-4">{t("pages.presidentialApproval.tableApproval")}</th>
+                <th className="p-4">{t("pages.presidentialApproval.tableSource")}</th>
               </tr>
             </thead>
             <tbody>
@@ -168,7 +165,7 @@ export default function PresidentialApprovalPage() {
           </table>
         </div>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-2">Sources</h2>
+        <h2 className="text-xl font-heading font-bold text-white mb-2">{t("common.sources")}</h2>
         <div className="space-y-4 mb-10">
           <div className="glass-card p-4">
             <div className="flex items-start justify-between gap-3">
@@ -182,12 +179,11 @@ export default function PresidentialApprovalPage() {
                 <ExternalLink size={14} />
               </a>
               <span className="text-xs px-2 py-1 rounded-full whitespace-nowrap bg-accent/20 text-accent">
-                Primary source
+                {t("common.primarySource")}
               </span>
             </div>
             <p className="text-footnote text-xs mt-1">
-              Each row in the table above links to the specific press release or news report
-              directly citing that survey round's published Approval Rating.
+              {t("pages.presidentialApproval.sourcesNote")}
             </p>
           </div>
         </div>

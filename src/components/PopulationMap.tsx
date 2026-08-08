@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { scaleSequential } from "d3-scale";
 import { interpolateRgbBasis } from "d3-interpolate";
+import { useTranslation } from "react-i18next";
 import RegionChoroplethMap from "./RegionChoroplethMap";
 import { populationByRegion, type RegionPopulation } from "../data/populationData";
 
@@ -15,6 +16,7 @@ function formatPopulation(value: number) {
 }
 
 export default function PopulationMap() {
+  const { t } = useTranslation();
   const [minValue, maxValue] = useMemo(() => {
     const values = populationByRegion.map((d) => d.population);
     return [Math.min(...values), Math.max(...values)];
@@ -37,7 +39,7 @@ export default function PopulationMap() {
       title: region.name,
       subtitle: region.islandGroup,
       rows: [
-        { label: "Population", value: formatPopulation(region.population), emphasize: true },
+        { label: t("maps.population"), value: formatPopulation(region.population), emphasize: true },
       ],
     };
   };
@@ -62,7 +64,7 @@ export default function PopulationMap() {
       getFill={getFill}
       getTooltip={getTooltip}
       legend={legend}
-      ariaLabel="Choropleth map of the Philippines showing population by region"
+      ariaLabel={t("maps.ariaPopulation")}
     />
   );
 }

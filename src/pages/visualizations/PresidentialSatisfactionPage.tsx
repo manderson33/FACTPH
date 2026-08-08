@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import {
   LineChart,
@@ -32,6 +33,7 @@ const dataByAdmin: Record<Admin, typeof presidentialSatisfactionData> = {
 };
 
 function ChartTooltip({ active, payload }: TooltipContentProps) {
+  const { t } = useTranslation();
   if (!active || !payload || payload.length === 0) return null;
   const point = payload[0].payload as (typeof presidentialSatisfactionData)[number];
   return (
@@ -40,7 +42,7 @@ function ChartTooltip({ active, payload }: TooltipContentProps) {
       <p className="text-muted">{point.period}</p>
       <p className="text-accent font-semibold mt-1">
         {point.netSatisfaction > 0 ? "+" : ""}
-        {point.netSatisfaction} net satisfaction
+        {point.netSatisfaction} {t("common.netSatisfaction")}
       </p>
     </div>
   );
@@ -63,6 +65,7 @@ function AdminLegend() {
 }
 
 export default function PresidentialSatisfactionPage() {
+  const { t } = useTranslation();
   return (
     <div className="dot-grid min-h-screen pt-28 px-4 pb-16">
       <Navbar />
@@ -72,21 +75,17 @@ export default function PresidentialSatisfactionPage() {
           className="flex items-center gap-2 text-accent text-sm mb-6"
         >
           <ArrowLeft size={16} />
-          Back to Politics and Public Opinion
+          {t("common.backTo", { category: t("pages.presidentialSatisfaction.eyebrow") })}
         </Link>
 
         <p className="text-accent text-xs uppercase tracking-widest mb-2">
-          Politics and Public Opinion
+          {t("pages.presidentialSatisfaction.eyebrow")}
         </p>
         <h1 className="text-3xl md:text-4xl font-heading font-bold text-white mb-3">
-          Presidential Net Satisfaction Ratings
+          {t("pages.presidentialSatisfaction.title")}
         </h1>
         <p className="text-muted mb-8 max-w-2xl">
-          Social Weather Stations' own published, signed "Net Satisfaction Rating" for the
-          sitting President, from Aquino III's inauguration in 2010 through the most recent
-          survey round. Q1–Q3 2020 is a genuine gap — SWS suspended face-to-face fieldwork during
-          the COVID-19 lockdowns. A handful of rounds with a conflicting figure across sources
-          (e.g. Duterte's Q4 2017, Marcos's Q1–Q2 2024) were left out rather than guessed.
+          {t("pages.presidentialSatisfaction.description")}
         </p>
 
         <motion.div
@@ -128,20 +127,20 @@ export default function PresidentialSatisfactionPage() {
         </motion.div>
 
         <p className="text-footnote text-xs mb-10">
-          Every point is SWS's own published Net Satisfaction Rating (percent satisfied minus
-          percent dissatisfied, as SWS itself computes and publishes it) — never re-derived,
-          netted, or estimated by FactPH.
+          {t("pages.presidentialSatisfaction.footnote")}
         </p>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-4">Full data</h2>
+        <h2 className="text-xl font-heading font-bold text-white mb-4">{t("common.fullData")}</h2>
         <div className="glass-card overflow-x-auto mb-10">
           <table className="w-full text-sm text-left">
             <thead className="text-muted border-b border-grid">
               <tr>
-                <th className="p-4">President</th>
-                <th className="p-4">Survey period</th>
-                <th className="p-4">Net satisfaction</th>
-                <th className="p-4">Source</th>
+                <th className="p-4">{t("pages.presidentialSatisfaction.tablePresident")}</th>
+                <th className="p-4">{t("pages.presidentialSatisfaction.tablePeriod")}</th>
+                <th className="p-4">
+                  {t("pages.presidentialSatisfaction.tableNetSatisfaction")}
+                </th>
+                <th className="p-4">{t("pages.presidentialSatisfaction.tableSource")}</th>
               </tr>
             </thead>
             <tbody>
@@ -172,7 +171,7 @@ export default function PresidentialSatisfactionPage() {
           </table>
         </div>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-2">Sources</h2>
+        <h2 className="text-xl font-heading font-bold text-white mb-2">{t("common.sources")}</h2>
         <div className="space-y-4 mb-10">
           <div className="glass-card p-4">
             <div className="flex items-start justify-between gap-3">
@@ -186,12 +185,11 @@ export default function PresidentialSatisfactionPage() {
                 <ExternalLink size={14} />
               </a>
               <span className="text-xs px-2 py-1 rounded-full whitespace-nowrap bg-accent/20 text-accent">
-                Primary source
+                {t("common.primarySource")}
               </span>
             </div>
             <p className="text-footnote text-xs mt-1">
-              Each row in the table above links to the specific press release or news report
-              directly citing that survey round's published Net Satisfaction Rating.
+              {t("pages.presidentialSatisfaction.sourcesNote")}
             </p>
           </div>
         </div>

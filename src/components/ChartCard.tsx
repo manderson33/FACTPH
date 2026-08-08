@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import type { ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 
 interface ChartCardProps {
   title: string;
@@ -9,6 +10,7 @@ interface ChartCardProps {
 }
 
 export default function ChartCard({ title, source, year, children }: ChartCardProps) {
+  const { t } = useTranslation();
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -20,7 +22,7 @@ export default function ChartCard({ title, source, year, children }: ChartCardPr
       <h3 className="text-lg font-heading font-semibold text-white mb-4">{title}</h3>
       <div className="flex-1 min-h-[260px]">{children}</div>
       <p className="text-footnote text-xs mt-3">
-        Source: {source}, {year}
+        {t("common.source")}: {source}, {year}
       </p>
     </motion.div>
   );

@@ -1,7 +1,9 @@
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import PopulationMap from "./PopulationMap";
 
 export default function PopulationMapCard() {
+  const { t } = useTranslation();
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -10,11 +12,15 @@ export default function PopulationMapCard() {
       transition={{ duration: 0.5 }}
       className="glass-card p-6 flex flex-col md:col-span-2"
     >
-      <h3 className="text-lg font-heading font-semibold text-white mb-4">Population by Region</h3>
+      <h3 className="text-lg font-heading font-semibold text-white mb-4">
+        {t("nav.populationByRegion")}
+      </h3>
       <div className="max-w-md mx-auto w-full">
         <PopulationMap />
       </div>
-      <p className="text-footnote text-xs mt-3">Source: PSA, 2024 Census of Population and Housing</p>
+      <p className="text-footnote text-xs mt-3">
+        {t("common.source")}: PSA, 2024 Census of Population and Housing
+      </p>
     </motion.div>
   );
 }

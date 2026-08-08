@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import {
   BarChart,
@@ -19,6 +20,7 @@ import {
 } from "../../data/foodInflationData";
 
 export default function FoodInflationPage() {
+  const { t } = useTranslation();
   return (
     <div className="dot-grid min-h-screen pt-28 px-4 pb-16">
       <Navbar />
@@ -28,21 +30,21 @@ export default function FoodInflationPage() {
           className="flex items-center gap-2 text-accent text-sm mb-6"
         >
           <ArrowLeft size={16} />
-          Back to Cost of Living and Prices
+          {t("common.backTo", { category: t("pages.foodInflation.eyebrow") })}
         </Link>
 
         <p className="text-accent text-xs uppercase tracking-widest mb-2">
-          Cost of Living and Prices
+          {t("pages.foodInflation.eyebrow")}
         </p>
         <h1 className="text-3xl md:text-4xl font-heading font-bold text-white mb-3">
-          Food Inflation
+          {t("pages.foodInflation.title")}
         </h1>
         <p className="text-muted mb-8 max-w-2xl">
-          PSA breaks food and non-alcoholic beverages out of headline inflation as its own
-          series — and in both years with confirmed full-year averages, food prices rose faster
-          than prices overall. As of {latestMonthlyReading.month}, that gap was still open:
-          headline inflation was {latestMonthlyReading.headlinePct}% against food inflation of{" "}
-          {latestMonthlyReading.foodPct}%.
+          {t("pages.foodInflation.description", {
+            month: latestMonthlyReading.month,
+            headlinePct: latestMonthlyReading.headlinePct,
+            foodPct: latestMonthlyReading.foodPct,
+          })}
         </p>
 
         <motion.div
@@ -63,26 +65,32 @@ export default function FoodInflationPage() {
                 formatter={(value, name) => [`${Number(value).toFixed(1)}%`, name]}
               />
               <Legend />
-              <Bar dataKey="headlinePct" name="Headline inflation" fill="#2DD4BF" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="foodPct" name="Food inflation" fill="#FCD116" radius={[4, 4, 0, 0]} />
+              <Bar
+                dataKey="headlinePct"
+                name={t("pages.foodInflation.legendHeadline")}
+                fill="#2DD4BF"
+                radius={[4, 4, 0, 0]}
+              />
+              <Bar
+                dataKey="foodPct"
+                name={t("pages.foodInflation.legendFood")}
+                fill="#FCD116"
+                radius={[4, 4, 0, 0]}
+              />
             </BarChart>
           </ResponsiveContainer>
         </motion.div>
 
-        <p className="text-footnote text-xs mb-10">
-          Limited to years with a confirmed, comparable full-year average for both series — PSA's
-          food-CPI breakout for 2011–2022 wasn't consistently accessible from primary sources as
-          of this writing, so this chart is intentionally short rather than padded with estimates.
-        </p>
+        <p className="text-footnote text-xs mb-10">{t("pages.foodInflation.footnote")}</p>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-4">Full data</h2>
+        <h2 className="text-xl font-heading font-bold text-white mb-4">{t("common.fullData")}</h2>
         <div className="glass-card overflow-x-auto mb-10">
           <table className="w-full text-sm text-left">
             <thead className="text-muted border-b border-grid">
               <tr>
-                <th className="p-4">Year</th>
-                <th className="p-4">Headline Inflation</th>
-                <th className="p-4">Food Inflation</th>
+                <th className="p-4">{t("common.year")}</th>
+                <th className="p-4">{t("pages.foodInflation.tableHeadline")}</th>
+                <th className="p-4">{t("pages.foodInflation.tableFood")}</th>
               </tr>
             </thead>
             <tbody>
@@ -97,7 +105,7 @@ export default function FoodInflationPage() {
           </table>
         </div>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-2">Sources</h2>
+        <h2 className="text-xl font-heading font-bold text-white mb-2">{t("common.sources")}</h2>
         <div className="space-y-4 mb-10">
           {foodInflationSources.map((source) => (
             <div key={source.url} className="glass-card p-4">
@@ -112,7 +120,7 @@ export default function FoodInflationPage() {
                   <ExternalLink size={14} />
                 </a>
                 <span className="text-xs px-2 py-1 rounded-full whitespace-nowrap bg-accent/20 text-accent">
-                  Primary source
+                  {t("common.primarySource")}
                 </span>
               </div>
               <p className="text-footnote text-xs mt-1">

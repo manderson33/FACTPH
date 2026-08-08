@@ -1,16 +1,16 @@
 import { lazy, Suspense } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import Navbar from "./components/Navbar";
-import { useLanguage } from "./context/LanguageContext";
 
 import { statistics } from "./data/statistics";
 
 const DataHighlightsSection = lazy(() => import("./components/DataHighlightsSection"));
 
 export default function App() {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
 
   return (
     <div className="dot-grid min-h-screen">
@@ -31,7 +31,7 @@ export default function App() {
         transition={{ duration: 0.5 }}
         className="text-accent font-mono tracking-[0.2em] text-sm mb-4"
       >
-        // DATA JOURNALISM · PH
+        {t("home.kicker")}
       </motion.p>
 
       <div className="border-l-4 border-accent pl-6">
@@ -49,7 +49,7 @@ export default function App() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-3xl md:text-4xl font-heading font-bold text-accent mt-2 tracking-wide"
         >
-          IN 2 MINUTES
+          {t("home.tagline")}
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
@@ -57,7 +57,7 @@ export default function App() {
           transition={{ duration: 0.6, delay: 0.35 }}
           className="text-muted tracking-[0.15em] text-xs md:text-sm mt-6 uppercase"
         >
-          Understand the Philippines through data.
+          {t("home.subtitle")}
         </motion.p>
       </div>
 
@@ -66,13 +66,13 @@ export default function App() {
           to="/explore/population"
           className="bg-accent text-navy px-6 py-3 rounded-full font-semibold"
         >
-          {t.exploreData}
+          {t("home.exploreData")}
         </Link>
         <Link
           to="/regions"
           className="border border-white text-white px-6 py-3 rounded-full font-semibold"
         >
-          {t.browseRegion}
+          {t("home.browseRegion")}
         </Link>
       </div>
     </div>
@@ -151,14 +151,14 @@ export default function App() {
         <div className="flex gap-4 min-w-max max-w-6xl mx-auto">
           {statistics.map((stat, i) => (
             <motion.div
-              key={stat.label}
+              key={stat.labelKey}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               className="glass-card px-6 py-4 min-w-[160px]"
             >
-              <p className="text-muted text-sm">{stat.label}</p>
+              <p className="text-muted text-sm">{t(`home.stats.${stat.labelKey}`)}</p>
               <p className="text-accent text-2xl font-bold">{stat.value}</p>
               <p className="text-footnote text-xs">
                 {stat.note ?? `${stat.source} ${stat.year}`}
@@ -171,7 +171,9 @@ export default function App() {
       {/* Data Highlights (heavy chart/map libraries, deferred below the fold) */}
       <Suspense
         fallback={
-          <div className="max-w-6xl mx-auto px-4 py-16 text-center text-muted">Loading…</div>
+          <div className="max-w-6xl mx-auto px-4 py-16 text-center text-muted">
+            {t("home.loading")}
+          </div>
         }
       >
         <DataHighlightsSection />

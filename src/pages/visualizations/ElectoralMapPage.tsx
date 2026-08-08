@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import { ArrowLeft, ArrowUp, ArrowDown, ArrowUpDown, ExternalLink } from "lucide-react";
 import Navbar from "../../components/Navbar";
 import PhilippinesMap, { type MapMetric } from "../../components/PhilippinesMap";
@@ -13,18 +14,19 @@ import {
 
 type SortKey = "name" | "islandGroup" | "registeredVoters" | "votersWhoVoted" | "turnoutPct";
 
-const COLUMNS: { key: SortKey; label: string }[] = [
-  { key: "name", label: "Region" },
-  { key: "islandGroup", label: "Island Group" },
-  { key: "registeredVoters", label: "Registered Voters" },
-  { key: "votersWhoVoted", label: "Voted" },
-  { key: "turnoutPct", label: "Turnout" },
-];
-
 export default function ElectoralMapPage() {
+  const { t } = useTranslation();
   const [metric, setMetric] = useState<MapMetric>("voters");
   const [sortKey, setSortKey] = useState<SortKey>("registeredVoters");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
+
+  const COLUMNS: { key: SortKey; label: string }[] = [
+    { key: "name", label: t("pages.electoralMap.tableRegion") },
+    { key: "islandGroup", label: t("pages.electoralMap.tableIslandGroup") },
+    { key: "registeredVoters", label: t("pages.electoralMap.tableRegisteredVoters") },
+    { key: "votersWhoVoted", label: t("pages.electoralMap.tableVoted") },
+    { key: "turnoutPct", label: t("pages.electoralMap.tableTurnout") },
+  ];
 
   const handleSort = (key: SortKey) => {
     if (key === sortKey) {
@@ -54,19 +56,20 @@ export default function ElectoralMapPage() {
       <div className="max-w-4xl mx-auto">
         <Link to="/regions" className="flex items-center gap-2 text-accent text-sm mb-6">
           <ArrowLeft size={16} />
-          Back to Regions
+          {t("common.backTo", { category: t("regions.title") })}
         </Link>
 
-        <p className="text-accent text-xs uppercase tracking-widest mb-2">Elections</p>
+        <p className="text-accent text-xs uppercase tracking-widest mb-2">
+          {t("pages.electoralMap.eyebrow")}
+        </p>
         <h1 className="text-3xl md:text-4xl font-heading font-bold text-white mb-3">
-          Registered Voters by Region (2025)
+          {t("pages.electoralMap.title")}
         </h1>
         <p className="text-muted mb-8 max-w-2xl">
-          {nationalElectoralTotals.registeredVotersDomestic.toLocaleString()} Filipinos were
-          registered to vote domestically in the May 12, 2025 National and Local Elections,
-          across the country's 18 regions — plus{" "}
-          {nationalElectoralTotals.registeredVotersOverseas.toLocaleString()} registered
-          overseas voters. Hover a region to see its numbers.
+          {t("pages.electoralMap.description", {
+            domestic: nationalElectoralTotals.registeredVotersDomestic.toLocaleString(),
+            overseas: nationalElectoralTotals.registeredVotersOverseas.toLocaleString(),
+          })}
         </p>
 
         <motion.div
@@ -83,7 +86,7 @@ export default function ElectoralMapPage() {
                   : "border border-white/20 text-muted hover:text-white"
               }`}
             >
-              Registered Voters
+              {t("pages.electoralMap.toggleVoters")}
             </button>
             <button
               onClick={() => setMetric("turnout")}
@@ -93,7 +96,7 @@ export default function ElectoralMapPage() {
                   : "border border-white/20 text-muted hover:text-white"
               }`}
             >
-              Voter Turnout
+              {t("pages.electoralMap.toggleTurnout")}
             </button>
           </div>
 
@@ -102,14 +105,9 @@ export default function ElectoralMapPage() {
           </div>
         </motion.div>
 
-        <p className="text-footnote text-xs mb-10">
-          Negros Island Region (NIR) is reported by COMELEC as its own electoral region for
-          2025, distinct from Region VI and Region VII, even though it was not formally
-          re-established as an administrative region. Map boundaries reflect 2019 administrative
-          divisions.
-        </p>
+        <p className="text-footnote text-xs mb-10">{t("pages.electoralMap.footnote")}</p>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-4">Full data</h2>
+        <h2 className="text-xl font-heading font-bold text-white mb-4">{t("common.fullData")}</h2>
         <div className="glass-card overflow-x-auto mb-10">
           <table className="w-full text-sm text-left">
             <thead className="text-muted border-b border-grid">
@@ -149,12 +147,8 @@ export default function ElectoralMapPage() {
           </table>
         </div>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-2">Sources</h2>
-        <p className="text-muted text-sm mb-4">
-          Regional totals are COMELEC's own subtotal rows in the source document below, and were
-          independently cross-checked by summing each region's province-level rows in the same
-          report.
-        </p>
+        <h2 className="text-xl font-heading font-bold text-white mb-2">{t("common.sources")}</h2>
+        <p className="text-muted text-sm mb-4">{t("pages.electoralMap.sourcesNote")}</p>
         <div className="space-y-4 mb-10">
           {electoralSources.map((source) => (
             <div key={source.url} className="glass-card p-4">
@@ -169,7 +163,7 @@ export default function ElectoralMapPage() {
                   <ExternalLink size={14} />
                 </a>
                 <span className="text-xs px-2 py-1 rounded-full whitespace-nowrap bg-accent/20 text-accent">
-                  Primary source
+                  {t("common.primarySource")}
                 </span>
               </div>
               <p className="text-footnote text-xs mt-1">

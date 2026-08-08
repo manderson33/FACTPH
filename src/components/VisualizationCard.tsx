@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import { ArrowRight, Lock } from "lucide-react";
 
 export interface VisualizationMeta {
@@ -11,6 +12,7 @@ export interface VisualizationMeta {
 }
 
 export default function VisualizationCard({ viz }: { viz: VisualizationMeta }) {
+  const { t } = useTranslation();
   const isPublished = viz.status === "published";
 
   const cardContent = (
@@ -30,11 +32,11 @@ export default function VisualizationCard({ viz }: { viz: VisualizationMeta }) {
       <div className="mt-4 flex items-center gap-2 text-sm font-semibold">
         {isPublished ? (
           <span className="flex items-center gap-1 text-accent">
-            View visualization <ArrowRight size={14} />
+            {t("common.viewVisualization")} <ArrowRight size={14} />
           </span>
         ) : (
           <span className="flex items-center gap-1 text-footnote">
-            <Lock size={12} /> Coming soon
+            <Lock size={12} /> {t("common.comingSoon")}
           </span>
         )}
       </div>

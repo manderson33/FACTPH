@@ -1,17 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import { Menu, X, Sun, BarChart2, ChevronDown, Map, Users } from "lucide-react";
-import { useLanguage } from "../context/LanguageContext";
 import { exploreCategories } from "../data/exploreCategories";
 import logo from "../assets/factph-logo.png";
 
 const regionsMenu = [
-  { label: "Electoral Map", to: "/visualization/electoral-map", icon: Map },
-  { label: "Population by Region", to: "/visualization/population-by-region", icon: Users },
+  { labelKey: "nav.electoralMap", to: "/visualization/electoral-map", icon: Map },
+  { labelKey: "nav.populationByRegion", to: "/visualization/population-by-region", icon: Users },
 ];
-
-const sortedExploreCategories = [...exploreCategories].sort((a, b) => a.title.localeCompare(b.title));
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -19,7 +17,13 @@ export default function Navbar() {
   const [mobileRegionsOpen, setMobileRegionsOpen] = useState(false);
   const [exploreOpen, setExploreOpen] = useState(false);
   const [mobileExploreOpen, setMobileExploreOpen] = useState(false);
-  const { t, lang, toggleLang } = useLanguage();
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language;
+  const toggleLang = () => i18n.changeLanguage(lang === "en" ? "tl" : "en");
+
+  const sortedExploreCategories = [...exploreCategories].sort((a, b) =>
+    t(`categories.${a.slug}`).localeCompare(t(`categories.${b.slug}`))
+  );
 
   // The explore panel renders `fixed` (so it can center itself instead of
   // overflowing the viewport off the button's edge), which puts it outside
@@ -61,7 +65,7 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-8">
           <Link to="/" className={navLinkClass}>
-            {t.navHome}
+            {t("nav.home")}
           </Link>
           <div className="relative">
             <button
@@ -69,7 +73,7 @@ export default function Navbar() {
               className={`${navLinkClass} flex items-center gap-1 after:hidden`}
               onClick={() => setExploreOpen((v) => !v)}
             >
-              {t.navExplore}
+              {t("nav.explore")}
               <ChevronDown size={12} className={exploreOpen ? "rotate-180" : ""} />
             </button>
             {exploreOpen && (
@@ -86,7 +90,7 @@ export default function Navbar() {
                         onClick={() => setExploreOpen(false)}
                         className="px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-widest text-white/80 hover:text-accent hover:bg-white/5 transition-colors"
                       >
-                        {c.title}
+                        {t(`categories.${c.slug}`)}
                       </Link>
                     ))}
                   </div>
@@ -96,7 +100,7 @@ export default function Navbar() {
                       onClick={() => setExploreOpen(false)}
                       className="text-xs font-semibold uppercase tracking-widest text-accent hover:underline"
                     >
-                      View all visualizations →
+                      {t("nav.viewAllVisualizations")}
                     </Link>
                   </div>
                 </div>
@@ -113,13 +117,13 @@ export default function Navbar() {
               onClick={() => setRegionsOpen(true)}
               onFocus={() => setRegionsOpen(true)}
             >
-              {t.navRegions}
+              {t("nav.regions")}
               <ChevronDown size={12} />
             </button>
             {regionsOpen && (
               <div className="absolute top-full left-0 pt-3 w-56">
                 <div className="bg-navy border border-white/10 rounded-2xl shadow-xl py-2">
-                  {regionsMenu.map(({ label, to, icon: Icon }) => (
+                  {regionsMenu.map(({ labelKey, to, icon: Icon }) => (
                     <Link
                       key={to}
                       to={to}
@@ -127,7 +131,7 @@ export default function Navbar() {
                       className="flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white/80 hover:text-accent hover:bg-white/5 transition-colors"
                     >
                       <Icon size={14} />
-                      {label}
+                      {t(labelKey)}
                     </Link>
                   ))}
                   <div className="mt-1 pt-2 border-t border-grid px-4">
@@ -136,7 +140,7 @@ export default function Navbar() {
                       onClick={() => setRegionsOpen(false)}
                       className="text-xs font-semibold uppercase tracking-widest text-accent hover:underline"
                     >
-                      View all regions →
+                      {t("nav.viewAllRegions")}
                     </Link>
                   </div>
                 </div>
@@ -144,7 +148,7 @@ export default function Navbar() {
             )}
           </div>
           <Link to="/about" className={navLinkClass}>
-            {t.navAbout}
+            {t("nav.about")}
           </Link>
           <button
             onClick={toggleLang}
@@ -166,14 +170,14 @@ export default function Navbar() {
           className="md:hidden flex flex-col gap-5 px-4 pb-6 pt-2"
         >
           <Link to="/" onClick={() => setOpen(false)} className={navLinkClass}>
-            {t.navHome}
+            {t("nav.home")}
           </Link>
           <div>
             <button
               onClick={() => setMobileExploreOpen((v) => !v)}
               className={`${navLinkClass} flex items-center gap-1 after:hidden`}
             >
-              {t.navExplore}
+              {t("nav.explore")}
               <ChevronDown size={12} className={mobileExploreOpen ? "rotate-180" : ""} />
             </button>
             {mobileExploreOpen && (
@@ -188,7 +192,7 @@ export default function Navbar() {
                     }}
                     className="text-xs font-semibold uppercase tracking-widest text-white/70 hover:text-accent"
                   >
-                    {c.title}
+                    {t(`categories.${c.slug}`)}
                   </Link>
                 ))}
                 <Link
@@ -199,7 +203,7 @@ export default function Navbar() {
                   }}
                   className="text-xs font-semibold uppercase tracking-widest text-accent"
                 >
-                  View all visualizations →
+                  {t("nav.viewAllVisualizations")}
                 </Link>
               </div>
             )}
@@ -209,12 +213,12 @@ export default function Navbar() {
               onClick={() => setMobileRegionsOpen((v) => !v)}
               className={`${navLinkClass} flex items-center gap-1 after:hidden`}
             >
-              {t.navRegions}
+              {t("nav.regions")}
               <ChevronDown size={12} className={mobileRegionsOpen ? "rotate-180" : ""} />
             </button>
             {mobileRegionsOpen && (
               <div className="flex flex-col gap-3 mt-3 pl-4 border-l border-grid">
-                {regionsMenu.map(({ label, to, icon: Icon }) => (
+                {regionsMenu.map(({ labelKey, to, icon: Icon }) => (
                   <Link
                     key={to}
                     to={to}
@@ -225,7 +229,7 @@ export default function Navbar() {
                     className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-white/70 hover:text-accent"
                   >
                     <Icon size={14} />
-                    {label}
+                    {t(labelKey)}
                   </Link>
                 ))}
                 <Link
@@ -236,13 +240,13 @@ export default function Navbar() {
                   }}
                   className="text-xs font-semibold uppercase tracking-widest text-accent"
                 >
-                  View all regions →
+                  {t("nav.viewAllRegions")}
                 </Link>
               </div>
             )}
           </div>
           <Link to="/about" onClick={() => setOpen(false)} className={navLinkClass}>
-            {t.navAbout}
+            {t("nav.about")}
           </Link>
           <button
             onClick={toggleLang}

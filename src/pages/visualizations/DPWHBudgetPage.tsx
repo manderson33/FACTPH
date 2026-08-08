@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import {
   BarChart,
@@ -37,26 +38,26 @@ function AdminLegend() {
 }
 
 export default function DPWHBudgetPage() {
+  const { t } = useTranslation();
   return (
     <div className="dot-grid min-h-screen pt-28 px-4 pb-16">
       <Navbar />
       <div className="max-w-4xl mx-auto">
-        <Link to="/explore/infrastructure" className="flex items-center gap-2 text-accent text-sm mb-6">
+        <Link
+          to="/explore/infrastructure"
+          className="flex items-center gap-2 text-accent text-sm mb-6"
+        >
           <ArrowLeft size={16} />
-          Back to Infrastructure
+          {t("common.backTo", { category: t("pages.dpwhBudget.eyebrow") })}
         </Link>
 
-        <p className="text-accent text-xs uppercase tracking-widest mb-2">Infrastructure</p>
-        <h1 className="text-3xl md:text-4xl font-heading font-bold text-white mb-3">
-          DPWH Enacted Budget
-        </h1>
-        <p className="text-muted mb-8 max-w-2xl">
-          The Department of Public Works and Highways' total enacted budget, 2010–2026 — the
-          "TOTAL NEW APPROPRIATIONS" figure read directly from each year's General Appropriations
-          Act. The budget grew from ₱100.8B in 2011 to a peak of ₱1.11 trillion in 2025, before
-          being cut nearly in half to ₱529.6B for 2026 following the 2025 flood-control corruption
-          scandal and the DPWH's own reform push.
+        <p className="text-accent text-xs uppercase tracking-widest mb-2">
+          {t("pages.dpwhBudget.eyebrow")}
         </p>
+        <h1 className="text-3xl md:text-4xl font-heading font-bold text-white mb-3">
+          {t("pages.dpwhBudget.title")}
+        </h1>
+        <p className="text-muted mb-8 max-w-2xl">{t("pages.dpwhBudget.description")}</p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -78,7 +79,7 @@ export default function DPWHBudgetPage() {
                 cursor={{ fill: "#2DD4BF", fillOpacity: 0.06 }}
                 formatter={(value) => [
                   `₱${Number(value).toLocaleString(undefined, { maximumFractionDigits: 2 })}B`,
-                  "Enacted budget",
+                  t("pages.dpwhBudget.tooltipLabel"),
                 ]}
               />
               <Bar dataKey="budgetPhpBillion" radius={[3, 3, 0, 0]}>
@@ -92,22 +93,16 @@ export default function DPWHBudgetPage() {
           <AdminLegend />
         </motion.div>
 
-        <p className="text-footnote text-xs mb-10">
-          Every figure is the literal "TOTAL NEW APPROPRIATIONS" grand total for DPWH as enacted
-          in that year's General Appropriations Act — never a proposed National Expenditure
-          Program figure, and never computed, netted, or estimated by FactPH. In every year shown,
-          DPWH's entire department budget is lodged under the Office of the Secretary, so this is
-          the department's full enacted appropriation, not a sub-total.
-        </p>
+        <p className="text-footnote text-xs mb-10">{t("pages.dpwhBudget.footnote")}</p>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-4">Full data</h2>
+        <h2 className="text-xl font-heading font-bold text-white mb-4">{t("common.fullData")}</h2>
         <div className="glass-card overflow-x-auto mb-10">
           <table className="w-full text-sm text-left">
             <thead className="text-muted border-b border-grid">
               <tr>
-                <th className="p-4">Year</th>
-                <th className="p-4">Enacted budget (₱ billion)</th>
-                <th className="p-4">Administration</th>
+                <th className="p-4">{t("common.year")}</th>
+                <th className="p-4">{t("pages.dpwhBudget.tableBudget")}</th>
+                <th className="p-4">{t("common.administration")}</th>
               </tr>
             </thead>
             <tbody>
@@ -128,7 +123,7 @@ export default function DPWHBudgetPage() {
           </table>
         </div>
 
-        <h2 className="text-xl font-heading font-bold text-white mb-2">Sources</h2>
+        <h2 className="text-xl font-heading font-bold text-white mb-2">{t("common.sources")}</h2>
         <div className="space-y-4 mb-10">
           {dpwhBudgetSources.map((source) => (
             <div key={source.url} className="glass-card p-4">
@@ -143,7 +138,7 @@ export default function DPWHBudgetPage() {
                   <ExternalLink size={14} />
                 </a>
                 <span className="text-xs px-2 py-1 rounded-full whitespace-nowrap bg-accent/20 text-accent">
-                  Primary source
+                  {t("common.primarySource")}
                 </span>
               </div>
               <p className="text-footnote text-xs mt-1">

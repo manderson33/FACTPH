@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { LanguageProvider } from "./context/LanguageContext";
+import "./i18n";
 import "./index.css";
 
 const App = lazy(() => import("./App"));
@@ -49,50 +49,48 @@ function PageLoader() {
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <LanguageProvider>
-      <BrowserRouter>
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            <Route path="/" element={<App />} />
-            <Route path="/explore/:category" element={<DataExplorerPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/regions" element={<RegionsPage />} />
-            <Route path="/visualization/yolanda-housing" element={<YolandaHousingPage />} />
-            <Route path="/visualization/electoral-map" element={<ElectoralMapPage />} />
-            <Route
-              path="/visualization/population-by-region"
-              element={<PopulationByRegionPage />}
-            />
-            <Route
-              path="/visualization/consumer-business-confidence"
-              element={<ConsumerBusinessConfidencePage />}
-            />
-            <Route path="/visualization/overall-inflation" element={<OverallInflationPage />} />
-            <Route path="/visualization/rice-food-prices" element={<RiceFoodPricesPage />} />
-            <Route path="/visualization/food-inflation" element={<FoodInflationPage />} />
-            <Route
-              path="/visualization/presidential-approval-ratings"
-              element={<PresidentialApprovalPage />}
-            />
-            <Route path="/visualization/vp-approval-ratings" element={<VpApprovalPage />} />
-            <Route
-              path="/visualization/presidential-net-satisfaction"
-              element={<PresidentialSatisfactionPage />}
-            />
-            <Route path="/visualization/vp-net-satisfaction" element={<VpSatisfactionPage />} />
-            <Route path="/visualization/tourism-growth" element={<TourismGrowthPage />} />
-            <Route
-              path="/visualization/tourism-nationality"
-              element={<TourismNationalityPage />}
-            />
-            <Route path="/visualization/fdi-by-administration" element={<FdiPage />} />
-            <Route path="/visualization/juvenile-crime" element={<JuvenileCrimePage />} />
-            <Route path="/visualization/philhealth-subsidy" element={<PhilHealthSubsidyPage />} />
-            <Route path="/visualization/dpwh-budget" element={<DPWHBudgetPage />} />
-            <Route path="/visualization/national-debt" element={<NationalDebtPage />} />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
-    </LanguageProvider>
+    <BrowserRouter>
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/explore/:category" element={<DataExplorerPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/regions" element={<RegionsPage />} />
+          <Route path="/visualization/yolanda-housing" element={<YolandaHousingPage />} />
+          <Route path="/visualization/electoral-map" element={<ElectoralMapPage />} />
+          <Route
+            path="/visualization/population-by-region"
+            element={<PopulationByRegionPage />}
+          />
+          <Route
+            path="/visualization/consumer-business-confidence"
+            element={<ConsumerBusinessConfidencePage />}
+          />
+          <Route path="/visualization/overall-inflation" element={<OverallInflationPage />} />
+          <Route path="/visualization/rice-food-prices" element={<RiceFoodPricesPage />} />
+          <Route path="/visualization/food-inflation" element={<FoodInflationPage />} />
+          <Route
+            path="/visualization/presidential-approval-ratings"
+            element={<PresidentialApprovalPage />}
+          />
+          <Route path="/visualization/vp-approval-ratings" element={<VpApprovalPage />} />
+          <Route
+            path="/visualization/presidential-net-satisfaction"
+            element={<PresidentialSatisfactionPage />}
+          />
+          <Route path="/visualization/vp-net-satisfaction" element={<VpSatisfactionPage />} />
+          <Route path="/visualization/tourism-growth" element={<TourismGrowthPage />} />
+          <Route
+            path="/visualization/tourism-nationality"
+            element={<TourismNationalityPage />}
+          />
+          <Route path="/visualization/fdi-by-administration" element={<FdiPage />} />
+          <Route path="/visualization/juvenile-crime" element={<JuvenileCrimePage />} />
+          <Route path="/visualization/philhealth-subsidy" element={<PhilHealthSubsidyPage />} />
+          <Route path="/visualization/dpwh-budget" element={<DPWHBudgetPage />} />
+          <Route path="/visualization/national-debt" element={<NationalDebtPage />} />
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
   </React.StrictMode>
 );

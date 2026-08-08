@@ -1,0 +1,357 @@
+{
+  "nav": {
+    "home": "Home",
+    "explore": "Explore Data",
+    "regions": "Regions",
+    "about": "About",
+    "viewAllVisualizations": "View all visualizations →",
+    "viewAllRegions": "View all regions →",
+    "electoralMap": "Electoral Map",
+    "populationByRegion": "Population by Region"
+  },
+  "home": {
+    "kicker": "// DATA JOURNALISM · PH",
+    "tagline": "IN 2 MINUTES",
+    "subtitle": "Understand the Philippines through data.",
+    "exploreData": "Explore Data",
+    "browseRegion": "Browse by Region",
+    "dataHighlights": "Data Highlights",
+    "gdpGrowthTitle": "GDP Growth (2014–2024)",
+    "landAreaTitle": "Land Area by Region Group",
+    "loading": "Loading…",
+    "stats": {
+      "population": "Population",
+      "gdp": "GDP",
+      "islands": "Islands",
+      "provinces": "Provinces",
+      "cities": "Cities",
+      "regions": "Regions",
+      "capital": "Capital"
+    }
+  },
+  "about": {
+    "kicker": "// ABOUT",
+    "title": "About FactPH",
+    "whyTitle": "Why FactPH exists",
+    "why1": "FactPH brings you publicly available data about the Philippines together in one place, using information drawn directly from government agencies and official records.",
+    "why2": "Important statistics are often scattered across different institutions or encountered secondhand through news reports and online posts. Along the way, figures may be oversimplified, quoted without context, or separated from their original sources.",
+    "why3": "FactPH helps close that gap by presenting data from primary documents in a format that is easier to find, explore, and understand. Every presentation links back to its source, allowing readers to verify the information for themselves.",
+    "missionTitle": "Personal mission",
+    "founderAlt": "Founder of FactPH",
+    "mission1": "I built FactPH because I'm not comfortable with guessing.",
+    "mission2": "I'm not a journalist, politician, or economist. I'm simply a Filipino who grew tired of national conversations driven by half-remembered statistics, unsourced screenshots, and numbers that sound true only because someone repeated them with confidence.",
+    "mission3": "I want the Philippines to get better. But we cannot fix what we do not see clearly. Before we argue about solutions, we should first agree on the facts.",
+    "mission4": "Public data about education, governance, the economy, health, and everyday Filipino life already exists. However, it is often buried in lengthy reports, scattered across government agencies, or presented without enough context to be properly understood.",
+    "mission5": "That is why I built FactPH: to make important public data easier to find, understand, and verify.",
+    "mission6": "The site draws from primary sources and every presentation includes its sources so readers can examine the original information and decide for themselves what it means.",
+    "caveatTitle": "Honest caveat",
+    "caveat1": "We all know that not every number is easy to find or verify. Some government datasets are incomplete, reports may contain conflicting figures, and certain claims may still be awaiting independent confirmation.",
+    "caveat2": "When that happens, FactPH will state it clearly. This platform will not quietly fill missing information with assumptions or present uncertain figures as settled facts.",
+    "caveat3": "I believe that a source you can examine and question is more valuable than a confident headline you cannot verify."
+  },
+  "regions": {
+    "title": "Regions",
+    "subtitle": "Explore the Philippines region by region — click a card for the full map and data.",
+    "electoralMapDescription": "Registered voters and turnout by region in the 2025 National and Local Elections, per COMELEC.",
+    "populationByRegionDescription": "How the Philippines' 112.7 million people are distributed across its 18 regions, per the 2024 Census."
+  },
+  "explorer": {
+    "title": "Explore Data",
+    "subtitle": "Every visualization here is sourced directly from primary documents — government audits, statistics agencies, and official reports. Click any card to see the full data and sources.",
+    "topicsTrackedSuffix_one": "topic we're tracking for this category. Each one will get its own sourced, verified visualization as it's published.",
+    "topicsTrackedSuffix_other": "topics we're tracking for this category. Each one will get its own sourced, verified visualization as it's published.",
+    "topics_one": "topic",
+    "topics_other": "topics"
+  },
+  "common": {
+    "fullData": "Full data",
+    "sources": "Sources",
+    "primarySource": "Primary source",
+    "newsCoverage": "News coverage",
+    "backTo": "Back to {{category}}",
+    "viewVisualization": "View visualization",
+    "comingSoon": "Coming soon",
+    "allCategories": "All categories",
+    "year": "Year",
+    "administration": "Administration",
+    "source": "Source",
+    "total": "Total",
+    "approve": "approve",
+    "netSatisfaction": "net satisfaction"
+  },
+  "categories": {
+    "cost-of-living-prices": "Cost of Living and Prices",
+    "housing-basic-services": "Housing and Basic Services",
+    "economy": "Economy",
+    "culture-tourism": "Culture and Tourism",
+    "politics-public-opinion": "Politics and Public Opinion",
+    "crime-safety": "Crime and Safety",
+    "health": "Health",
+    "infrastructure": "Infrastructure"
+  },
+  "topics": {
+    "overall-inflation": {
+      "title": "Overall inflation",
+      "description": "Inflation has been positive every year since 2011 — the full 15-year run of PSA/World Bank headline inflation rates."
+    },
+    "food-inflation": {
+      "title": "Food inflation",
+      "description": "In both confirmed years, food prices rose faster than headline inflation — 7.9% vs 5.98% in 2023, 4.5% vs 3.21% in 2024."
+    },
+    "rice-food-prices": {
+      "title": "Rice and food prices",
+      "description": "Well-milled rice fell after the 2019 tariffication law, then spiked 26% in 2024 — tracked against RA 11203 and the 2023 EO 39 price cap."
+    },
+    "yolanda-housing": {
+      "title": "Housing ownership and tenure",
+      "description": "How three administrations performed on the Yolanda Permanent Housing Program, per COA audit snapshots."
+    },
+    "consumer-business-confidence": {
+      "title": "Consumer and Business Confidence",
+      "description": "BSP's quarterly confidence indices: businesses have stayed net-optimistic since 2023 while consumers have stayed net-pessimistic."
+    },
+    "fdi-by-administration": {
+      "title": "Foreign direct investment",
+      "description": "Net FDI inflows across Aquino III, Duterte, and Marcos Jr. — BSP's own published annual balance-of-payments figures, 2010 to present."
+    },
+    "national-debt": {
+      "title": "National government debt",
+      "description": "The National Government's outstanding debt nearly quadrupled from ₱4.72 trillion in 2010 to ₱17.71 trillion in 2025, per the Bureau of the Treasury's own year-end figures."
+    },
+    "tourism-growth": {
+      "title": "Real tourism growth",
+      "description": "Foreign visitor arrivals collapsed 98% in 2021, then took four years to fully recover — Aquino III, Duterte, and Marcos Jr. compared, 2010 to present."
+    },
+    "tourism-nationality": {
+      "title": "Arrivals by nationality",
+      "description": "South Korea and the United States accounted for 4 in 10 foreign visitor arrivals in 2025 — the top 10 source markets, DTI's own published breakdown."
+    },
+    "presidential-approval-ratings": {
+      "title": "Presidential approval ratings",
+      "description": "Pulse Asia's own Approval Rating for Aquino III, Duterte and Marcos Jr., from inauguration to the most recent survey."
+    },
+    "vp-approval-ratings": {
+      "title": "Vice presidential approval ratings",
+      "description": "Pulse Asia's own Approval Rating for Binay, Robredo and Sara Duterte, from inauguration to the most recent survey."
+    },
+    "presidential-net-satisfaction": {
+      "title": "Presidential net satisfaction ratings",
+      "description": "SWS's own Net Satisfaction Rating for Aquino III, Duterte and Marcos Jr., from inauguration to the most recent survey."
+    },
+    "vp-net-satisfaction": {
+      "title": "Vice presidential net satisfaction ratings",
+      "description": "SWS's own Net Satisfaction Rating for Binay, Robredo and Sara Duterte, from inauguration to the most recent survey."
+    },
+    "juvenile-crime": {
+      "title": "Juvenile Crime in the Philippines",
+      "description": "PNP-recorded cases of children in conflict with the law, 2016–2025 — cases fell from 26,850 in 2017 to 4,383 in 2024, then rose again to 8,654 in 2025."
+    },
+    "philhealth-subsidy": {
+      "title": "PhilHealth government subsidy",
+      "description": "From ₱5.17B under Aquino III to zero under Congress's 2025 cut, rebounding to ₱69.78B for 2026 — excluding the separate ₱60B the Supreme Court ordered returned to PhilHealth."
+    },
+    "dpwh-budget": {
+      "title": "DPWH enacted budget",
+      "description": "DPWH's enacted budget grew from ₱100.8B in 2011 to a peak of ₱1.11 trillion in 2025, then was cut nearly in half to ₱529.6B for 2026 after the flood-control corruption scandal."
+    }
+  },
+  "maps": {
+    "registeredVoters": "Registered voters",
+    "turnout": "Turnout",
+    "population": "Population",
+    "source": "Source: {{source}}, {{year}}",
+    "ariaVoters": "Choropleth map of the Philippines showing registered voters by region",
+    "ariaPopulation": "Choropleth map of the Philippines showing population by region"
+  },
+  "pages": {
+    "overallInflation": {
+      "eyebrow": "Cost of Living and Prices",
+      "title": "Overall Inflation",
+      "description": "Prices have risen every year since 2011 — inflation never went negative in any full year over the past 15 years. Bars are colored by whichever administration governed most of that year. 2026 (shown lighter) isn't over yet, so instead of a full-year figure it shows PSA's own January–June 2026 average of 4.8%.",
+      "tooltipFull": "Inflation rate",
+      "tooltipPartial": "Inflation rate (YTD average, not final)",
+      "tableRate": "Inflation Rate",
+      "ytdAverage": "(YTD average)"
+    },
+    "foodInflation": {
+      "eyebrow": "Cost of Living and Prices",
+      "title": "Food Inflation",
+      "description": "PSA breaks food and non-alcoholic beverages out of headline inflation as its own series — and in both years with confirmed full-year averages, food prices rose faster than prices overall. As of {{month}}, that gap was still open: headline inflation was {{headlinePct}}% against food inflation of {{foodPct}}%.",
+      "footnote": "Limited to years with a confirmed, comparable full-year average for both series — PSA's food-CPI breakout for 2011–2022 wasn't consistently accessible from primary sources as of this writing, so this chart is intentionally short rather than padded with estimates.",
+      "legendHeadline": "Headline inflation",
+      "legendFood": "Food inflation",
+      "tableHeadline": "Headline Inflation",
+      "tableFood": "Food Inflation"
+    },
+    "riceFoodPrices": {
+      "eyebrow": "Cost of Living and Prices",
+      "title": "Rice and Food Prices",
+      "description": "Retail well-milled rice fell after the 2019 Rice Tariffication Law opened the market to imports, then spiked 26% in a single year through 2024 — rice alone makes up a large share of what low-income Filipino households spend on food, so this line tracks closely with how \"expensive\" life feels for millions of families.",
+      "footnote": "This is not an unbroken annual series — PSA's price-situationer archive for 2011–2017 and 2021–2022 wasn't accessible from primary sources as of this writing, so those years are left out rather than interpolated.",
+      "tooltipLabel": "Well-milled rice",
+      "tableRice": "Well-Milled Rice (per kg)"
+    },
+    "yolandaHousing": {
+      "eyebrow": "Housing & Disaster Recovery",
+      "title": "Yolanda Housing: Completed vs. Unoccupied vs. Backlog",
+      "description": "Three administrations have managed the Yolanda Permanent Housing Program since Super Typhoon Yolanda struck in 2013. Each bar reflects a Commission on Audit snapshot at the end of that administration's term, or the latest available audit for an ongoing term.",
+      "footnote1": "Note: \"Unoccupied\" is a subset of \"Completed,\" not an additional pool of units. Targets changed over time, so \"Backlog\" reflects each snapshot year's own stated target minus that year's completed total.",
+      "footnote2": "The Marcos-era figures are corroborated by a Philippine Senate document that directly quotes COA's 2023 NHA Annual Audit Report. A direct link to that specific COA PDF could not be located, so COA's report archive is linked instead.",
+      "legendCompleted": "Completed",
+      "legendUnoccupied": "Unoccupied",
+      "legendBacklog": "Backlog",
+      "tableSnapshot": "Snapshot",
+      "tableTarget": "Target",
+      "tableCompleted": "Completed",
+      "tableUnoccupied": "Unoccupied",
+      "tableBacklog": "Backlog",
+      "sourcesNote": "Primary sources are listed first, followed by independent journalistic verification."
+    },
+    "consumerBusinessConfidence": {
+      "eyebrow": "Economy",
+      "title": "Consumer and Business Confidence",
+      "description": "BSP's confidence indices (CI) are diffusion indices — the percentage of respondents who answered positively about the economy's outlook, minus the percentage who answered negatively. Zero is neutral. Business confidence has been positive in every quarter since 2011 except two (Q3 2020 and Q3 2021). Consumer confidence turned briefly positive from mid-2016 through mid-2018, and again from mid-2019 into early 2020, but has been negative every quarter since.",
+      "footnote": "Business CI: current-quarter Overall Business Confidence Index, non-seasonally adjusted, Business Expectations Survey (top 7,000 corporations by assets). Consumer CI: current-quarter overall composite index, Consumer Expectations Survey (~5,000 households). Every point is a literal quarterly reading transcribed from BSP's own published data files — none of these figures are averaged, estimated, or otherwise computed by FactPH. Q2 2020 is missing for both series because BSP cancelled that quarter's survey round during the nationwide COVID-19 community quarantine.",
+      "legendBusiness": "Business CI",
+      "legendConsumer": "Consumer CI",
+      "tableQuarter": "Quarter",
+      "tableBusiness": "Business CI",
+      "tableConsumer": "Consumer CI"
+    },
+    "fdi": {
+      "eyebrow": "Economy",
+      "title": "Foreign Direct Investment",
+      "description": "Net FDI across the past three administrations, 2010 to present. Inflows grew nearly every year under Aquino III and Duterte, peaking at a record $11.98 billion in 2021, before easing under Marcos Jr. to $7.79 billion in 2025.",
+      "footnote": "Every point is BSP's own published Net Foreign Direct Investment total (BPM6 concept: equity capital + reinvestment of earnings + net debt instruments), in US dollars — never computed, netted, or estimated by FactPH.",
+      "tooltipLabel": "Net FDI",
+      "tableFdi": "Net FDI (USD million)"
+    },
+    "nationalDebt": {
+      "eyebrow": "Economy",
+      "title": "Philippine National Government Debt",
+      "description": "The National Government's total outstanding debt at year-end, 2010–2025, plus the latest available 2026 snapshot — its own direct domestic and external debt, per the Bureau of the Treasury's own published figures. Debt grew from ₱4.72 trillion at the end of 2010 to ₱17.71 trillion at the end of 2025, with the steepest jump coming in 2020–2021 as the government borrowed heavily to fund the COVID-19 pandemic response. It has since climbed further to ₱19.07 trillion as of end-June 2026, the most recent month BTr has reported.",
+      "avgLabel_one": "average year-end debt, {{count}} year",
+      "avgLabel_other": "average year-end debt, {{count}} years",
+      "addedThrough": "added since taking office (through {{year}})",
+      "addedOngoing": "added since taking office so far (as of {{year}})",
+      "footnote": "Every figure is the National Government's own reported \"total outstanding debt\" — never computed, netted, or estimated by FactPH. This is NG's direct debt only (domestic government securities plus external loans and bonds); it excludes NG-guaranteed obligations of government corporations, which BTr reports and tracks separately as a contingent liability, not as part of the government's own debt stock. The 2026 bar (shown lighter) is BTr's most recent monthly snapshot, end-June 2026 — not a year-end total, since 2026 isn't over yet. Each year is attributed to whichever administration was in office at that year's Dec 31 snapshot date — the president is inaugurated June 30, so 2016 (Aquino III → Duterte) and 2022 (Duterte → Marcos Jr.) are transition years counted for the incoming administration, since it was that administration in office when the year-end figure was taken. The cards above the chart are the two FactPH computations on this page, both simple arithmetic on already-published BTr figures, never estimated: the average is the mean of each administration's own year-end figures (excluding the partial 2026 snapshot); the amount added is that administration's own latest figure minus the debt level at the end of its predecessor's final year in office (for Aquino III, whose predecessor isn't in this dataset, that's BTr's own published 2009 figure instead) — so Marcos Jr.'s \"added\" figure is necessarily a running, not-yet-final total, since his term hasn't ended.",
+      "tooltipFull": "Outstanding debt",
+      "tooltipPartial": "Outstanding debt (mid-year, not final)",
+      "tableDebt": "Outstanding debt (₱ trillion)",
+      "partialYear": "(partial year)"
+    },
+    "tourismGrowth": {
+      "eyebrow": "Culture and Tourism",
+      "title": "Real Tourism Growth",
+      "description": "Foreign visitor arrivals across the past three administrations, 2010 to present. Arrivals grew every year under Aquino III and Duterte, reaching a record 8.26 million in 2019, before collapsing 98% to 163,879 in 2021 as borders closed for COVID-19. Under Marcos Jr., arrivals have recovered to 5.94 million in 2025 — still below the 2019 peak.",
+      "footnote": "Every point is a literal published foreign visitor arrival count — from the World Bank's international tourism arrivals series (2010–2020, sourced from the Department of Tourism / UNWTO) and the Department of Tourism's own year-end reports (2021–2025). Figures exclude returning overseas Filipinos to keep the series consistent across years. None of these numbers are growth rates computed by FactPH.",
+      "tooltipLabel": "Foreign visitor arrivals",
+      "tableArrivals": "Foreign visitor arrivals"
+    },
+    "tourismNationality": {
+      "eyebrow": "Culture and Tourism",
+      "title": "Arrivals by Nationality",
+      "description": "South Korea and the United States together accounted for 4 in 10 visitor arrivals in 2025 — the top 10 source markets, out of {{total}} total arrivals for the full year. Figures are grouped by country of residence, the Department of Trade and Industry's own classification, which can include Philippine passport holders permanently residing abroad.",
+      "footnote": "Every figure is DTI-BPRI's own published full-year 2025 count and percentage share, by country of residence — never computed, ranked, or estimated by FactPH. The top 10 countries plus \"Others\" sum exactly to DTI's own published total of {{total}}.",
+      "tooltipLabel": "Arrivals",
+      "tableCountry": "Country of residence",
+      "tableArrivals": "Arrivals (2025)",
+      "tableShare": "Share"
+    },
+    "juvenileCrime": {
+      "eyebrow": "Crime and Safety",
+      "title": "Juvenile Crime in the Philippines",
+      "description": "PNP-recorded cases of Children in Conflict with the Law (CICL), 2016–2025. Cases fell almost every year from a peak of 26,850 in 2017 to a low of 4,383 in 2024, before rising again to 8,654 in 2025. PNP tracks this through its Crime Information Reporting and Analysis System (PNP-CIRAS); JJWC's wider count also draws on BJMP and Local Social Welfare and Development Offices (LSWDOs). This is a single, continuously reported series — JJWC Executive Director Tricia Clare Oco presented the full run at once, so it isn't a blend of incompatible reporting vintages like an earlier version of this chart was.",
+      "footnote": "Every point is a PNP-attributed figure, presented on the record by JJWC and transcribed as reported — never computed, blended, or estimated by FactPH.",
+      "tooltipLabel": "CICL cases",
+      "tableCases": "CICL cases"
+    },
+    "philhealthSubsidy": {
+      "eyebrow": "Health",
+      "title": "PhilHealth Government Subsidy",
+      "description": "The National Health Insurance Program (NHIP) subsidy for PhilHealth, 2010–2026 — from both the Department of Budget and Management and PhilHealth's own audited disclosures. The subsidy grew from ₱5.17B under Aquino III to a peak of ₱100.2B under Marcos Jr. in 2023, before Congress cut it to zero for 2025 and rebounded to ₱69.78B for 2026. The 2026 GAA separately appropriates a further ₱60B to return money the Supreme Court ruled was unconstitutionally swept from PhilHealth's reserves in 2024 — that amount is restitution, not new subsidy, so it's excluded from the figure shown here.",
+      "footnote": "Every figure is a literal published amount — never computed, netted, or estimated by FactPH. 2010–2016, 2022–2024, and 2026 are enacted GAA totals or PhilHealth's own audited subsidy disclosures. 2017–2021 (shown lighter in the chart) are proposed-budget figures carried over from earlier research and not independently re-confirmed against the enacted GAA text — worth treating with more caution, since 2024's proposed figure (₱101.5B) turned out to differ substantially from what was actually enacted (₱61.5B). 2025 shows the enacted amount (zero) rather than the ₱74.43B originally proposed. 2026's GAA appropriates ₱129.782B in total for PhilHealth, but ₱60B of that is a separate, explicitly-labeled line returning money the Supreme Court ruled was unconstitutionally taken from PhilHealth's own reserves in 2024 — restitution, not new subsidy, so it's excluded from the ₱69.782B shown here.",
+      "tooltipLabel": "Government subsidy",
+      "tableSubsidy": "Government subsidy (₱ billion)",
+      "tableNote": "Note",
+      "proposedTag": "(proposed)"
+    },
+    "dpwhBudget": {
+      "eyebrow": "Infrastructure",
+      "title": "DPWH Enacted Budget",
+      "description": "The Department of Public Works and Highways' total enacted budget, 2010–2026 — the \"TOTAL NEW APPROPRIATIONS\" figure read directly from each year's General Appropriations Act. The budget grew from ₱100.8B in 2011 to a peak of ₱1.11 trillion in 2025, before being cut nearly in half to ₱529.6B for 2026 following the 2025 flood-control corruption scandal and the DPWH's own reform push.",
+      "footnote": "Every figure is the literal \"TOTAL NEW APPROPRIATIONS\" grand total for DPWH as enacted in that year's General Appropriations Act — never a proposed National Expenditure Program figure, and never computed, netted, or estimated by FactPH. In every year shown, DPWH's entire department budget is lodged under the Office of the Secretary, so this is the department's full enacted appropriation, not a sub-total.",
+      "tooltipLabel": "Enacted budget",
+      "tableBudget": "Enacted budget (₱ billion)"
+    },
+    "electoralMap": {
+      "eyebrow": "Elections",
+      "title": "Registered Voters by Region (2025)",
+      "description": "{{domestic}} Filipinos were registered to vote domestically in the May 12, 2025 National and Local Elections, across the country's 18 regions — plus {{overseas}} registered overseas voters. Hover a region to see its numbers.",
+      "footnote": "Negros Island Region (NIR) is reported by COMELEC as its own electoral region for 2025, distinct from Region VI and Region VII, even though it was not formally re-established as an administrative region. Map boundaries reflect 2019 administrative divisions.",
+      "toggleVoters": "Registered Voters",
+      "toggleTurnout": "Voter Turnout",
+      "tableRegion": "Region",
+      "tableIslandGroup": "Island Group",
+      "tableRegisteredVoters": "Registered Voters",
+      "tableVoted": "Voted",
+      "tableTurnout": "Turnout",
+      "sourcesNote": "Regional totals are COMELEC's own subtotal rows in the source document below, and were independently cross-checked by summing each region's province-level rows in the same report."
+    },
+    "populationByRegion": {
+      "eyebrow": "Regions",
+      "title": "Population by Region",
+      "description": "{{total}} Filipinos were counted across the country's 18 regions in the 2024 Census of Population and Housing. Hover a region to see its population.",
+      "footnote": "PSA publishes population per-region only — no single Luzon/Visayas/Mindanao island-group total exists as a directly published figure, so no island-group breakdown is computed or shown here.",
+      "tableRegion": "Region",
+      "tableIslandGroup": "Island Group",
+      "tablePopulation": "Population",
+      "sourceTitle": "2024 Census of Population and Housing (2024 POPCEN)",
+      "sourcePublisher": "Philippine Statistics Authority — population counts declared official via Proclamation No. 973 (July 11, 2025)"
+    },
+    "presidentialApproval": {
+      "eyebrow": "Politics and Public Opinion",
+      "title": "Presidential Approval Ratings",
+      "description": "Pulse Asia's own published \"Approval Rating\" for the sitting President, from Aquino III's inauguration in 2010 through the most recent survey round. Some survey rounds were not conducted (e.g. Pulse Asia paused approval polling for most of 2020–2021), and a handful of figures with a conflicting number across sources were left out rather than guessed — those show as gaps in the line, not zeroes.",
+      "footnote": "Every point is Pulse Asia's own published Approval Rating (percent who approve), as reported in their Ulat ng Bayan nationwide surveys — never a figure computed, netted, or estimated by FactPH.",
+      "tablePresident": "President",
+      "tablePeriod": "Survey period",
+      "tableApproval": "Approval",
+      "tableSource": "Source",
+      "sourcesNote": "Each row in the table above links to the specific press release or news report directly citing that survey round's published Approval Rating."
+    },
+    "vpApproval": {
+      "eyebrow": "Politics and Public Opinion",
+      "title": "Vice Presidential Approval Ratings",
+      "description": "Pulse Asia's own published \"Approval Rating\" for the sitting Vice President, from Binay's inauguration in 2010 through the most recent survey round. Binay's 2010–2011 rounds, Robredo's Mar–Jun 2020 and Mar–Jun 2021 rounds (an accuracy audit found these had been duplicated from other years' figures), and Robredo's final two rounds (Mar–Jun 2022) could not be pinned to a verifiable source and are left out rather than estimated — those show as gaps in the line, not zeroes.",
+      "footnote": "Every point is Pulse Asia's own published Approval Rating (percent who approve), as reported in their Ulat ng Bayan nationwide surveys — never a figure computed, netted, or estimated by FactPH.",
+      "tableVp": "Vice President",
+      "tablePeriod": "Survey period",
+      "tableApproval": "Approval",
+      "tableSource": "Source",
+      "sourcesNote": "Each row in the table above links to the specific press release or news report directly citing that survey round's published Approval Rating."
+    },
+    "presidentialSatisfaction": {
+      "eyebrow": "Politics and Public Opinion",
+      "title": "Presidential Net Satisfaction Ratings",
+      "description": "Social Weather Stations' own published, signed \"Net Satisfaction Rating\" for the sitting President, from Aquino III's inauguration in 2010 through the most recent survey round. Q1–Q3 2020 is a genuine gap — SWS suspended face-to-face fieldwork during the COVID-19 lockdowns. A handful of rounds with a conflicting figure across sources (e.g. Duterte's Q4 2017, Marcos's Q1–Q2 2024) were left out rather than guessed.",
+      "footnote": "Every point is SWS's own published Net Satisfaction Rating (percent satisfied minus percent dissatisfied, as SWS itself computes and publishes it) — never re-derived, netted, or estimated by FactPH.",
+      "tablePresident": "President",
+      "tablePeriod": "Survey period",
+      "tableNetSatisfaction": "Net satisfaction",
+      "tableSource": "Source",
+      "sourcesNote": "Each row in the table above links to the specific press release or news report directly citing that survey round's published Net Satisfaction Rating."
+    },
+    "vpSatisfaction": {
+      "eyebrow": "Politics and Public Opinion",
+      "title": "Vice Presidential Net Satisfaction Ratings",
+      "description": "Social Weather Stations' own published, signed \"Net Satisfaction Rating\" for the sitting Vice President, from Binay's inauguration in 2010 through the most recent survey round. Robredo's entire 2020 is a genuine gap — SWS suspended face-to-face fieldwork during the COVID-19 lockdowns. Sara Duterte's Q1–Q2 2025 is also a genuine gap, coinciding with the impeachment proceedings against her. A few figures with no verifiable source or an unresolved date conflict were left out rather than guessed.",
+      "footnote": "Every point is SWS's own published Net Satisfaction Rating (percent satisfied minus percent dissatisfied, as SWS itself computes and publishes it) — never re-derived, netted, or estimated by FactPH.",
+      "tableVp": "Vice President",
+      "tablePeriod": "Survey period",
+      "tableNetSatisfaction": "Net satisfaction",
+      "tableSource": "Source",
+      "sourcesNote": "Each row in the table above links to the specific press release or news report directly citing that survey round's published Net Satisfaction Rating."
+    }
+  }
+}
